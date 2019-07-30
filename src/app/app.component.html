@@ -1,51 +1,31 @@
  
 <div style=" text-align: center;"> 
-    <form>
-      <div style=" text-align: center;">
-        <div class="form-group">
-          <label for="">Choise</label>
-          <div class="form-control" style=" display: inline-block;">
-            <label class="container">
-                <input type="radio" checked="checked" name="radio"
-                [(ngModel)]="radio">
-                <span class="checkmark"></span>
-              7
-            </label>
-            <label class="container">
-                <input type="radio" checked="checked" name="radio"
-                >
-                <span class="checkmark"></span>
-              6
-            </label>
-            <label class="container">
-                <input type="radio" checked="checked" name="radio"
-                >
-               <span class="checkmark"></span>
-              5
-            </label>
-            <label class="container">
-              <input type="radio" checked="checked" name="radio"
-              >
-             <span class="checkmark"></span>
-             4
-          </label>
-
-
-           
-
-
-          </div>
- 
-        </div>
-      </div>
+     
+      <form [formGroup]="form">
+        <label class="container">
+        <input type="radio" formControlName="choise" value="4" > 4
+        <span class="checkmark"></span>
+      </label>
+      <label class="container">
+        <input type="radio" formControlName="choise" value="5"> 5
+        <span class="checkmark"></span>
+      </label> 
+      <label class="container">
+        <input type="radio" formControlName="choise" value="6"> 6
+        <span class="checkmark"></span>
+      </label>  
+      <label class="container">
+        <input type="radio" formControlName="choise" value="7" > 7
+        <span class="checkmark"></span>
+      </label>  
       </form>
- 
+
       <h1 class="inline" *ngFor="let jck of allJockeys$ | async; index as i">
           <app-jockey [nbr]="allJockeys[i]"    (removeJockey)="remouvefromAllJockeys(i)"></app-jockey>
       </h1>
  
 </div>
 <div style=" text-align: center;">
-  <button class="btn btn-secondary format-action"><h1>Action</h1></button>
+  <button class="btn btn-secondary format-action"><h1 (click)= "startAction()">Action</h1></button>
 
 </div>
