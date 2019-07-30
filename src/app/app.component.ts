@@ -79,25 +79,26 @@ private spliceRedendence() {
         })).subscribe(rst => {
           this.tableWithoutRedendence.push(rst.toString())
           
-        console.log("tableWithoutRedendence", this.tableWithoutRedendence);
+     //   console.log("tableWithoutRedendence", this.tableWithoutRedendence);
   })
 
 
 }
 remouvefromAllJockeys(xnbr) {
   console.log("conhhhhhhhhhhhhhhhhhhhhhhhh", xnbr);
-  let f = xnbr -1
-  this.allJockeys.splice(xnbr, 1);
-  this.deletedJokeys.push(xnbr+1)
+  let f =  xnbr 
+  let wm = this.allJockeys[f];
+  this.allJockeys.splice(f, 1);
+  this.deletedJokeys.push(f)
  
-  this.deletedJockeys$.subscribe(data => console.log('rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr',data));
-  const sddourceOne = this.sourceOne.pipe(filter(num => num != xnbr))
-  this.sourceTwo = this.sourceTwo.pipe(filter(num => num != xnbr))
-  this.surceThree = this.surceThree.pipe(filter(num => num != xnbr))
-  this.sourceFour = this.sourceFour.pipe(filter(num => num != xnbr))
+  //this.deletedJockeys$.subscribe(data => console.log('rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr',data));
+  this.sourceOne = this.sourceOne.pipe(filter(num => num != wm))
+  this.sourceTwo = this.sourceTwo.pipe(filter(num => num != wm))
+  this.surceThree = this.surceThree.pipe(filter(num => num != wm))
+  this.sourceFour = this.sourceFour.pipe(filter(num => num != wm))
 
   //}))
- console.log("this.deletedthis.sourceOnethis.sourceOnethis.sourceOnethis.sourceOnethis.sourceOneJokeus", sddourceOne);
+ //console.log("this.deletedthis.sourceOnethis.sourceOnethis.sourceOnethis.sourceOnethis.sourceOneJokeus", this.sourceOne);
  
    this.tableWithRedendence=[]
    this.startAction();
