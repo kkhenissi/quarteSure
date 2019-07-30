@@ -1,0 +1,25 @@
+
+<table class="container table-striped">
+    <thead>
+
+
+      <tr>
+        <th *ngFor="let head of headElements" scope="col">{{head}} </th>
+      </tr>
+
+
+      
+    </thead>
+    <tbody>
+      <tr mdbTableCol *ngFor="let el of elements">
+      
+        <th scope="row">{{el[0]}}</th>
+        <td>{{el[2]}}</td>
+        <td>{{el[4]}}</td> 
+        <td>{{el[6]}}</td>
+        <td *ngIf="nbrColone==5">{{el[8]}}</td>
+        <td *ngIf="nbrColone==6">{{el[11]}}</td> 
+        <td *ngIf="nbrColone==7">{{el[12]}}</td>
+      </tr>
+    </tbody>
+  </table>

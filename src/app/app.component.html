@@ -1,7 +1,7 @@
- 
-<div style=" text-align: center;"> 
+<div style=" text-align: center;">
+<div > 
      
-      <form [formGroup]="form">
+      <form [(formGroup)]="form">
         <label class="container">
         <input type="radio" formControlName="choise" value="4" > 4
         <span class="checkmark"></span>
@@ -27,5 +27,18 @@
 </div>
 <div style=" text-align: center;">
   <button class="btn btn-secondary format-action"><h1 (click)= "startAction()">Action</h1></button>
+</div>
 
+<!-- <table class="table table-striped">
+  
+    
+      <tr *ngFor="let rw of tableWithRedendence, index as i">
+        <td>{{rw[0]}}</td><td>{{rw[1]}}</td><td>{{rw[2]}}</td><td>{{rw[3]}}</td>
+        
+      </tr>
+    
+  
+</table> -->
+<basic-table  [sourceTable]='tableWithRedendence'
+              [choise]='form.value.choise'></basic-table>
 </div>
