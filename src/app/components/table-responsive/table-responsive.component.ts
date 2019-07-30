@@ -21,7 +21,6 @@ export class BasicTableComponent implements OnInit,OnChanges {
   }
  
   ngOnInit(){
-4
     
   }
   ngOnChanges(){

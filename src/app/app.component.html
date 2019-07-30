@@ -1,5 +1,5 @@
-<div style=" text-align: center;">
-<div > 
+<div style=" text-align: center; margin-top: 20px;">
+<div style="position: sticky;"> 
      
       <form [(formGroup)]="form">
         <label class="container">
@@ -23,10 +23,11 @@
       <h1 class="inline" *ngFor="let jck of allJockeys$ | async; index as i">
           <app-jockey [nbr]="allJockeys[i]"    (removeJockey)="remouvefromAllJockeys(i)"></app-jockey>
       </h1>
+      <div style=" text-align: center; margin-bottom: 30px;">
+          <button class="btn btn-secondary format-action"><h1 (click)= "startAction()">Action</h1></button>
+        </div>
+        
  
-</div>
-<div style=" text-align: center;">
-  <button class="btn btn-secondary format-action"><h1 (click)= "startAction()">Action</h1></button>
 </div>
 
 <!-- <table class="table table-striped">
