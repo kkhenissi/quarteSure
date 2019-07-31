@@ -13,13 +13,13 @@ import { delay, skip, filter, tap, distinctUntilChanged, map, withLatestFrom, ta
 })
 export class AppComponent implements OnInit{
   
-sourceOne =   of('1','2','3','4','5','6','7','8','9','10','11','12');
-sourceTwo =   of('1','2','3','4','5','6','7','8','9','10','11','12');
-surceThree =   of('1','2','3','4','5','6','7','8','9','10','11','12');
-sourceFour =   of('1','2','3','4','5','6','7','8','9','10','11','12');
-sourceFive =   of('1','2','3','4','5','6','7','8','9','10','11','12');
-sourceSixe =   of('1','2','3','4','5','6','7','8','9','10','11','12');
-surceSeven =   of('1','2','3','4','5','6','7','8','9','10','11','12');
+sourceOne =   of('1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16');
+sourceTwo =   of('1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16');
+surceThree =   of('1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16');
+sourceFour =   of('1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16');
+sourceFive =   of('1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16');
+sourceSixe =   of('1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16');
+surceSeven =   of('1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16');
 
 
  
@@ -29,7 +29,7 @@ surceSeven =   of('1','2','3','4','5','6','7','8','9','10','11','12');
   allJockeys: string[];
   allJockeys$: Observable<string[]>
   deletedJokeys:string[] = [];
-  deletedJockeys$:Observable<string[]>
+ // deletedJockeys$:Observable<string[]>
 
 
 
@@ -41,11 +41,11 @@ surceSeven =   of('1','2','3','4','5','6','7','8','9','10','11','12');
 
   ngOnInit(): void {
  
-  this.allJockeys = ['1','2','3','4','5','6','7','8','9','10','11','12'];
+  this.allJockeys = ['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16'];
 
 
     this.allJockeys$ = of(this.allJockeys);
-    this.deletedJockeys$ = new BehaviorSubject(this.deletedJokeys);
+  //  this.deletedJockeys$ = new BehaviorSubject(this.deletedJokeys);
  
     this.startAction();
  
@@ -55,11 +55,11 @@ surceSeven =   of('1','2','3','4','5','6','7','8','9','10','11','12');
 startAction() {
  // this.sourceOne.split(",")
  this.tableWithRedendence=[];
-  for (let i = 1; i < 20 ;i++) {
+  for (let i = 1; i < 17 ;i++) {
      
-    for (let j = i+1; j < 20 ;j++) {
+    for (let j = i+1; j < 17 ;j++) {
 
-       for (let k = j+1; k < 20 ;k++) {
+       for (let k = j+1; k < 17 ;k++) {
              if (this.form.value.choise == 4) {
             
                       zip(
@@ -74,7 +74,7 @@ startAction() {
                             
                         });
              } else if (this.form.value.choise == 5) {
-                   for (let l = k+1; l < 20 ;l++) {
+                   for (let l = k+1; l < 17 ;l++) {
                         zip(
                           this.sourceOne,
                           this.sourceTwo.pipe(skip(i)),
@@ -90,8 +90,8 @@ startAction() {
                     }          
 
              } else if(this.form.value.choise == 6) {
-              for (let l = k+1; l < 20 ;l++) {
-                for (let m = l+1; m < 20 ;m++) {
+              for (let l = k+1; l < 17 ;l++) {
+                for (let m = l+1; m < 17 ;m++) {
                         zip(
                           this.sourceOne,
                           this.sourceTwo.pipe(skip(i)),
@@ -112,9 +112,9 @@ startAction() {
 
 
              } else if(this.form.value.choise == 7) {
-              for (let l = k+1; l < 20 ;l++) {
-                for (let m = l+1; m < 20 ;m++) {
-                  for (let s = m+1; s < 20 ;s++) {
+              for (let l = k+1; l < 17 ;l++) {
+                for (let m = l+1; m < 17 ;m++) {
+                  for (let s = m+1; s < 17 ;s++) {
 
                         zip(
                           this.sourceOne,
@@ -149,7 +149,7 @@ startAction() {
     console.log("resultat1", this.tableWithRedendence);
  
 
-    this.spliceRedendence();
+  //  this.spliceRedendence();
     console.log('ssssssssssssssssssssssssssssssssssssssssss',this.form.value.choise)
    
 }

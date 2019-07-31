@@ -24,8 +24,11 @@
           <app-jockey [nbr]="allJockeys[i]"    (removeJockey)="remouvefromAllJockeys(i)"></app-jockey>
       </h1>
       <div style=" text-align: center; margin-bottom: 30px;">
-          <button class="btn btn-secondary format-action"><h1 (click)= "startAction()">Action</h1></button>
-        </div>
+          <button class="btn btn-secondary format-action"><h1 (click)= "startAction()">Rafraichir</h1></button>
+      </div>
+      <div style=" text-align: center; margin-bottom: 30px;">
+          <button class="btn btn-secondary format-action"><h1 (click)= "startAction()">Reinitialiser</h1></button>
+      </div>
         
  
 </div>
@@ -40,6 +43,7 @@
     
   
 </table> -->
+<app-datatables></app-datatables>
 <basic-table  [sourceTable]='tableWithRedendence'
               [choise]='form.value.choise'></basic-table>
 </div>
