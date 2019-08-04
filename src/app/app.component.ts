@@ -26,6 +26,7 @@ surceSeven =  of('01','02','03','04','05','06','07','08','09','10','11','12','13
   tableWithRedendence: string[] =[];
   tableWithoutRedendence: string[] =[];
   tableOfSumeitem: string[]=[];
+  tableOfCotres: number[] = [];
   allJockeys: string[];
   allJockeys$: Observable<string[]>
   deletedJokeys:string[] = [];
@@ -166,6 +167,7 @@ private spliceRedendence() {
 
 }
 remouvefromAllJockeys(xnbr) {
+
   console.log("conhhhhhhhhhhhhhhhhhhhhhhhh", xnbr);
   let f =  xnbr 
   let wm = this.allJockeys[f];
@@ -186,6 +188,12 @@ remouvefromAllJockeys(xnbr) {
  
  
    
+}
+
+addInCotes(val) {
+      this.tableOfCotres[val[1]] =val[0];
+          console.log('===>coteJockey in parent===>',val[1])
+         console.log('===>this.tableOfCotres in parent ===>',this.tableOfCotres)
 }
    
 }

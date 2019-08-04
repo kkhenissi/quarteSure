@@ -6,8 +6,10 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./jockey.component.css']
 })
 export class JokeyComponent implements OnInit {
+  coteJockey: number;
   @Input('nbr') numeroJockey:number;
-  @Output() removeJockey  = new EventEmitter<number>();
+  @Output() coteJockeyChange = new EventEmitter<number[]>();
+  @Output() renvoiNumJockey  = new EventEmitter<number>();
   constructor() { }
 
   ngOnInit() {
@@ -15,7 +17,12 @@ export class JokeyComponent implements OnInit {
   }
 
   remouveMe() {
-          this.removeJockey.emit(this.numeroJockey)
+          this.renvoiNumJockey.emit(this.numeroJockey)
+  }
+  coteBlur() {
+          this.coteJockeyChange.emit([this.numeroJockey,this.coteJockey]);
+          console.log('===>coteJockey===>',this.coteJockey)
+          console.log('===>this.numeroJocke===>',this.numeroJockey)
   }
 
 }

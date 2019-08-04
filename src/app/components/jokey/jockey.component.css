@@ -3,3 +3,9 @@
     width: 80px;
     height: 100px;
 }
+.champ {
+    height:80px;
+    width:80px;
+    font-size: 0.5em;
+    text-align: center
+}

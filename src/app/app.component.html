@@ -21,7 +21,7 @@
       </form>
 
       <h1 class="inline" *ngFor="let jck of allJockeys$ | async; index as i">
-          <app-jockey [nbr]="allJockeys[i]"    (removeJockey)="remouvefromAllJockeys(i)"></app-jockey>
+          <app-jockey [nbr]="allJockeys[i]"    (renvoiNumJockey)="remouvefromAllJockeys(i)" (coteJockeyChange)="addInCotes($event)"></app-jockey>
       </h1>
       <div style=" text-align: center; margin-bottom: 30px;">
           <button class="btn btn-secondary format-action"><h1 (click)= "startAction()">Rafraichir</h1></button>
