@@ -24,7 +24,7 @@
           <app-jockey [nbr]="allJockeys[i]"    (renvoiNumJockey)="remouvefromAllJockeys(i)" (coteJockeyChange)="addInCotes($event)"></app-jockey>
       </h1>
       <div style=" text-align: center; margin-bottom: 30px;">
-          <button class="btn btn-secondary format-action"><h1 (click)= "startAction()">Rafraichir</h1></button>
+          <button class="btn btn-secondary format-action"><h1 (click)= "spliceInprobable()">Compute</h1></button>
       </div>
       <div style=" text-align: center; margin-bottom: 30px;">
           <button class="btn btn-secondary format-action"><h1 (click)= "startAction()">Reinitialiser</h1></button>

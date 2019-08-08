@@ -26,10 +26,11 @@ surceSeven =  of('01','02','03','04','05','06','07','08','09','10','11','12','13
   tableWithRedendence: string[] =[];
   tableWithoutRedendence: string[] =[];
   tableOfSumeitem: string[]=[];
-  tableOfCotres: number[] = [];
+  tableOfCotes: number[] = [];
   allJockeys: string[];
   allJockeys$: Observable<string[]>
   deletedJokeys:string[] = [];
+  coteMoyenne: number =0;
  // deletedJockeys$:Observable<string[]>
 
 
@@ -100,8 +101,7 @@ startAction() {
                           this.sourceFour.pipe(skip(k)),
                           this.sourceFour.pipe(skip(l)),
                           this.sourceFour.pipe(skip(m))
-                        )
-                        
+                        )                        
                           .subscribe(([val1, val2, val3, val4, val5, val6] )=> {
                           this.tableWithRedendence.push([val1, val2, val3, val4, val5, val6].toString());                        
                             
@@ -150,22 +150,46 @@ startAction() {
     console.log("resultat1", this.tableWithRedendence);
  
 
-  //  this.spliceRedendence();
-    console.log('ssssssssssssssssssssssssssssssssssssssssss',this.form.value.choise)
+    this.spliceInprobable();
+  //  console.log('ssssssssssssssssssssssssssssssssssssssssss',this.form.value.choise)
    
 }
-private spliceRedendence() {
+private spliceInprobable() {
 
-        of(this.tableWithRedendence).pipe(filter(data => {
-          return  ((parseInt(data[0]) + parseInt(data[1]) + parseInt(data[2])+  parseInt(data[3])) != 111  && (parseInt(data[0]) + parseInt(data[1]) + parseInt(data[2])) != 10 );
-        })).subscribe(rst => {
-          this.tableWithoutRedendence.push(rst.toString())
+        of(this.tableWithRedendence)
           
-     //   console.log("tableWithoutRedendence", this.tableWithoutRedendence);
+        .subscribe(data => { 
+          console.log("this.tableOfCotes[data[0][0]]", this.tableOfCotes[data[0][0]]);
+          console.log("data[0][0]", data[0][0]);
+          if(this.tableOfCotes[data[0][0]] > this.coteMoyenne) 
+          this.tableWithoutRedendence=data;
+          
+        console.log("tableWithoutRedendence", this.tableWithoutRedendence);
   })
 
 
 }
+computeCoteMoyenne() {
+  let cpt=0;
+  this.coteMoyenne=0;
+   this.tableOfCotes.forEach(c=>{
+    console.log('===========================>  c ', c)
+      if(c!=0 && c!=NaN)  {
+        cpt = cpt+1;
+        console.log('this.coteMoyenne avant', this.coteMoyenne)
+        this.coteMoyenne= this.coteMoyenne+c;
+        console.log('this.coteMoyenne apres', this.coteMoyenne)
+        console.log('cpt ', cpt)
+        
+      } 
+   //   this.coteMoyenne = this.coteMoyenne/cpt;
+            
+      
+  })
+  this.coteMoyenne = this.coteMoyenne/cpt;
+ // if(cpt==0) cpt=1;
+  console.log('sssssssssssssssssscote Moyenne', this.coteMoyenne)
+}   
 remouvefromAllJockeys(xnbr) {
 
   console.log("conhhhhhhhhhhhhhhhhhhhhhhhh", xnbr);
@@ -173,6 +197,7 @@ remouvefromAllJockeys(xnbr) {
   let wm = this.allJockeys[f];
   this.allJockeys.splice(f, 1);
   this.deletedJokeys.push(f)
+  this.oteFromCote(wm);
  
   //this.deletedJockeys$.subscribe(data => console.log('rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr',data));
   this.sourceOne = this.sourceOne.pipe(filter(num => num != wm))
@@ -191,9 +216,15 @@ remouvefromAllJockeys(xnbr) {
 }
 
 addInCotes(val) {
-      this.tableOfCotres[val[1]] =val[0];
-          console.log('===>coteJockey in parent===>',val[1])
-         console.log('===>this.tableOfCotres in parent ===>',this.tableOfCotres)
+      this.tableOfCotes[parseInt(val[0])] =parseInt(val[1]);
+      this.computeCoteMoyenne();
+
 }
-   
+oteFromCote(index){
+ 
+  this.tableOfCotes[parseInt(index)]=0;
+  this.computeCoteMoyenne();
+ 
+}
+
 }
