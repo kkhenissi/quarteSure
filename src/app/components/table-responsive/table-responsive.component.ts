@@ -11,6 +11,7 @@ export class BasicTableComponent implements OnInit,OnChanges {
   @Input('choise') nbrColone: number;
   headElements = [];
 
+  head3Elements = ['One', 'Two', 'Three'];
   head4Elements = ['One', 'Two', 'Three', 'For'];
   head5Elements = ['One', 'Two', 'Three', 'For', 'Five'];
   head6Elements = ['One', 'Two', 'Three', 'For', 'Five','Six'];
@@ -25,7 +26,9 @@ export class BasicTableComponent implements OnInit,OnChanges {
     
   }
   ngOnChanges(){
-    if(this.nbrColone == 4) {
+    if(this.nbrColone == 3) {
+      this.headElements = this.head3Elements
+    } else if(this.nbrColone == 4) {
       this.headElements = this.head4Elements
     } else if (this.nbrColone == 5) {
       this.headElements = this.head5Elements
@@ -36,4 +39,11 @@ export class BasicTableComponent implements OnInit,OnChanges {
     }
    console.log('------------------------',  this.nbrColone)
   }
+
+
+  trackElement(index, elmt) {
+    console.log('-----***************----------',elmt, index);
+    return elmt ? elmt.id : undefined;
+
+}
 }

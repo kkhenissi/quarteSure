@@ -1,5 +1,5 @@
 
-<table class="container table table-striped">
+<table class="container table">
     <thead>
  
 
@@ -11,12 +11,12 @@
       
     </thead>
     <tbody>
-      <tr mdbTableCol *ngFor="let el of elements" >
+      <tr mdbTableCol *ngFor="let el of elements; let even = even; let odd = odd; trackBy: trackElement" [ngClass]="{ odd: odd, even: even }">
           
         <th scope="row"><h1>{{el[0]}}{{el[1]}}</h1></th>
         <th scope="row"><h1>{{el[3]}}{{el[4]}}</h1></th>
         <th scope="row"><h1>{{el[6]}}{{el[7]}}</h1></th>
-        <th scope="row"><h1>{{el[9]}}{{el[10]}}</h1></th>
+        <th *ngIf="nbrColone>=4"><h1>{{el[9]}}{{el[10]}}</h1></th>
  
         <th *ngIf="nbrColone>=5"><h1>{{el[12]}}{{el[13]}}</h1></th>
         <th *ngIf="nbrColone>=6"><h1>{{el[15]}}{{el[16]}}</h1></th> 

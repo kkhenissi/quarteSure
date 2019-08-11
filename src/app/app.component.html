@@ -2,7 +2,11 @@
 <div style="position: sticky;"> 
      
       <form [(formGroup)]="form">
-        <label class="container">
+      <label class="container">
+        <input type="radio" formControlName="choise" value="3" > 3
+        <span class="checkmark"></span>
+      </label>
+      <label class="container">
         <input type="radio" formControlName="choise" value="4" > 4
         <span class="checkmark"></span>
       </label>
@@ -20,7 +24,7 @@
       </label>  
       </form>
 
-      <h1 class="inline" *ngFor="let jck of allJockeys$ | async; index as i">
+      <h1 class="inline" *ngFor="let jck of allJockeys$ | async; index as i; let even = even; let odd = odd" [ngClass]="{ odd: odd, even: even }">
           <app-jockey [nbr]="allJockeys[i]"    (renvoiNumJockey)="remouvefromAllJockeys(i)" (coteJockeyChange)="addInCotes($event)"></app-jockey>
       </h1>
       <div style=" text-align: center; margin-bottom: 30px;">
