@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ButtonsModule } from 'ngx-bootstrap/buttons';
 import {FormControl, FormGroup} from '@angular/forms';
-import { forkJoin, zip, combineLatest, Subject, BehaviorSubject, from } from 'rxjs';
+import { forkJoin, zip, combineLatest, Subject, BehaviorSubject, from, Subscription } from 'rxjs';
 import {of, Observable,range} from 'rxjs';
 import { delay, skip, filter, tap, distinctUntilChanged, map, withLatestFrom, take, first, merge  } from 'rxjs/operators';
 
@@ -11,9 +11,10 @@ import { delay, skip, filter, tap, distinctUntilChanged, map, withLatestFrom, ta
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit, OnDestroy{
+
   
-sourceOne =   of('01','02','03','04','05','06','07','08','09','10','11','12','13','14','15','16');
+sourceOne =   of('01','02','03','04','05','06','07','08','09','10','11','12','13','14','15','16','17','18');
  
 
 
@@ -30,6 +31,8 @@ sourceOne =   of('01','02','03','04','05','06','07','08','09','10','11','12','13
   deletedJokeys:string[] = [];
   coteMoyenne: number =0;
   conserbedJockey: string;
+  zipSubscription: Subscription;
+  
  // deletedJockeys$:Observable<string[]>
 
 
@@ -42,7 +45,7 @@ sourceOne =   of('01','02','03','04','05','06','07','08','09','10','11','12','13
 
   ngOnInit(): void {
  
-  this.allJockeys = ['01','02','03','04','05','06','07','08','09','10','11','12','13','14','15','16'];
+  this.allJockeys = ['01','02','03','04','05','06','07','08','09','10','11','12','13','14','15','16','17','18'];
 
 
     this.allJockeys$ = of(this.allJockeys);
@@ -58,14 +61,14 @@ sourceOne =   of('01','02','03','04','05','06','07','08','09','10','11','12','13
 startAction() {
  // this.sourceOne.split(",")
  this.tableWithRedendence=[];
-  for (let i = 1; i < 17 ;i++) {
+  for (let i = 1; i < 19 ;i++) {
      
-    for (let j = i+1; j < 17 ;j++) {
+    for (let j = i+1; j < 19 ;j++) {
 
 
         if (this.form.value.choise == 3) {
 
-                  zip(
+            this.zipSubscription  =  zip(
                     this.sourceOne,
                     this.sourceOne.pipe(skip(i)),
                     this.sourceOne.pipe(skip(j)),
@@ -79,7 +82,7 @@ startAction() {
 
            }
 
-       for (let k = j+1; k < 17 ;k++) {
+       for (let k = j+1; k < 19 ;k++) {
 
           if (this.form.value.choise == 4) {
             
@@ -95,7 +98,7 @@ startAction() {
                             
                         });
              } else if (this.form.value.choise == 5) {
-                   for (let l = k+1; l < 17 ;l++) {
+                   for (let l = k+1; l < 19 ;l++) {
                         zip(
                           this.sourceOne,
                           this.sourceOne.pipe(skip(i)),
@@ -111,8 +114,8 @@ startAction() {
                     }          
 
              } else if(this.form.value.choise == 6) {
-              for (let l = k+1; l < 17 ;l++) {
-                for (let m = l+1; m < 17 ;m++) {
+              for (let l = k+1; l < 19 ;l++) {
+                for (let m = l+1; m < 19 ;m++) {
                         zip(
                           this.sourceOne,
                           this.sourceOne.pipe(skip(i)),
@@ -132,9 +135,9 @@ startAction() {
 
 
              } else if(this.form.value.choise == 7) {
-              for (let l = k+1; l < 17 ;l++) {
-                for (let m = l+1; m < 17 ;m++) {
-                  for (let s = m+1; s < 17 ;s++) {
+              for (let l = k+1; l < 19 ;l++) {
+                for (let m = l+1; m < 19 ;m++) {
+                  for (let s = m+1; s < 19 ;s++) {
 
                         zip(
                           this.sourceOne,
@@ -230,7 +233,7 @@ remouvefromAllJockeys(xnbr) {
 
 addInCotes(val) {
   console.log("conhhhhhhhhhddddddddddddwwwwwwwwwwwwhhhhhhhhhhhhhhh", val);
-      this.tableOfCotes[parseInt(val[0])] =parseInt(val[1]);
+      this.tableOfCotes[parseFloat(val[0])] =parseFloat(val[1]);
        this.conserbedJockey = val;
       this.computeCoteMoyenne(this.conserbedJockey);
       this.updateInprobable();
@@ -239,7 +242,7 @@ addInCotes(val) {
 }
 oteFromCote(index){
  
-  this.tableOfCotes[parseInt(index)]=0;
+  this.tableOfCotes[parseFloat(index)]=0;
   this.computeCoteMoyenne(index);
   this.updateInprobable();
  
@@ -253,15 +256,17 @@ updateInprobable() {
  
   console.log("tableNewOfCotes ", this.tableOfCotes);
   this.tableOfCotes$.subscribe(data => { data.forEach(elmt => {
-   console.log('elmtelmtelmtelmtelmt',elmt)
-   console.log('this.coteMoyenne---this.coteMoyenne',this.coteMoyenne)
-    if(elmt > this.coteMoyenne)
+     if(elmt > this.coteMoyenne)
     this.tableLessProbable.push(elmt);
-    console.log('ssssssssss',this.tableLessProbable)
   })
-    
-    
+  
   })
+  console.log("tableLessProbable++++++tableLessProbable ", this.tableLessProbable);
+}
+
+ngOnDestroy(): void {
+  this.zipSubscription.unsubscribe;
+  
 }
 
 }

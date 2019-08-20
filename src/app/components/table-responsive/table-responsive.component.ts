@@ -42,7 +42,7 @@ export class BasicTableComponent implements OnInit,OnChanges {
 
 
   trackElement(index, elmt) {
-    console.log('-----***************----------',elmt, index);
+  //  console.log('-----***************----------',elmt, index);
     return elmt ? elmt.id : undefined;
 
 }
