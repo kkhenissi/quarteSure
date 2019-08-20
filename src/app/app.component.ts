@@ -23,6 +23,13 @@ sourceOne =   of('01','02','03','04','05','06','07','08','09','10','11','12','13
   tableWithoutRedendence: string[] =[];
   tableLessProbable: number[]=[];
   tableLessProbable$: Observable<number[]>;
+  tableFavorites: number[]=[];
+  tableFavorites$: Observable<number[]>;
+  tableMediumProbable: number[]=[];
+  tableMediumProbable$: Observable<number[]>;
+  
+  tableNumJockeyAndCotes:[[]]=[[]];
+  tableNumJockeyAndCotes$: Observable<[[]]>;
   tableOfSumeitem: string[]=[];
   tableOfCotes: number[] = [];
   tableOfCotes$: Observable<number[]>;
@@ -30,6 +37,8 @@ sourceOne =   of('01','02','03','04','05','06','07','08','09','10','11','12','13
   allJockeys$: Observable<string[]>
   deletedJokeys:string[] = [];
   coteMoyenne: number =0;
+  coteFavorite: number =500;
+  coteMoyenneTrancheInf =0;
   conserbedJockey: string;
   zipSubscription: Subscription;
   
@@ -193,19 +202,25 @@ private spliceInprobable() {
 computeCoteMoyenne(concernedJockey) {
   let cpt=0;
   this.coteMoyenne=0;
+  
    this.tableOfCotes.forEach(c=>{
     console.log('===========================>  c ', c)
       if(c!=0 && c!=NaN)  {
         cpt = cpt+1;
-        console.log('this.coteMoyenne avant', this.coteMoyenne)
+        console.log('this.coteFavorite', this.coteFavorite)
         this.coteMoyenne= this.coteMoyenne+c;
-        console.log('this.coteMoyenne apres', this.coteMoyenne)
+        console.log('cccccccccc', c)
         console.log('cpt ', cpt)
+        if(this.coteFavorite>c) { this.coteFavorite = c }
         
       } 
  
   })
   this.coteMoyenne = this.coteMoyenne/cpt;
+  this.coteMoyenneTrancheInf = (this.coteMoyenne + this.coteFavorite) / 2;
+  console.log("this.coteMoyenne", this.coteMoyenne);
+  console.log("this.coteFavorite", this.coteFavorite);
+  console.log("this.coteMoyenneTrancheInf", this.coteMoyenneTrancheInf);
   
   // if(concernedJockey[1]>this.coteMoyenne && this.tableLessProbable.indexOf(concernedJockey[0]) == -1) {
   //   this.tableLessProbable.push(concernedJockey[0])
@@ -232,11 +247,34 @@ remouvefromAllJockeys(xnbr) {
 }
 
 addInCotes(val) {
+
+
+
+
+
+//   var a = [{name:"bull", text: "sour"},
+//   { name: "tom", text: "tasty" },
+//   { name: "tom", text: "tasty" }
+// ]
+// var index = a.findIndex(x => x.name=="bob")
+// // here you can check specific property for an object whether it exist in your array or not
+
+// if (index === -1){
+//   a.push({your_object});
+// }
+// else console.log("object already exists")
+
   console.log("conhhhhhhhhhddddddddddddwwwwwwwwwwwwhhhhhhhhhhhhhhh", val);
       this.tableOfCotes[parseFloat(val[0])] =parseFloat(val[1]);
        this.conserbedJockey = val;
       this.computeCoteMoyenne(this.conserbedJockey);
-      this.updateInprobable();
+      this.updateInprobableAndFavorite();
+      let index =this.tableNumJockeyAndCotes.findIndex(x => x==val);
+      if (index === -1) {
+        this.tableNumJockeyAndCotes.push(val)
+      }
+       
+      console.log("this.tableNumJockeyAndCotes", this.tableNumJockeyAndCotes);
 
 
 }
@@ -244,24 +282,37 @@ oteFromCote(index){
  
   this.tableOfCotes[parseFloat(index)]=0;
   this.computeCoteMoyenne(index);
-  this.updateInprobable();
+  this.updateInprobableAndFavorite();
  
 }
 
 
 
-updateInprobable() {
+updateInprobableAndFavorite() {
 
   this.tableLessProbable=[];
+  this.tableMediumProbable=[];
+  this.tableFavorites=[];
+  let elmtRef =0;
  
   console.log("tableNewOfCotes ", this.tableOfCotes);
   this.tableOfCotes$.subscribe(data => { data.forEach(elmt => {
-     if(elmt > this.coteMoyenne)
-    this.tableLessProbable.push(elmt);
+    if(elmt!=0) {
+      if(elmt > this.coteMoyenne ) {
+        this.tableLessProbable.push(elmt);
+      } else if ( elmt<this.coteMoyenneTrancheInf ) {
+        this.tableFavorites.push(elmt);
+      } else { this.tableMediumProbable.push(elmt)}
+
+    }
+          
+   
   })
   
   })
   console.log("tableLessProbable++++++tableLessProbable ", this.tableLessProbable);
+  console.log("this.tableMediumProbable ", this.tableMediumProbable);
+  console.log("tableFavorites ", this.tableFavorites);
 }
 
 ngOnDestroy(): void {
