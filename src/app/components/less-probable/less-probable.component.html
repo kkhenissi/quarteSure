@@ -1,0 +1,14 @@
+
+<div class="card">
+
+        <div class="card-header">
+                Less Probable jockey
+              </div>
+              <div class="card-body">
+                <blockquote class="blockquote mb-0">
+                        <h1 class="inline" *ngFor="let jck of tableLessProbable$ | async; index as i;">
+                                {{jck}}
+                        </h1>
+                </blockquote>
+              </div>
+        </div>

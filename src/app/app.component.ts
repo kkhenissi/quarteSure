@@ -22,9 +22,11 @@ sourceOne =   of('01','02','03','04','05','06','07','08','09','10','11','12','13
   tableWithRedendence: string[] =[];
   tableWithoutRedendence: string[] =[];
   tableLessProbable: number[]=[];
-  tableLessProbable$: Observable<number[]>;
+  tableLessProbable$:Observable<number[]>;
+  frontTableLessProbable:number[]=[];
+  spots$:Observable<{}>
   tableFavorites: number[]=[];
-  tableFavorites$: Observable<number[]>;
+  
   tableMediumProbable: number[]=[];
   tableMediumProbable$: Observable<number[]>;
   
@@ -37,7 +39,7 @@ sourceOne =   of('01','02','03','04','05','06','07','08','09','10','11','12','13
   allJockeys$: Observable<string[]>
   deletedJokeys:string[] = [];
   coteMoyenne: number =0;
-  coteFavorite: number =500;
+  coteFavorite: number =1000;
   coteMoyenneTrancheInf =0;
   conserbedJockey: string;
   zipSubscription: Subscription;
@@ -59,6 +61,10 @@ sourceOne =   of('01','02','03','04','05','06','07','08','09','10','11','12','13
 
     this.allJockeys$ = of(this.allJockeys);
     this.tableOfCotes$ = of(this.tableOfCotes);
+    
+    this.tableLessProbable$ = of(this.tableLessProbable);
+    this.tableMediumProbable$ =of(this.tableMediumProbable);
+    this.tableNumJockeyAndCotes$ = of(this.tableNumJockeyAndCotes);
 
   //  this.deletedJockeys$ = new BehaviorSubject(this.deletedJokeys);
  
@@ -181,23 +187,9 @@ startAction() {
     console.log("resultat1", this.tableWithRedendence);
  
 
-    this.spliceInprobable();
+     
   //  console.log('ssssssssssssssssssssssssssssssssssssssssss',this.form.value.choise)
    
-}
-private spliceInprobable() {
-
-  //       of(this.tableWithRedendence)
-          
-  //       .subscribe(data => { 
- 
-  //         if (this.tableOfCotes[1] > this.coteMoyenne) 
-  //           this.tableWithRedendence=data;
-          
-  //       console.log("tableWithRedendence", this.tableWithRedendence);
-  // })
-
-
 }
 computeCoteMoyenne(concernedJockey) {
   let cpt=0;
@@ -227,7 +219,9 @@ computeCoteMoyenne(concernedJockey) {
   // }
   
    
-  this.spliceInprobable();
+
+
+   
 }   
 remouvefromAllJockeys(xnbr) {
 
@@ -273,8 +267,7 @@ addInCotes(val) {
       if (index === -1) {
         this.tableNumJockeyAndCotes.push(val)
       }
-       
-      console.log("this.tableNumJockeyAndCotes", this.tableNumJockeyAndCotes);
+ 
 
 
 }
@@ -293,26 +286,112 @@ updateInprobableAndFavorite() {
   this.tableLessProbable=[];
   this.tableMediumProbable=[];
   this.tableFavorites=[];
-  let elmtRef =0;
+   
  
   console.log("tableNewOfCotes ", this.tableOfCotes);
-  this.tableOfCotes$.subscribe(data => { data.forEach(elmt => {
-    if(elmt!=0) {
-      if(elmt > this.coteMoyenne ) {
-        this.tableLessProbable.push(elmt);
-      } else if ( elmt<this.coteMoyenneTrancheInf ) {
-        this.tableFavorites.push(elmt);
-      } else { this.tableMediumProbable.push(elmt)}
+  this.tableOfCotes$.subscribe(data => {   for (const key in data) {
+    if (data.hasOwnProperty(key)) {
+      const element = data[key];
+      console.log("+++++++++++++++++++>Cotes ",key);
+    }
+ 
+     if(data[key]!=0) {
+      
+       if(data[key] > this.coteMoyenne ) {
+       
+
+  // console.log("+++++++++++++++++++>Cotes ");
+         this.tableLessProbable.push(parseInt(key));
+       } else if (data[key]<this.coteMoyenneTrancheInf ) {
+         this.tableFavorites.push(parseInt(key));
+       } else { this.tableMediumProbable.push(parseInt(key))}
 
     }
           
-   
-  })
+  }
+  
   
   })
   console.log("tableLessProbable++++++tableLessProbable ", this.tableLessProbable);
   console.log("this.tableMediumProbable ", this.tableMediumProbable);
   console.log("tableFavorites ", this.tableFavorites);
+}
+
+spots() {
+  console.log("dans le spots++++++tableLessProbable ", this.tableLessProbable);
+  console.log("dans le spots++++ ", this.tableMediumProbable);
+  console.log("tableFavorites ", this.tableFavorites);
+  //   values$ = forkJoin(
+  //   getSingleValueObservable(),
+  //   getDelayedValueObservable()
+  //   // getMultiValueObservable(), forkJoin on works for observables that complete
+  // ).pipe(
+  //   map(([first, second]) => { 
+  //     return { first, second };
+  //   })
+  // );
+
+  // let index =this.tableNumJockeyAndCotes.findIndex(x => x==val);
+  // if (index === -1) {
+  //   this.tableNumJockeyAndCotes.push(val)
+  // }
+  this.tableLessProbable$ = of(this.tableLessProbable);
+  this.tableLessProbable$
+         .subscribe(data => {
+           if(data) {
+            data.forEach(element => {
+              
+              console.log("yyyyyyyyyyyy=====> ", element);
+           const frontNumJockeyForCotes$ =    this.tableNumJockeyAndCotes$
+                 .pipe(map(ent => { ent}))
+                 
+              // this.tableNumJockeyAndCotes.forEach(el => {
+              //   console.log("el=====> ", el);
+              //      console.log("el.Array=====> ", el.length);
+              //      console.log("element=====> ", element);
+              //     el.forEach(cp => {
+              //       cpBack=cp;
+              //       if(element==cp) this.frontTableLessProbable.push(element)
+              //        console.log('cpcpcpcpcpcpcpc===>',cp)
+                    
+              //       })
+                
+               
+              // })
+              frontNumJockeyForCotes$
+                  .subscribe(ret => {console.log('retour ===>',ret)})
+            });
+          
+          }  
+           // this.tableNumJockeyAndCotes$
+           //     .subscribe( x => {
+           //       console.log("yxxxxxxxxxooooooxxxxxxxxy=====> ", x);
+           //       console.log("yxxxxxxxxxxxxxxxxxy=====> ", x[(x.length)-1].map(x => x[0][1]));
+           //     })
+                //.findIndex((x => {
+              
+           // }));
+            
+        //   console.log("data trouver ", data);
+         //  console.log("frontTableLessProbable---in Data ", this.tableNumJockeyAndCotes[0][data[0]]);
+           //  this.frontTableLessProbable.push(this.tableNumJockeyAndCotes[0][data[0]]);
+             console.log("frontTableLessProbable ----->", this.frontTableLessProbable);
+   
+     console.log("frontTableLessProbable ", this.frontTableLessProbable);
+  })
+  this.spots$=zip(
+   this.tableLessProbable$,
+   this.tableFavorites$,
+   this.tableMediumProbable$
+
+ ).pipe(
+   map(([first, second, thitd]) => {
+    console.log("first, second, thitd ", first, second, thitd);
+     return { first, second, thitd }
+
+   })
+ )
+
 }
 
 ngOnDestroy(): void {

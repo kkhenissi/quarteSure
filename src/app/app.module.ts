@@ -8,6 +8,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BasicTableComponent } from './components/table-responsive/table-responsive.component';
 import { DatatablesComponent } from './components/datatables-component/datatables.component';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { LessProbableComponent } from './components/less-probable/less-probable.component';
+import { FavoriteComponent } from './components/favorite/favorite.component';
+import { MediumProbableComponent } from './components/medium-probable/medium-probable.component';
  
  
  
@@ -17,7 +20,10 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
     AppComponent,
     JokeyComponent,
     BasicTableComponent,
-    DatatablesComponent
+    DatatablesComponent,
+    LessProbableComponent,
+    FavoriteComponent,
+    MediumProbableComponent
   ],
   imports: [
     BrowserModule,
