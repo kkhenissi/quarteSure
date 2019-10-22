@@ -22,15 +22,16 @@ sourceOne =   of('01','02','03','04','05','06','07','08','09','10','11','12','13
   tableWithRedendence: string[] =[];
   tableWithoutRedendence: string[] =[];
   tableLessProbable: number[]=[];
-  tableLessProbable$:Observable<number[]>;
+  tableLessProbable$:Observable<number>;
 
-  frontTableLessProbable:number[]=[];
-  spots$:Observable<{}>
+   
+  spotsTable: string[]= [];
+  spotsTable$:Observable<{}>
   tableFavorites$:Observable<number[]>;
   tableFavorites: number[]=[];
   
   tableMediumProbable: number[]=[];
-  tableMediumProbable$: Observable<number[]>;
+  tableMediumProbable$: Observable<number>;
   
   tableNumJockeyAndCotes:[[]]=[[]];
   tableNumJockeyAndCotes$: Observable<[[]]>;
@@ -45,6 +46,7 @@ sourceOne =   of('01','02','03','04','05','06','07','08','09','10','11','12','13
   coteMoyenneTrancheInf =0;
   conserbedJockey: string;
   zipSubscription: Subscription;
+  zipSpotsSubscription: Subscription;
   
  // deletedJockeys$:Observable<string[]>
 
@@ -64,8 +66,8 @@ sourceOne =   of('01','02','03','04','05','06','07','08','09','10','11','12','13
     this.allJockeys$ = of(this.allJockeys);
     this.tableOfCotes$ = of(this.tableOfCotes);
     this.tableFavorites$ = of(this.tableFavorites);
-    this.tableLessProbable$ = of(this.tableLessProbable);
-    this.tableMediumProbable$ =of(this.tableMediumProbable);
+    this.tableLessProbable$ = from(this.tableLessProbable);
+    this.tableMediumProbable$ = from(this.tableMediumProbable);
     this.tableNumJockeyAndCotes$ = of(this.tableNumJockeyAndCotes);
 
   //  this.deletedJockeys$ = new BehaviorSubject(this.deletedJokeys);
@@ -328,81 +330,47 @@ spots() {
   console.log("dans le spots++++++tableLessProbable ", this.tableLessProbable);
   console.log("dans le spots++++ ", this.tableMediumProbable);
   console.log("tableFavorites ", this.tableFavorites);
-  //   values$ = forkJoin(
-  //   getSingleValueObservable(),
-  //   getDelayedValueObservable()
-  //   // getMultiValueObservable(), forkJoin on works for observables that complete
-  // ).pipe(
-  //   map(([first, second]) => { 
-  //     return { first, second };
-  //   })
-  // );
+ for (let i=0; i<5; i++) {
+  this.tableFavorites$ = of(this.tableFavorites);
+  this.tableMediumProbable$ = from(this.tableMediumProbable);
+  this.tableLessProbable$ = from(this.tableLessProbable);
+ 
+ 
+ const zipSpotsSubscriptionn = 
+//   zip(
+    this.tableFavorites$.pipe(
+      withLatestFrom(this.tableMediumProbable$.pipe(take(2))
+                 .pipe(withLatestFrom(this.tableLessProbable$.pipe(skip(i))))))
 
-  // let index =this.tableNumJockeyAndCotes.findIndex(x => x==val);
-  // if (index === -1) {
-  //   this.tableNumJockeyAndCotes.push(val)
-  // }
-  this.tableLessProbable$ = of(this.tableLessProbable);
-  this.tableLessProbable$
-         .subscribe(data => {
-           if(data) {
-            data.forEach(element => {
-              
-              console.log("yyyyyyyyyyyy=====> ", element);
-           const frontNumJockeyForCotes$ =    this.tableNumJockeyAndCotes$
-                 .pipe(map(ent => { ent}))
-                 
-              // this.tableNumJockeyAndCotes.forEach(el => {
-              //   console.log("el=====> ", el);
-              //      console.log("el.Array=====> ", el.length);
-              //      console.log("element=====> ", element);
-              //     el.forEach(cp => {
-              //       cpBack=cp;
-              //       if(element==cp) this.frontTableLessProbable.push(element)
-              //        console.log('cpcpcpcpcpcpcpc===>',cp)
-                    
-              //       })
-                
-               
-              // })
-              frontNumJockeyForCotes$
-                  .subscribe(ret => {console.log('retour ===>',ret)})
-            });
-          
-          }  
-           // this.tableNumJockeyAndCotes$
-           //     .subscribe( x => {
-           //       console.log("yxxxxxxxxxooooooxxxxxxxxy=====> ", x);
-           //       console.log("yxxxxxxxxxxxxxxxxxy=====> ", x[(x.length)-1].map(x => x[0][1]));
-           //     })
-                //.findIndex((x => {
-              
-           // }));
-            
-        //   console.log("data trouver ", data);
-         //  console.log("frontTableLessProbable---in Data ", this.tableNumJockeyAndCotes[0][data[0]]);
-           //  this.frontTableLessProbable.push(this.tableNumJockeyAndCotes[0][data[0]]);
-             console.log("frontTableLessProbable ----->", this.frontTableLessProbable);
+    // this.tableMediumProbable$.pipe(take(2)),
+    // this.tableLessProbable$.pipe(take(1)),
    
-     console.log("frontTableLessProbable ", this.frontTableLessProbable);
-  })
-  this.spots$=zip(
-   this.tableLessProbable$,
-   this.tableFavorites$,
-   this.tableMediumProbable$
+   
 
- ).pipe(
-   map(([first, second, thitd]) => {
-    console.log("first, second, thitd ", first, second, thitd);
-     return { first, second, thitd }
+  
+// )
+ .subscribe(([val1, val2] )=> {
+  this.spotsTable.push([val1, val2].toString());     
+
+ 
+//  .pipe(
+//    map(([first, second, thitd]) => {
+//     console.log("first, second, thitd ", first, second, thitd);
+//     console.log("this.tableFavorites ", this.tableFavorites);
+ 
+     console.log("this.spotsTable===> ", this.spotsTable);
+
+
+     this.spotsTable.forEach(el => console.log('el==>')+el);
 
    })
- )
+  }
 
 }
 
 ngOnDestroy(): void {
   this.zipSubscription.unsubscribe;
+  this.zipSpotsSubscription.unsubscribe;
   
 }
 
