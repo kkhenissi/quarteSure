@@ -6,9 +6,23 @@
               </div>
               <div class="card-body">
                 <blockquote class="blockquote mb-0">
-                        <h1 class="inline" *ngFor="let jck of tableLessProbable$ | async; index as i;">
+                         <h1 class="inline" *ngFor="let jck of tableLessProbable$ | async; index as i; let even = even; let odd = odd" [ngClass]="{ odd: odd, even: even }">
                                 {{jck}}
                         </h1>
                 </blockquote>
               </div>
+
+              <div class="card-footer">
+                    <!-- <form [(formGroup)]="formless" class="inline"> -->
+                        <!-- <label class="container" *ngFor="let nbLess of nbrLessProbable; index as idx">
+                                <input type="radio" formControlName="choise" value="idx" > {{nbLess}}
+                                <span class="checkmark"></span>
+                        </label>   -->
+                    <!-- </form> -->
+    
+               <!-- <mat-radio-button class="mat-radio-button" *ngFor="let modaliteVersement of modalitesVersement; trackBy: trackById"
+                    [value]="modaliteVersement">{{modaliteVersement.libelle}}</mat-radio-button>
+                </mat-radio-group> -->
+    
+            </div>
         </div>

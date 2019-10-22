@@ -15,11 +15,11 @@
         <span class="checkmark"></span>
       </label> 
       <label class="container">
-        <input type="radio" formControlName="choise" value="6"> 6
+        <input type="radio" formControlName="choise"  value="6"> 6
         <span class="checkmark"></span>
       </label>  
       <label class="container">
-        <input type="radio" formControlName="choise" value="7" > 7
+        <input type="radio" formControlName="choise"   value="7" > 7
         <span class="checkmark"></span>
       </label>  
       </form>
@@ -28,11 +28,10 @@
           <app-jockey [nbr]="allJockeys[i]"    (renvoiNumJockey)="remouvefromAllJockeys(i)" (coteJockeyChange)="addInCotes($event)"></app-jockey>
       </h1>
       <div class="row">
-      <favorite class="col-md-4" [tableFavorites]="tableFavorites"></favorite>  
-      <medium-probable class="col-md-4" [tableMediumProbable]="tableMediumProbable"></medium-probable>
-      <less-probable class="col-md-4" [tableLessProbable]="tableLessProbable"></less-probable>
- 
-    </div>
+          <favorite class="col-md-4" [tableFavorites]="tableFavorites"></favorite>  
+          <medium-probable class="col-md-4" [tableMediumProbable]="tableMediumProbable"></medium-probable>
+          <less-probable class="col-md-4" [tableLessProbable]="tableLessProbable"></less-probable>
+      </div>
       <div style=" text-align: center; margin-bottom: 30px;">
           <button class="btn btn-secondary format-action"><h1 (click)= "spots()">Spots</h1></button>
       </div>

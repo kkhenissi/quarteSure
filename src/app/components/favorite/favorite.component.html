@@ -5,10 +5,21 @@
         </div>
         <div class="card-body">
           <blockquote class="blockquote mb-0">
-                <h1 class="inline" *ngFor="let jck of tableFavorites$ | async;">
+                 <h1 class="inline" *ngFor="let jck of tableFavorites$ | async; index as i; let even = even; let odd = odd" [ngClass]="{ odd: odd, even: even }">
                         {{jck}}
-                      </h1>
+                </h1>
           </blockquote>
+        </div>
+        <div class="card-footer">
+                <!-- <form [(formGroup)]="formFav" class="inline"> -->
+                    <!-- <label class="container" *ngFor="let nbfv of nbrFavorite; index as id">
+                            <input   type="radio"  value="id" > {{nbfv}}
+                            <span class="checkmark"></span>
+                    </label>   -->
+                <!-- </form> -->
+                <!-- formControlName="choise" -->
+ 
+
         </div>
       </div>
 

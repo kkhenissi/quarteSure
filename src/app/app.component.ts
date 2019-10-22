@@ -23,8 +23,10 @@ sourceOne =   of('01','02','03','04','05','06','07','08','09','10','11','12','13
   tableWithoutRedendence: string[] =[];
   tableLessProbable: number[]=[];
   tableLessProbable$:Observable<number[]>;
+
   frontTableLessProbable:number[]=[];
   spots$:Observable<{}>
+  tableFavorites$:Observable<number[]>;
   tableFavorites: number[]=[];
   
   tableMediumProbable: number[]=[];
@@ -61,7 +63,7 @@ sourceOne =   of('01','02','03','04','05','06','07','08','09','10','11','12','13
 
     this.allJockeys$ = of(this.allJockeys);
     this.tableOfCotes$ = of(this.tableOfCotes);
-    
+    this.tableFavorites$ = of(this.tableFavorites);
     this.tableLessProbable$ = of(this.tableLessProbable);
     this.tableMediumProbable$ =of(this.tableMediumProbable);
     this.tableNumJockeyAndCotes$ = of(this.tableNumJockeyAndCotes);
@@ -71,9 +73,11 @@ sourceOne =   of('01','02','03','04','05','06','07','08','09','10','11','12','13
     this.startAction();
  
 }
+ 
 
 
 startAction() {
+
  // this.sourceOne.split(",")
  this.tableWithRedendence=[];
   for (let i = 1; i < 19 ;i++) {
@@ -166,7 +170,7 @@ startAction() {
                         
                           .subscribe(([val1, val2, val3, val4, val5, val6, val7] )=> {
                           this.tableWithRedendence.push([val1, val2, val3, val4, val5, val6, val7].toString());                        
-                            
+                           console.log('lllllllllllllllllll>>>' + this.tableWithRedendence) 
                         });
                   }
                 }        
@@ -235,7 +239,7 @@ remouvefromAllJockeys(xnbr) {
    
   this.sourceOne = this.sourceOne.pipe(filter(num => num != wm))
  
-   this.tableWithRedendence=[]
+    
    this.startAction();
   
 }
@@ -286,7 +290,7 @@ updateInprobableAndFavorite() {
   this.tableLessProbable=[];
   this.tableMediumProbable=[];
   this.tableFavorites=[];
-   
+ 
  
   console.log("tableNewOfCotes ", this.tableOfCotes);
   this.tableOfCotes$.subscribe(data => {   for (const key in data) {
@@ -294,8 +298,11 @@ updateInprobableAndFavorite() {
       const element = data[key];
       console.log("+++++++++++++++++++>Cotes ",key);
     }
- 
-     if(data[key]!=0) {
+  // } i=1; i<data.length; 
+     if(data[key]!=0 && data[key]!=NaN) {
+       
+      
+      console.log("+++++++++++++++++++> data[key] ",data[key]);
       
        if(data[key] > this.coteMoyenne ) {
        
@@ -308,8 +315,8 @@ updateInprobableAndFavorite() {
 
     }
           
+   
   }
-  
   
   })
   console.log("tableLessProbable++++++tableLessProbable ", this.tableLessProbable);

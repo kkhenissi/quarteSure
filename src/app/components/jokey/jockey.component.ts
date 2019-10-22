@@ -20,9 +20,9 @@ export class JokeyComponent implements OnInit {
           this.renvoiNumJockey.emit(this.numeroJockey)
   }
   coteBlur() {
+    
           this.coteJockeyChange.emit([this.numeroJockey,this.coteJockey]);
-          console.log('===>coteJockey===>',this.coteJockey)
-          console.log('===>this.numeroJocke===>',this.numeroJockey)
+ 
   }
 
 }

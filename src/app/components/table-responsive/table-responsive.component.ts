@@ -1,4 +1,4 @@
-import { Component, OnInit, Input ,OnChanges} from '@angular/core';
+import { Component, OnInit, Input ,OnChanges, Output, EventEmitter} from '@angular/core';
  
 
 @Component({
@@ -9,6 +9,7 @@ styleUrls: ['./table-responsive.component.css'],
 export class BasicTableComponent implements OnInit,OnChanges {
   @Input('sourceTable') elements: any = [];
   @Input('choise') nbrColone: number;
+  
   headElements = [];
 
   head3Elements = ['One', 'Two', 'Three'];
@@ -36,6 +37,7 @@ export class BasicTableComponent implements OnInit,OnChanges {
       this.headElements = this.head6Elements
     } else if(this.nbrColone == 7) {
       this.headElements = this.head7Elements
+
     }
    console.log('------------------------',  this.nbrColone)
   }

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, AfterViewChecked, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, Input, AfterViewChecked, ChangeDetectorRef, OnChanges } from '@angular/core';
 import { Observable, of } from 'rxjs';
 
 @Component({
@@ -7,17 +7,24 @@ import { Observable, of } from 'rxjs';
   styleUrls: ['./favorite.component.css']
 })
 export class FavoriteComponent implements OnInit,AfterViewChecked {
-  ngAfterViewChecked(): void {
-    this.cdRef.detectChanges;
-    this.tableFavorites$ = of(this.tableFavorites);
-    
-  }
+ 
+  nbrFavorite: number[];
   @Input() tableFavorites
   tableFavorites$: Observable<number[]>;
   constructor(private cdRef:ChangeDetectorRef) { }
-
+  
+ 
   ngOnInit() {
    
+  }
+  ngAfterViewChecked(): void {
+    this.nbrFavorite=[];
+    
+    this.tableFavorites$ = of(this.tableFavorites);
+    // this.tableFavorites.forEach(element => {
+    //   this.nbrFavorite.push(this.tableFavorites.indexOf(element)+1);
+    //   console.log('22222222222222222222222222222222>>',this.nbrFavorite);
+    // });
   }
 
 }

@@ -5,3 +5,9 @@
 .odd {
     background-color: azure
 }
+.inline {
+    display: inline-block; /* the default for span */
+    margin-left: 5px;
+    
+    
+  }
