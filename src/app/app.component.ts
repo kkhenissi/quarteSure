@@ -21,17 +21,17 @@ sourceOne =   of('01','02','03','04','05','06','07','08','09','10','11','12','13
  
   tableWithRedendence: string[] =[];
   tableWithoutRedendence: string[] =[];
-  tableLessProbable: number[]=[];
-  tableLessProbable$:Observable<number>;
+  tableLessProbable: string[]=[];
+  tableLessProbable$:Observable<string>;
 
    
   spotsTable: string[]= [];
   spotsTable$:Observable<{}>
-  tableFavorites$:Observable<number[]>;
-  tableFavorites: number[]=[];
+  tableFavorites$:Observable<string[]>;
+  tableFavorites: string[]=[];
   
-  tableMediumProbable: number[]=[];
-  tableMediumProbable$: Observable<number>;
+  tableMediumProbable: string[]=[];
+  tableMediumProbable$: Observable<string>;
   
   tableNumJockeyAndCotes:[[]]=[[]];
   tableNumJockeyAndCotes$: Observable<[[]]>;
@@ -48,7 +48,7 @@ sourceOne =   of('01','02','03','04','05','06','07','08','09','10','11','12','13
   zipSubscription: Subscription;
   zipSpotsSubscription: Subscription;
   
- // deletedJockeys$:Observable<string[]>
+ 
 
 
 
@@ -70,7 +70,7 @@ sourceOne =   of('01','02','03','04','05','06','07','08','09','10','11','12','13
     this.tableMediumProbable$ = from(this.tableMediumProbable);
     this.tableNumJockeyAndCotes$ = of(this.tableNumJockeyAndCotes);
 
-  //  this.deletedJockeys$ = new BehaviorSubject(this.deletedJokeys);
+  
  
     this.startAction();
  
@@ -79,8 +79,7 @@ sourceOne =   of('01','02','03','04','05','06','07','08','09','10','11','12','13
 
 
 startAction() {
-
- // this.sourceOne.split(",")
+ 
  this.tableWithRedendence=[];
   for (let i = 1; i < 19 ;i++) {
      
@@ -206,7 +205,7 @@ computeCoteMoyenne(concernedJockey) {
       if(c!=0 && c!=NaN)  {
         cpt = cpt+1;
         console.log('this.coteFavorite', this.coteFavorite)
-        this.coteMoyenne= this.coteMoyenne+c;
+        this.coteMoyenne = this.coteMoyenne+c;
         console.log('cccccccccc', c)
         console.log('cpt ', cpt)
         if(this.coteFavorite>c) { this.coteFavorite = c }
@@ -247,6 +246,7 @@ remouvefromAllJockeys(xnbr) {
 }
 
 addInCotes(val) {
+   
 
 
 
@@ -266,7 +266,7 @@ addInCotes(val) {
 
   console.log("conhhhhhhhhhddddddddddddwwwwwwwwwwwwhhhhhhhhhhhhhhh", val);
       this.tableOfCotes[parseFloat(val[0])] =parseFloat(val[1]);
-       this.conserbedJockey = val;
+      this.conserbedJockey = val;
       this.computeCoteMoyenne(this.conserbedJockey);
       this.updateInprobableAndFavorite();
       let index =this.tableNumJockeyAndCotes.findIndex(x => x==val);
@@ -288,19 +288,19 @@ oteFromCote(index){
 
 
 updateInprobableAndFavorite() {
-
+ 
   this.tableLessProbable=[];
   this.tableMediumProbable=[];
   this.tableFavorites=[];
  
  
-  console.log("tableNewOfCotes ", this.tableOfCotes);
+  console.log("tableNewOfCotes****************************> ", this.tableOfCotes);
   this.tableOfCotes$.subscribe(data => {   for (const key in data) {
     if (data.hasOwnProperty(key)) {
       const element = data[key];
-      console.log("+++++++++++++++++++>Cotes ",key);
+      console.log("+++++++++++++++++++>Cotes ",('0'+key).slice(-2));
     }
-  // } i=1; i<data.length; 
+  
      if(data[key]!=0 && data[key]!=NaN) {
        
       
@@ -309,11 +309,11 @@ updateInprobableAndFavorite() {
        if(data[key] > this.coteMoyenne ) {
        
 
-  // console.log("+++++++++++++++++++>Cotes ");
-         this.tableLessProbable.push(parseInt(key));
+ 
+         this.tableLessProbable.push(('0'+key).slice(-2));
        } else if (data[key]<this.coteMoyenneTrancheInf ) {
-         this.tableFavorites.push(parseInt(key));
-       } else { this.tableMediumProbable.push(parseInt(key))}
+         this.tableFavorites.push(('0'+key).slice(-2));
+       } else { this.tableMediumProbable.push(('0'+key).slice(-2))}
 
     }
           
@@ -327,51 +327,117 @@ updateInprobableAndFavorite() {
 }
 
 spots() {
+  let varForFavorite = this.tableFavorites.length;
+  let varForMedium = this.tableMediumProbable.length;
+  let varForLess = this.tableLessProbable.length
+  let varJ=0;
+  let varI=0;
   console.log("dans le spots++++++tableLessProbable ", this.tableLessProbable);
   console.log("dans le spots++++ ", this.tableMediumProbable);
   console.log("tableFavorites ", this.tableFavorites);
- for (let i=0; i<5; i++) {
+
   this.tableFavorites$ = of(this.tableFavorites);
   this.tableMediumProbable$ = from(this.tableMediumProbable);
   this.tableLessProbable$ = from(this.tableLessProbable);
- 
- 
- const zipSpotsSubscriptionn = 
-//   zip(
-    this.tableFavorites$.pipe(
-      withLatestFrom(this.tableMediumProbable$.pipe(take(2))
-                 .pipe(withLatestFrom(this.tableLessProbable$.pipe(skip(i))))))
+    if (this.form.value.choise == 6) {  // when we choose multi in 6
+      if(varForFavorite==3) { // when number of favories jockey equals 3
+        for (let j=0; j<=varForMedium;) {
+        if(j==varForMedium) varJ=2;
+            for (let i=0; i<=varForLess;) {
+              console.log('iiiiiiiiiiiiiiiiiiiii===> '+1)
+              this.zipSpotsSubscription = 
+            
+                this.tableFavorites$.pipe(
+                  withLatestFrom(this.tableMediumProbable$.pipe(take(j-varJ))
+                          .pipe(withLatestFrom(this.tableMediumProbable$.pipe(take(j+1))))
+                            .pipe(withLatestFrom(this.tableLessProbable$.pipe(take(i))))))
+            
+            
+            .subscribe(([val1, val2] )=> {
+              this.spotsTable.push([val1, val2].toString());     
+              this.spotsTable.forEach(el => console.log('el==>')+el);
+              })
+              i++;
+              }
+          j++;
+        }
+        
 
-    // this.tableMediumProbable$.pipe(take(2)),
-    // this.tableLessProbable$.pipe(take(1)),
-   
-   
+      } else {    // when number of favorites jockeys equals 4 
 
-  
-// )
- .subscribe(([val1, val2] )=> {
-  this.spotsTable.push([val1, val2].toString());     
+        for (let j=0; j<=varForMedium;) {
+        
+              for (let i=0; i<=varForLess;) {
+                  this.zipSpotsSubscription = 
+                  this.tableFavorites$.pipe(
+                    withLatestFrom(this.tableMediumProbable$.pipe(take(j))
+                              .pipe(withLatestFrom(this.tableLessProbable$.pipe(take(i))))))
+                                    .subscribe(([val1, val2] )=> {
+                                    this.spotsTable.push([val1, val2].toString());     
+                                    this.spotsTable.forEach(el => console.log('el==>')+el);
+                                    })
+              i++;
+              }
+          j++;
+        }
 
- 
-//  .pipe(
-//    map(([first, second, thitd]) => {
-//     console.log("first, second, thitd ", first, second, thitd);
-//     console.log("this.tableFavorites ", this.tableFavorites);
- 
-     console.log("this.spotsTable===> ", this.spotsTable);
+      }
+    } else if(this.form.value.choise == 7) {  // when we choose multi in 7
+
+      if(varForFavorite==3) { // when number of favories jockey equals 3
+        for (let j=0; j<=varForMedium;) {
+        if(j==varForMedium) varJ=2;
+            for (let i=0; i<=varForLess;) {
+              if(i==varForLess) varI=2;
+              console.log('iiiiiiiiiiiiiiiiiiiii===> '+1)
+              this.zipSpotsSubscription = 
+            
+                this.tableFavorites$.pipe(
+                  withLatestFrom(this.tableMediumProbable$.pipe(take(j-varJ))
+                          .pipe(withLatestFrom(this.tableMediumProbable$.pipe(take(j+1))))
+                            .pipe(withLatestFrom(this.tableLessProbable$.pipe(take(i-varI))))
+                              .pipe(withLatestFrom(this.tableMediumProbable$.pipe(take(i+1))))))
+            
+            
+            .subscribe(([val1, val2] )=> {
+              this.spotsTable.push([val1, val2].toString());     
+              this.spotsTable.forEach(el => console.log('el==>')+el);
+              })
+              i++;
+              }
+          j++;
+        }
+        
+
+      } else {    // when number of favorites jockeys equals 4 
+
+        for (let j=0; j<=varForMedium;) {
+              if(j==varForMedium) varJ=2;
+              for (let i=0; i<=varForLess;) {
+                  this.zipSpotsSubscription = 
+                  this.tableFavorites$.pipe(
+                    withLatestFrom(this.tableMediumProbable$.pipe(take(j-varJ))
+                    .pipe(withLatestFrom(this.tableMediumProbable$.pipe(take(j+1))))
+                      .pipe(withLatestFrom(this.tableLessProbable$.pipe(take(i))))))
+                                    .subscribe(([val1, val2] )=> {
+                                    this.spotsTable.push([val1, val2].toString());     
+                                    this.spotsTable.forEach(el => console.log('el==>')+el);
+                                    })
+              i++;
+              }
+          j++;
+        }
+
+      }
+    }
 
 
-     this.spotsTable.forEach(el => console.log('el==>')+el);
-
-   })
-  }
 
 }
 
 ngOnDestroy(): void {
   this.zipSubscription.unsubscribe;
   this.zipSpotsSubscription.unsubscribe;
-  
 }
 
 }
