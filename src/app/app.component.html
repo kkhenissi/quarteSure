@@ -36,7 +36,7 @@
           <button class="btn btn-secondary format-action"><h1 (click)= "spots()">Spots</h1></button>
       </div>
      
-      <ng-container *ngIf="spots$ | async; let spots;">
+      <ng-container *ngIf="spotsTable$ | async; let spots;">
         <p>{{spots.first}}</p>
       </ng-container>
     
