@@ -1,5 +1,5 @@
 import { Component, OnInit, Input ,OnChanges, Output, EventEmitter} from '@angular/core';
-
+ 
 
 @Component({
 selector: 'basic-table',
@@ -9,9 +9,9 @@ styleUrls: ['./table-responsive.component.css'],
 export class BasicTableComponent implements OnInit,OnChanges {
   @Input('sourceTable') elements: any = [];
   @Input('choise') nbrColone: number;
-
+  
   headElements = [];
-  head2Elements = ['One', 'Two'];
+
   head3Elements = ['One', 'Two', 'Three'];
   head4Elements = ['One', 'Two', 'Three', 'For'];
   head5Elements = ['One', 'Two', 'Three', 'For', 'Five'];
@@ -21,15 +21,13 @@ export class BasicTableComponent implements OnInit,OnChanges {
   constructor() {
 
   }
-
+ 
   ngOnInit(){
 
-
+    
   }
   ngOnChanges(){
-    if(this.nbrColone == 2) {
-      this.headElements = this.head2Elements
-    }else if(this.nbrColone == 3) {
+    if(this.nbrColone == 3) {
       this.headElements = this.head3Elements
     } else if(this.nbrColone == 4) {
       this.headElements = this.head4Elements
