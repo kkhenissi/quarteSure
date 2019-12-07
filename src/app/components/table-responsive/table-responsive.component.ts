@@ -1,33 +1,50 @@
-import { Component, OnInit, Input ,OnChanges, Output, EventEmitter} from '@angular/core';
- 
+import { Component, OnInit, Input , OnChanges, Output, EventEmitter, AfterContentChecked, AfterViewChecked} from '@angular/core';
+import { Observable, of, BehaviorSubject } from 'rxjs';
 
 @Component({
 selector: 'basic-table',
 templateUrl: './table-responsive.component.html',
 styleUrls: ['./table-responsive.component.css'],
 })
-export class BasicTableComponent implements OnInit,OnChanges {
+export class BasicTableComponent implements OnInit, AfterViewChecked {
+
+
   @Input('sourceTable') elements: any = [];
   @Input('choise') nbrColone: number;
-  
-  headElements = [];
 
+  headElements = [];
+  head2Elements = ['One', 'Two'];
   head3Elements = ['One', 'Two', 'Three'];
   head4Elements = ['One', 'Two', 'Three', 'For'];
   head5Elements = ['One', 'Two', 'Three', 'For', 'Five'];
-  head6Elements = ['One', 'Two', 'Three', 'For', 'Five','Six'];
-  head7Elements = ['One', 'Two', 'Three', 'For', 'Five','Six','Seven'];
+  head6Elements = ['One', 'Two', 'Three', 'For', 'Five', 'Six'];
+  head7Elements = ['One', 'Two', 'Three', 'For', 'Five', 'Six', 'Seven'];
 
   constructor() {
 
+    // store.pipe(select(state => {
+    //     this.nbrColone = state.choise ;
+    // }));
+
   }
- 
+
+
+  ngAfterViewChecked(): void {
+
+
+
+
+
+  }
+
   ngOnInit(){
 
-    
+
   }
   ngOnChanges(){
-    if(this.nbrColone == 3) {
+    if(this.nbrColone == 2) {
+      this.headElements = this.head2Elements
+    }else if(this.nbrColone == 3) {
       this.headElements = this.head3Elements
     } else if(this.nbrColone == 4) {
       this.headElements = this.head4Elements
@@ -39,7 +56,7 @@ export class BasicTableComponent implements OnInit,OnChanges {
       this.headElements = this.head7Elements
 
     }
-   console.log('------------------------',  this.nbrColone)
+
   }
 
 

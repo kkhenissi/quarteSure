@@ -11,6 +11,7 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { LessProbableComponent } from './components/less-probable/less-probable.component';
 import { FavoriteComponent } from './components/favorite/favorite.component';
 import { MediumProbableComponent } from './components/medium-probable/medium-probable.component';
+import { CottedDirective } from './directives/cotted.directive';
  
  
  
@@ -23,7 +24,8 @@ import { MediumProbableComponent } from './components/medium-probable/medium-pro
      
     LessProbableComponent,
     FavoriteComponent,
-    MediumProbableComponent
+    MediumProbableComponent,
+    CottedDirective
   ],
   imports: [
     BrowserModule,
