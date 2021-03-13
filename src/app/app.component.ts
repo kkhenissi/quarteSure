@@ -1,9 +1,8 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ButtonsModule } from 'ngx-bootstrap/buttons';
-import {FormControl, FormGroup} from '@angular/forms';
-import { forkJoin, zip, combineLatest, Subject, BehaviorSubject, from, Subscription } from 'rxjs';
-import {of, Observable, range} from 'rxjs';
-import { delay, skip, filter, tap, distinctUntilChanged, map, withLatestFrom, take, first, merge  } from 'rxjs/operators';
+import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
+import { from, Observable, of, Subscription } from 'rxjs';
+import { filter, take, withLatestFrom } from 'rxjs/operators';
+import { ParticipantService } from './services/participant.service';
 
 
 @Component({
@@ -12,6 +11,11 @@ import { delay, skip, filter, tap, distinctUntilChanged, map, withLatestFrom, ta
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit, OnDestroy {
+
+  constructor(private participantService: ParticipantService,
+     private cdRef:ChangeDetectorRef) {
+
+  }
 
 
 sourceOne =   of('01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12', '13', '14', '15', '16', '17', '18');
@@ -59,8 +63,7 @@ sourceOne =   of('01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11
 
 
   ngOnInit(): void {
-
-  this.allJockeys = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12', '13', '14', '15', '16', '17', '18'];
+    this.allJockeys = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12', '13', '14', '15', '16', '17', '18'];
 
 
   this.allJockeys$ = of(this.allJockeys);
@@ -73,7 +76,12 @@ sourceOne =   of('01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11
 
 
   this.startAction();
-
+  this.cdRef.detectChanges();
+  this.participantService.getParticipants().subscribe(data=>{
+    console.log('sssssssssssssss==>',data)
+  }, err => {
+    console.log('errr===>',err)
+  })
 }
 
 

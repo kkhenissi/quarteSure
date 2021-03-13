@@ -1,8 +1,8 @@
-import { CottedDirective } from './cotted.directive';
+// import { CottedDirective } from './cotted.directive';
 
-describe('CottedDirective', () => {
-  it('should create an instance', () => {
-    const directive = new CottedDirective();
-    expect(directive).toBeTruthy();
-  });
-});
+// describe('CottedDirective', () => {
+//   it('should create an instance', () => {
+//     const directive = new CottedDirective();
+//     expect(directive).toBeTruthy();
+//   });
+// });

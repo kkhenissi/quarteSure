@@ -1,0 +1,142 @@
+{
+  "participants": [
+  {
+  "nom": "CAPARICA",
+  "numPmu": 1,
+  "age": 4,
+  "sexe": "FEMELLES",
+  "race": "PUR-SANG",
+  "statut": "PARTANT",
+  "placeCorde": 2,
+  "oeilleres": "SANS_OEILLERES",
+  "proprietaire": "MLLE S.DE MONTZEY",
+  "entraineur": "B.MONTZEY (S)",
+  "driver": "D.ALBERCA-GAVILAN",
+  "driverChange": false,
+  "robe": {
+    "code": "020",
+    "libelleCourt": "BAI",
+    "libelleLong": "BAI"
+    },
+    "indicateurInedit": false,
+    "musique": "6p5p(20)0p8p2p7p1p1p1p",
+    "nombreCourses": 19,
+    "nombreVictoires": 3,
+    "nombrePlaces": 11,
+    "nombrePlacesSecond": 2,
+    "nombrePlacesTroisieme": 4,
+    "gainsParticipant": {
+    "gainsCarriere": 4720400,
+    "gainsVictoires": 2425000,
+    "gainsPlace": 2295400,
+    "gainsAnneeEnCours": 65000,
+    "gainsAnneePrecedente": 3980400
+    },
+    "dernierRapportDirect": {
+      "typePari": "E_SIMPLE_GAGNANT",
+      "rapport": 3,
+      "typeRapport": "DIRECT",
+      "indicateurTendance": " ",
+      "nombreIndicateurTendance": 0,
+      "dateRapport": 1615629129000,
+      "permutation": 1,
+      "favoris": true,
+      "numPmu1": 1,
+      "grossePrise": false
+    }
+  },
+
+  {
+  "nom": "KENNY",
+  "numPmu": 2,
+  "age": 6,
+  "sexe": "HONGRES",
+  "race": "PUR-SANG",
+  "statut": "PARTANT",
+  "placeCorde": 7,
+  "oeilleres": "OEILLERES_CLASSIQUE",
+  "proprietaire": "P.VAN DER LINDEN",
+  "entraineur": "XL.LE STANG",
+  "driver": "J.CABRE",
+  "driverChange": false,
+  "robe": {
+    "code": "020",
+    "libelleCourt": "BAI",
+    "libelleLong": "BAI"
+    },
+    "indicateurInedit": false,
+    "musique": "6p5p(20)0p8p2p7p1p1p1p",
+    "nombreCourses": 19,
+    "nombreVictoires": 3,
+    "nombrePlaces": 11,
+    "nombrePlacesSecond": 2,
+    "nombrePlacesTroisieme": 4,
+    "gainsParticipant": {
+    "gainsCarriere": 4720400,
+    "gainsVictoires": 2425000,
+    "gainsPlace": 2295400,
+    "gainsAnneeEnCours": 65000,
+    "gainsAnneePrecedente": 3980400
+    },
+    "dernierRapportDirect": {
+      "typePari": "E_SIMPLE_GAGNANT",
+      "rapport": 3,
+      "typeRapport": "DIRECT",
+      "indicateurTendance": " ",
+      "nombreIndicateurTendance": 0,
+      "dateRapport": 1615629129000,
+      "permutation": 1,
+      "favoris": true,
+      "numPmu1": 1,
+      "grossePrise": false
+    }
+  },
+  {
+  "nom": "URBAN RIVER",
+  "numPmu": 3,
+  "age": 7,
+  "sexe": "HONGRES",
+  "race": "PUR-SANG",
+  "statut": "PARTANT",
+  "placeCorde": 4,
+  "oeilleres": "SANS_OEILLERES",
+  "proprietaire": "MME N.GARDE DUBORD",
+  "entraineur": "MME N.GARDE DUBORD",
+  "driver": "A.CRASTUS",
+  "driverChange": false,
+  "robe": {
+    "code": "020",
+    "libelleCourt": "BAI",
+    "libelleLong": "BAI"
+    },
+    "indicateurInedit": false,
+    "musique": "6p5p(20)0p8p2p7p1p1p1p",
+    "nombreCourses": 19,
+    "nombreVictoires": 3,
+    "nombrePlaces": 11,
+    "nombrePlacesSecond": 2,
+    "nombrePlacesTroisieme": 4,
+    "gainsParticipant": {
+    "gainsCarriere": 4720400,
+    "gainsVictoires": 2425000,
+    "gainsPlace": 2295400,
+    "gainsAnneeEnCours": 65000,
+    "gainsAnneePrecedente": 3980400
+    },
+    "dernierRapportDirect": {
+      "typePari": "E_SIMPLE_GAGNANT",
+      "rapport": 3,
+      "typeRapport": "DIRECT",
+      "indicateurTendance": " ",
+      "nombreIndicateurTendance": 0,
+      "dateRapport": 1615629129000,
+      "permutation": 1,
+      "favoris": true,
+      "numPmu1": 1,
+      "grossePrise": false
+    }
+  }
+  ]
+
+  }
+
