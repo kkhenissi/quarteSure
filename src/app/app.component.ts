@@ -1,7 +1,10 @@
 import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Store } from '@ngrx/store';
 import { from, Observable, of, Subscription } from 'rxjs';
-import { filter, take, withLatestFrom } from 'rxjs/operators';
+import { filter, map, take, withLatestFrom } from 'rxjs/operators';
+import { GetAllParticipantActions, ParticipantActionsTypes } from './ngrx/participant.actions';
+import { ParticipantsState } from './ngrx/participant.reducers';
 import { ParticipantService } from './services/participant.service';
 
 
@@ -13,9 +16,10 @@ import { ParticipantService } from './services/participant.service';
 export class AppComponent implements OnInit, OnDestroy {
 
   constructor(private participantService: ParticipantService,
-     private cdRef:ChangeDetectorRef) {
+              private store: Store<any>,
+              private cdRef:ChangeDetectorRef) {}
 
-  }
+participantsState$: Observable<ParticipantsState> | null = null;
 
 
 sourceOne =   of('01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12', '13', '14', '15', '16', '17', '18');
@@ -42,8 +46,8 @@ sourceOne =   of('01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11
   tableOfSumeitem: string[] = [];
   tableOfCotes: number[] = [];
   tableOfCotes$: Observable<number[]>;
-  allJockeys: string[];
-  allJockeys$: Observable<string[]>;
+  allJockeys: string[][];
+  allJockeys$: Observable<string[][]>;
   deletedJokeys: string[] = [];
   coteMoyenne = 0;
   coteFavorite = 1000;
@@ -63,25 +67,41 @@ sourceOne =   of('01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11
 
 
   ngOnInit(): void {
-    this.allJockeys = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12', '13', '14', '15', '16', '17', '18'];
-
-
-  this.allJockeys$ = of(this.allJockeys);
-  this.tableOfCotes$ = of(this.tableOfCotes);
-  this.tableFavorites$ = of(this.tableFavorites);
-  this.tableLessProbable$ = from(this.tableLessProbable);
-  this.tableMediumProbable$ = from(this.tableMediumProbable);
-  this.tableNumJockeyAndCotes$ = of(this.tableNumJockeyAndCotes);
 
 
 
+
+
+
+  this.store.dispatch(new GetAllParticipantActions(ParticipantActionsTypes.GET_ALL_PARTICIPANTS))
   this.startAction();
   this.cdRef.detectChanges();
-  this.participantService.getParticipants().subscribe(data=>{
-    console.log('sssssssssssssss==>',data)
-  }, err => {
-    console.log('errr===>',err)
-  })
+  this.participantsState$=this.store.pipe(
+    map((state) =>state.participantsState)
+  );
+  // this.allJockeys = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12', '13', '14', '15', '16', '17', '18'];
+
+  setTimeout(()=> {
+    this.participantsState$.subscribe((data) => {
+      this.allJockeys=data.participants.map(rec =>  [rec.numPmu.toString(), rec.dernierRapportDirect.rapport.toString()]);
+      console.log('ssssssswhat is in data =======>',data)
+      console.log('ssssssswhat is in  this.allJockeys =======>', this.allJockeys)
+       this.allJockeys$ = of(this.allJockeys);
+      this.tableOfCotes$ = of(this.tableOfCotes);
+      this.tableFavorites$ = of(this.tableFavorites);
+      this.tableLessProbable$ = from(this.tableLessProbable);
+      this.tableMediumProbable$ = from(this.tableMediumProbable);
+      this.tableNumJockeyAndCotes$ = of(this.tableNumJockeyAndCotes);
+      })
+  }, 500)
+
+
+
+  // this.participantService.getParticipants().subscribe(data=>{
+  //   console.log('sssssssssssssss==>',data)
+  // }, err => {
+  //   console.log('errr===>',err)
+  // })
 }
 
 

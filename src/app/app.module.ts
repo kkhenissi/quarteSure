@@ -15,6 +15,7 @@ import { LessProbableComponent } from './components/less-probable/less-probable.
 import { MediumProbableComponent } from './components/medium-probable/medium-probable.component';
 import { BasicTableComponent } from './components/table-responsive/table-responsive.component';
 import { ParticipantsEffects } from './ngrx/participant.effects';
+import { participantReducer } from './ngrx/participant.reducers';
 // import { CottedDirective } from './directives/cotted.directive';
 // import { ParticipantsEffects } from './ngrx/product.effects';
 
@@ -41,7 +42,7 @@ import { ParticipantsEffects } from './ngrx/participant.effects';
     FormsModule,
     ReactiveFormsModule,
     MDBBootstrapModule.forRoot(),
-    StoreModule.forRoot({}),
+    StoreModule.forRoot({participantsState: participantReducer}),
     EffectsModule.forRoot([ParticipantsEffects]),
     StoreDevtoolsModule.instrument()
 

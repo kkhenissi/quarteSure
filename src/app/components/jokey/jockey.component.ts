@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-jockey',
@@ -6,8 +6,9 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./jockey.component.css']
 })
 export class JokeyComponent implements OnInit {
-  coteJockey: number;
+
   @Input('nbr') numeroJockey:number;
+  @Input() coteJockey: number;
   @Output() coteJockeyChange = new EventEmitter<number[]>();
   @Output() renvoiNumJockey  = new EventEmitter<number>();
   constructor() { }
@@ -20,9 +21,9 @@ export class JokeyComponent implements OnInit {
           this.renvoiNumJockey.emit(this.numeroJockey)
   }
   coteBlur() {
-           
+
           this.coteJockeyChange.emit([this.numeroJockey,this.coteJockey]);
- 
+
   }
 
 }

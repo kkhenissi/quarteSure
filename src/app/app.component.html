@@ -32,15 +32,21 @@
             <span class="checkmark"></span>
           </label>
       </form>
-
       <h1 class="inline" *ngFor="let jck of allJockeys$ | async; index as i; let even = even; let odd = odd" [ngClass]="{ odd: odd, even: even }">
-          <app-jockey [nbr]="allJockeys[i]"    (renvoiNumJockey)="removefromAllJockeys(i)" (coteJockeyChange)="addInCotes($event)"></app-jockey>
+      <!-- <h1 class="inline" *ngFor="let jck of participantsState$ | async; index as i; let even = even; let odd = odd" [ngClass]="{ odd: odd, even: even }"> -->
+
+
+        <app-jockey [nbr]="allJockeys[i][0]" [coteJockey]="allJockeys[i][1]"   (renvoiNumJockey)="removefromAllJockeys(i)" (coteJockeyChange)="addInCotes($event)"></app-jockey>
+
       </h1>
+
       <div class="row">
+
           <favorite class="col-md-4" [tableFavorites]="tableFavorites"></favorite>
           <medium-probable class="col-md-4" [tableMediumProbable]="tableMediumProbable"></medium-probable>
           <less-probable class="col-md-4" [tableLessProbable]="tableLessProbable"></less-probable>
       </div>
+
       <div style=" text-align: center; margin-bottom: 30px;">
           <button class="btn btn-secondary format-action"><h1 (click)= "spots()">Spots</h1></button>
       </div>
