@@ -13,7 +13,10 @@ import { FavoriteComponent } from './components/favorite/favorite.component';
 import { JokeyComponent } from './components/jokey/jockey.component';
 import { LessProbableComponent } from './components/less-probable/less-probable.component';
 import { MediumProbableComponent } from './components/medium-probable/medium-probable.component';
+import { NextCourseComponent } from './components/next-course/next-course.component';
 import { BasicTableComponent } from './components/table-responsive/table-responsive.component';
+import { NextCoursesEffects } from './ngrx/next-courses.effects';
+import { nextCoursesReducer } from './ngrx/next-courses.reducers';
 import { ParticipantsEffects } from './ngrx/participant.effects';
 import { participantReducer } from './ngrx/participant.reducers';
 // import { CottedDirective } from './directives/cotted.directive';
@@ -32,6 +35,7 @@ import { participantReducer } from './ngrx/participant.reducers';
     LessProbableComponent,
     FavoriteComponent,
     MediumProbableComponent,
+    NextCourseComponent,
  //  CottedDirective
   ],
   imports: [
@@ -42,8 +46,8 @@ import { participantReducer } from './ngrx/participant.reducers';
     FormsModule,
     ReactiveFormsModule,
     MDBBootstrapModule.forRoot(),
-    StoreModule.forRoot({participantsState: participantReducer}),
-    EffectsModule.forRoot([ParticipantsEffects]),
+    StoreModule.forRoot({participantsState: participantReducer, nextCoursesState: nextCoursesReducer}),
+    EffectsModule.forRoot([ParticipantsEffects, NextCoursesEffects]),
     StoreDevtoolsModule.instrument()
 
   ],

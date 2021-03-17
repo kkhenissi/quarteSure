@@ -3,7 +3,6 @@ import { Actions, createEffect, ofType } from "@ngrx/effects";
 import { Action } from "@ngrx/store";
 import { Observable, of } from "rxjs";
 import { catchError, map, mergeMap } from "rxjs/operators";
-import { Participant } from "../models/participants.model";
 import { ParticipantService } from "../services/participant.service";
 import { GetAllParticipantActionsError, GetAllParticipantActionsSuccess, GetSelectedParticipantActionsError, GetSelectedParticipantActionsSuccess, ParticipantActionsTypes } from "./participant.actions";
 
@@ -21,14 +20,13 @@ export class ParticipantsEffects {
         mergeMap((action: Action) => {
            return this.participantService.getParticipants()
            .pipe(
-             map((participants) =>  new GetAllParticipantActionsSuccess(<Participant[]>participants)),
+             map((participants) =>  new GetAllParticipantActionsSuccess(participants)),
              catchError((err)=> of(
                new GetAllParticipantActionsError(err.message)))
            )
         })
       )
-    }
-  )
+    });
 
   getSelectedParticipantsEffect:Observable<Action>=createEffect( () => {
     return  this.effectActions.pipe(
@@ -37,7 +35,7 @@ export class ParticipantsEffects {
        return this.participantService.getSelectedParticipants()
        .pipe(
          map(participants => {
-           return new GetSelectedParticipantActionsSuccess(<Participant[]>participants);
+           return new GetSelectedParticipantActionsSuccess(participants);
          }),
          catchError(err=> of(
            new GetSelectedParticipantActionsError(err.message)
@@ -46,5 +44,22 @@ export class ParticipantsEffects {
     })
    )}
   )
+
+  // delSelectedParticipantsEffect:Observable<Action>=createEffect( () => {
+  //   return  this.effectActions.pipe(
+  //   ofType(ParticipantActionsTypes.DELL_SELECTED_PARTICIPANT),
+  //   mergeMap((action: ParticipantActionsTypes.DELL_SELECTED_PARTICIPANT) => {
+  //      return this.participantService.getSelectedParticipants()
+  //      .pipe(
+  //        map(participants => {
+  //          return new GetAllParticipantActionsSuccess(<Participant[]>participants);
+  //        }),
+  //        catchError(err=> of(
+  //          new GetSelectedParticipantActionsError(err.message)
+  //        ))
+  //       )
+  //   })
+  //  )}
+  // )
 
 }

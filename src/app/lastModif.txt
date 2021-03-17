@@ -1,0 +1,4 @@
+tried to set up removing a jockey with ngrx,
+- jockey.component.ts
+- participant.action.ts
+- participant.effects.ts

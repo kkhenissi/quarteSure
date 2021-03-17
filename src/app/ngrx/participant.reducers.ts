@@ -1,6 +1,6 @@
 
 import { Action } from "@ngrx/store";
-import { Participant } from "../models/participants.model";
+import { Participant } from "../models/participant.model";
 import { ParticipantActions, ParticipantActionsTypes } from "./participant.actions";
 
 export enum ParticipantsStatusEnum {

@@ -3,9 +3,13 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { from, Observable, of, Subscription } from 'rxjs';
 import { filter, map, take, withLatestFrom } from 'rxjs/operators';
-import { GetAllParticipantActions, ParticipantActionsTypes } from './ngrx/participant.actions';
+// import { Participant } from './models/participant.model';
+import { SelectedCourse } from './models/selected-course.model';
+import { GetAllNextCourseActions, NextCourseActionsTypes } from './ngrx/next-course.actions';
+import { NextCoursesState } from './ngrx/next-courses.reducers';
 import { ParticipantsState } from './ngrx/participant.reducers';
 import { ParticipantService } from './services/participant.service';
+
 
 
 @Component({
@@ -20,6 +24,10 @@ export class AppComponent implements OnInit, OnDestroy {
               private cdRef:ChangeDetectorRef) {}
 
 participantsState$: Observable<ParticipantsState> | null = null;
+nextCoursesState$: Observable<NextCoursesState> | null = null;
+refCourse: string="";
+nextCourses:string[]=[];
+nextCourses$=of(this.nextCourses);
 
 
 sourceOne =   of('01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12', '13', '14', '15', '16', '17', '18');
@@ -46,8 +54,8 @@ sourceOne =   of('01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11
   tableOfSumeitem: string[] = [];
   tableOfCotes: number[] = [];
   tableOfCotes$: Observable<number[]>;
-  allJockeys: string[][];
-  allJockeys$: Observable<string[][]>;
+  allJockeys: SelectedCourse[];
+  allJockeys$: Observable<SelectedCourse[]>;
   deletedJokeys: string[] = [];
   coteMoyenne = 0;
   coteFavorite = 1000;
@@ -73,27 +81,35 @@ sourceOne =   of('01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11
 
 
 
-  this.store.dispatch(new GetAllParticipantActions(ParticipantActionsTypes.GET_ALL_PARTICIPANTS))
+ // this.store.dispatch(new GetAllParticipantActions(ParticipantActionsTypes.GET_ALL_PARTICIPANTS))
+  this.store.dispatch(new GetAllNextCourseActions(NextCourseActionsTypes.GET_ALL_NEXTCOURSES));
   this.startAction();
   this.cdRef.detectChanges();
-  this.participantsState$=this.store.pipe(
-    map((state) =>state.participantsState)
+  this.nextCoursesState$=this.store.pipe(
+    map((state) =>state.nextCoursesState)
   );
+  // this.participantsState$=this.store.pipe(
+  //   map((state) =>state.participantsState)
+  // );
   // this.allJockeys = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12', '13', '14', '15', '16', '17', '18'];
 
   setTimeout(()=> {
-    this.participantsState$.subscribe((data) => {
-      this.allJockeys=data.participants.map(rec =>  [rec.numPmu.toString(), rec.dernierRapportDirect.rapport.toString()]);
+    // this.participantsState$.subscribe((data) => {
+      this.nextCoursesState$.subscribe((data) => {
+      data.courses.forEach(cr => {
+        this.nextCourses.push('R'+cr['numOfficiel']+'C'+cr['numOrdre'])
+      });
+  //  this.nextCourse=data;
       console.log('ssssssswhat is in data =======>',data)
       console.log('ssssssswhat is in  this.allJockeys =======>', this.allJockeys)
-       this.allJockeys$ = of(this.allJockeys);
-      this.tableOfCotes$ = of(this.tableOfCotes);
-      this.tableFavorites$ = of(this.tableFavorites);
-      this.tableLessProbable$ = from(this.tableLessProbable);
-      this.tableMediumProbable$ = from(this.tableMediumProbable);
-      this.tableNumJockeyAndCotes$ = of(this.tableNumJockeyAndCotes);
+                          // this.allJockeys$ = of(this.allJockeys);
+                          // this.tableOfCotes$ = of(this.tableOfCotes);
+                          // this.tableFavorites$ = of(this.tableFavorites);
+                          // this.tableLessProbable$ = from(this.tableLessProbable);
+                          // this.tableMediumProbable$ = from(this.tableMediumProbable);
+                          // this.tableNumJockeyAndCotes$ = of(this.tableNumJockeyAndCotes);
       })
-  }, 500)
+  }, 1500)
 
 
 
@@ -258,15 +274,16 @@ computeCoteMoyenne(concernedJockey) {
 }
 removefromAllJockeys(xnbr) {
 
-  console.log('conhhhhhhhhhhhhhhhhhhhhhhhh', xnbr);
-  const f =  xnbr;
-  const wm = this.allJockeys[f];
+  console.log('conhhhhhhhhhhhhhhhhhhhhhhhh', this.allJockeys);
+  const f =  xnbr[0];
+  let wm = this.allJockeys[f];
+  const wmNum = wm['numPmu'].toString();
   this.allJockeys.splice(f, 1);
   this.deletedJokeys.push(f);
-  this.oteFromCote(wm);
+  this.oteFromCote(wmNum);
 
 
-  this.sourceOne = this.sourceOne.pipe(filter(num => num !== wm));
+   this.sourceOne = this.sourceOne.pipe(filter(num => num !== wmNum));
 
 
   this.startAction();
