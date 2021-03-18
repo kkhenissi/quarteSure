@@ -15,10 +15,14 @@ export class ParticipantsEffects {
               private effectActions: Actions) { }
 
   getAllParticipantsEffect:Observable<Action>=createEffect( () => {
+
+    let dateCourse=new Date();
+    let refCourse: string;
+    refCourse="/"+dateCourse.toISOString().split('-')[2].substring(0,2)+dateCourse.toISOString().split('-')[1]+dateCourse.toISOString().split('-')[0]+"/R1/C2/participants?specialisation=INTERNET"
         return  this.effectActions.pipe(
         ofType(ParticipantActionsTypes.GET_ALL_PARTICIPANTS),
         mergeMap((action: Action) => {
-           return this.participantService.getParticipants()
+           return this.participantService.getParticipants(refCourse)
            .pipe(
              map((participants) =>  new GetAllParticipantActionsSuccess(participants)),
              catchError((err)=> of(

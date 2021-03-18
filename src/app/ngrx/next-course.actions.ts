@@ -3,13 +3,13 @@ import { NextCourse } from "../models/next-course.model";
 
 
 export enum NextCourseActionsTypes {
-  GET_ALL_NEXTCOURSES= "[NextCourses] Get All participant",
-  GET_ALL_NEXTCOURSES_SUCCESS= "[NextCourses] Get All participant Success",
-  GET_ALL_NEXTCOURSES_ERROR= "[NextCourses] Get All participant Error",
+  GET_ALL_NEXTCOURSES= "[NextCourses] Get All nextCourses",
+  GET_ALL_NEXTCOURSES_SUCCESS= "[NextCourses] Get All nextCourses Success",
+  GET_ALL_NEXTCOURSES_ERROR= "[NextCourses] Get All nextCourses Error",
 
-  GET_SELECTED_NEXTCOURSE= "[NextCourses] Get Selected participant",
-  GET_SELECTED_NEXTCOURSE_SUCCESS= "[NextCourses] Get Selected participant Success",
-  GET_SELECTED_NEXTCOURSE_ERROR= "[NextCourses] Get Selected participant Error",
+  GET_SELECTED_NEXTCOURSE= "[NextCourses] Get Selected nextCourse",
+  GET_SELECTED_NEXTCOURSE_SUCCESS= "[NextCourses] Get Selected nextCourse Success",
+  GET_SELECTED_NEXTCOURSE_ERROR= "[NextCourses] Get Selected nextCourse Error",
 
 
 }

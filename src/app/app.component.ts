@@ -3,8 +3,6 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { from, Observable, of, Subscription } from 'rxjs';
 import { filter, map, take, withLatestFrom } from 'rxjs/operators';
-// import { Participant } from './models/participant.model';
-import { SelectedCourse } from './models/selected-course.model';
 import { GetAllNextCourseActions, NextCourseActionsTypes } from './ngrx/next-course.actions';
 import { NextCoursesState } from './ngrx/next-courses.reducers';
 import { ParticipantsState } from './ngrx/participant.reducers';
@@ -54,8 +52,8 @@ sourceOne =   of('01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11
   tableOfSumeitem: string[] = [];
   tableOfCotes: number[] = [];
   tableOfCotes$: Observable<number[]>;
-  allJockeys: SelectedCourse[];
-  allJockeys$: Observable<SelectedCourse[]>;
+  allJockeys: any[];
+  allJockeys$: Observable<any[]>;
   deletedJokeys: string[] = [];
   coteMoyenne = 0;
   coteFavorite = 1000;
@@ -88,16 +86,16 @@ sourceOne =   of('01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11
   this.nextCoursesState$=this.store.pipe(
     map((state) =>state.nextCoursesState)
   );
-  // this.participantsState$=this.store.pipe(
-  //   map((state) =>state.participantsState)
-  // );
+  // this.participantsState$=
+  // this.store.select(participantsSelector).subscribe(data => console.log('RRRRRRRRRR==>',data))
   // this.allJockeys = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12', '13', '14', '15', '16', '17', '18'];
 
   setTimeout(()=> {
     // this.participantsState$.subscribe((data) => {
       this.nextCoursesState$.subscribe((data) => {
-      data.courses.forEach(cr => {
-        this.nextCourses.push('R'+cr['numOfficiel']+'C'+cr['numOrdre'])
+       data.courses.forEach(cr => {
+          this.nextCourses.push('R'+cr['numOfficiel']+'C'+cr['numOrdre'])
+
       });
   //  this.nextCourse=data;
       console.log('ssssssswhat is in data =======>',data)
@@ -240,6 +238,21 @@ startAction() {
   //  console.log('ssssssssssssssssssssssssssssssssssssssssss',this.form.value.choise)
 
 }
+
+participantsJokey(event) {
+
+
+this.allJockeys=event.participants;
+  console.log('hhhhhhhhhhhhhhh==>',this.allJockeys)
+  // this.cdRef.detectChanges();
+
+  this.allJockeys$=of(this.allJockeys)
+
+
+
+}
+
+
 computeCoteMoyenne(concernedJockey) {
   let cpt = 0;
   this.coteMoyenne = 0;
