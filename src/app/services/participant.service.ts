@@ -16,7 +16,8 @@ export class ParticipantService {
   constructor(private httpClient: HttpClient) { }
 
   public getParticipants(refCourse: string): Observable<SelectedCourse[]> {
-   return  this.httpClient.get<SelectedCourse[]>(this.cource_url+refCourse);
+  // return  this.httpClient.get<SelectedCourse[]>(this.cource_url+refCourse);
+   return  this.httpClient.get<SelectedCourse[]>(this.host+"/participants");
   }
 
   getSelectedParticipants(): Observable<SelectedCourse[]> {

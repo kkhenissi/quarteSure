@@ -1,8 +1,9 @@
 
 <div style=" text-align: center; margin-top: 20px;">
   <h5 class="inline" *ngFor="let crs of nextCourses$ | async; index as i; let even = even; let odd = odd" [ngClass]="{ odd: odd, even: even }">
-    <app-next-course [refNextCourse]="crs" [indexCourse]= i style=" text-align: center; margin-bottom: 20px;" (checkParticipants)="participantsJokey($event)"></app-next-course>
+    <app-next-course [refNextCourse]="crs" style=" text-align: center; margin-bottom: 20px;"></app-next-course>
   </h5>
+  <!-- (checkParticipants)="participantsJokey($event)" -->
 
 <div  style=" text-align: center; margin-top: 20px;">
 
@@ -39,10 +40,10 @@
       </form>
       <h5 class="inline" *ngFor="let jck of allJockeys$ | async; index as i; let even = even; let odd = odd" [ngClass]="{ odd: odd, even: even }">
       <!-- <h1 class="inline" *ngFor="let jck of participantsState$ | async; index as i; let even = even; let odd = odd" [ngClass]="{ odd: odd, even: even }"> -->
-        <app-jockey [nbr]="allJockeys[i]['numPmu']" [coteJockey]="allJockeys[i]['dernierRapportDirect']['rapport']"   (renvoiNumJockey)="removefromAllJockeys(i)" (coteJockeyChange)="addInCotes($event)"></app-jockey>
+        <app-jockey [nbr]="allJockeys[i]['numPmu']" [coteJockey]="allJockeys[i]['dernierRapportDirect']['rapport']"  (renvoiNumJockey)="removefromAllJockeys(i)" (coteJockeyChange)="addInCotes($event)"></app-jockey>
         {{ (allJockeys[i]['nom'] ).substring(0,4)| lowercase}}
       </h5>
-
+      <!--   -->
       <div class="row">
 
           <favorite class="col-md-4" [tableFavorites]="tableFavorites"></favorite>

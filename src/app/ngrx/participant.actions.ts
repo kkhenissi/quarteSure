@@ -36,8 +36,8 @@ export class GetRefParticipantActionsError implements Action{
 }
 
 export class GetAllParticipantActions implements Action{
-
-  constructor(public type: ParticipantActionsTypes=ParticipantActionsTypes.GET_ALL_PARTICIPANTS,public payload:any) {
+  type: ParticipantActionsTypes=ParticipantActionsTypes.GET_ALL_PARTICIPANTS
+  constructor(public payload:any) {
     console.log('paylod from constructore ==>', payload)
   }
 }

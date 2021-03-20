@@ -6,7 +6,7 @@ import { filter, map, take, withLatestFrom } from 'rxjs/operators';
 import { RefCourse } from './models/ref-course.model';
 import { GetAllNextCourseActions, NextCourseActionsTypes } from './ngrx/next-course.actions';
 import { NextCoursesState } from './ngrx/next-courses.reducers';
-import { ParticipantsState } from './ngrx/participant.reducers';
+import { participantsSelector, ParticipantsState } from './ngrx/participant.reducers';
 
 
 
@@ -87,29 +87,38 @@ sourceOne =   of('01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11
     map((state) =>state.nextCoursesState)
   );
   // this.participantsState$=
-  // this.store.select(participantsSelector).subscribe(data => console.log('RRRRRRRRRR==>',data))
+
+   this.store.select(participantsSelector).subscribe((data) => {
+
+     this.allJockeys=data['participants']
+     console.log('participants from allJockeys ===>',  this.allJockeys)
+   })
   // this.allJockeys = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12', '13', '14', '15', '16', '17', '18'];
 
   setTimeout(()=> {
     // this.participantsState$.subscribe((data) => {
       this.nextCoursesState$.subscribe((data) => {
-       data.courses.forEach(cr => {
-        console.log('{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{==>>', cr['numOfficiel'])
-         this.refNextCourse.R=cr['numOfficiel'];
-         this.refNextCourse.C=cr['numOrdre'];
-         console.log('{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{==>>', this.refNextCourse)
-         this.nextCourses.push('R'+cr['numOfficiel']+'C'+cr['numOrdre'])
+        if(this.nextCourses.length==0) {
+          data.courses.forEach(cr => {
+            console.log('{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{==>>', cr['numOfficiel'])
+             this.refNextCourse.R=cr['numOfficiel'];
+             this.refNextCourse.C=cr['numOrdre'];
+             console.log('{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{==>>', this.refNextCourse)
+             this.nextCourses.push('R'+cr['numOfficiel']+'C'+cr['numOrdre'])
 
-      });
+          });
+
+        }
+
   //  this.nextCourse=data;
       console.log('ssssssswhat is in this.nextCourses =======>',this.nextCourses)
       console.log('ssssssswhat is in  this.allJockeys =======>', this.allJockeys)
-                          // this.allJockeys$ = of(this.allJockeys);
-                          // this.tableOfCotes$ = of(this.tableOfCotes);
-                          // this.tableFavorites$ = of(this.tableFavorites);
-                          // this.tableLessProbable$ = from(this.tableLessProbable);
-                          // this.tableMediumProbable$ = from(this.tableMediumProbable);
-                          // this.tableNumJockeyAndCotes$ = of(this.tableNumJockeyAndCotes);
+                           this.allJockeys$ = of(this.allJockeys);
+                           this.tableOfCotes$ = of(this.tableOfCotes);
+                           this.tableFavorites$ = of(this.tableFavorites);
+                           this.tableLessProbable$ = from(this.tableLessProbable);
+                           this.tableMediumProbable$ = from(this.tableMediumProbable);
+                           this.tableNumJockeyAndCotes$ = of(this.tableNumJockeyAndCotes);
       })
   }, 1500)
 
@@ -243,18 +252,18 @@ startAction() {
 
 }
 
-participantsJokey(event) {
+// participantsJokey(event) {
 
 
-this.allJockeys=event;
-  console.log('hhhhhhhhhhhhhhh==>',this.allJockeys)
-  // this.cdRef.detectChanges();
+// this.allJockeys=event;
+//   console.log('hhhhhhhhhhhhhhh==>',this.allJockeys)
+//   // this.cdRef.detectChanges();
 
-  this.allJockeys$=of(this.allJockeys)
+//   this.allJockeys$=of(this.allJockeys)
 
 
 
-}
+// }
 
 
 computeCoteMoyenne(concernedJockey) {
@@ -383,7 +392,7 @@ updateInprobableAndFavorite() {
 
   }
 
-  });
+ });
   console.log('tableLessProbable++++++tableLessProbable ', this.tableLessProbable);
   console.log('this.tableMediumProbable ', this.tableMediumProbable);
   console.log('tableFavorites ', this.tableFavorites);

@@ -1,4 +1,4 @@
-import { Action, createFeatureSelector, createSelector } from "@ngrx/store";
+import { Action } from "@ngrx/store";
 import { NextCourse } from "../models/next-course.model";
 import { NextCourseActions, NextCourseActionsTypes } from "./next-course.actions";
 
@@ -48,6 +48,6 @@ export function nextCoursesReducer(state: NextCoursesState=initState, action: Ac
 
 }
 
-let nextCoursesFS = createFeatureSelector<NextCourse>('nextCoursesState')
-export let participantsSelector = createSelector(nextCoursesFS, state => state)
+// let nextCoursesFS = createFeatureSelector<NextCourse>('nextCoursesState')
+// export let participantsSelector = createSelector(nextCoursesFS, state => state)
 

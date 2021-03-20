@@ -1,5 +1,5 @@
 
-import { Action } from "@ngrx/store";
+import { Action, createFeatureSelector, createSelector } from "@ngrx/store";
 import { Participant } from "../models/participant.model";
 import { ParticipantActions, ParticipantActionsTypes } from "./participant.actions";
 
@@ -48,5 +48,7 @@ export function participantReducer(state: ParticipantsState=initState, action: A
   }
 
 }
+let participantsFS = createFeatureSelector<Participant>('participantsState')
+export let participantsSelector = createSelector(participantsFS, state => state)
 
 

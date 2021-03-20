@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { RefCourse } from 'src/app/models/ref-course.model';
 import { GetAllParticipantActions, ParticipantActionsTypes } from 'src/app/ngrx/participant.actions';
@@ -12,8 +12,8 @@ import { CurrentCourseService } from 'src/app/services/current-course.service';
 })
 export class NextCourseComponent implements OnInit {
   @Input('refNextCourse') refNextCourse:string;
-  @Input('indexCourse') indexCourse:number;
-  @Output() checkParticipants = new EventEmitter<any[]>();
+ // @Input('indexCourse') indexCourse:number;
+ // @Output() checkParticipants = new EventEmitter<any[]>();
   selectedCourse: any[];
   constructor(private store: Store,
               private currentCourseService: CurrentCourseService) { }
@@ -30,10 +30,10 @@ export class NextCourseComponent implements OnInit {
     console.log("NNNNNNNNNNNNNNNNNNN==>",refCourse)
    this.currentCourseService.setRefCourseObs(refCourse);
    setTimeout(()=>{
-    this.store.dispatch(new GetAllParticipantActions(ParticipantActionsTypes.GET_ALL_PARTICIPANTS, this.indexCourse))
-   },2000)
+    this.store.dispatch(new GetAllParticipantActions(ParticipantActionsTypes.GET_ALL_PARTICIPANTS))
+   })
 
-   this.checkParticipants.emit(this.selectedCourse);
+  // this.checkParticipants.emit(this.selectedCourse);
   }
 
 
