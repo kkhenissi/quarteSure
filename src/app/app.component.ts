@@ -3,10 +3,10 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { from, Observable, of, Subscription } from 'rxjs';
 import { filter, map, take, withLatestFrom } from 'rxjs/operators';
+import { RefCourse } from './models/ref-course.model';
 import { GetAllNextCourseActions, NextCourseActionsTypes } from './ngrx/next-course.actions';
 import { NextCoursesState } from './ngrx/next-courses.reducers';
 import { ParticipantsState } from './ngrx/participant.reducers';
-import { ParticipantService } from './services/participant.service';
 
 
 
@@ -17,13 +17,13 @@ import { ParticipantService } from './services/participant.service';
 })
 export class AppComponent implements OnInit, OnDestroy {
 
-  constructor(private participantService: ParticipantService,
-              private store: Store<any>,
+  constructor(private store: Store<any>,
               private cdRef:ChangeDetectorRef) {}
 
 participantsState$: Observable<ParticipantsState> | null = null;
 nextCoursesState$: Observable<NextCoursesState> | null = null;
-refCourse: string="";
+refNextCourse: RefCourse={R:'',C:''};
+//
 nextCourses:string[]=[];
 nextCourses$=of(this.nextCourses);
 
@@ -94,11 +94,15 @@ sourceOne =   of('01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11
     // this.participantsState$.subscribe((data) => {
       this.nextCoursesState$.subscribe((data) => {
        data.courses.forEach(cr => {
-          this.nextCourses.push('R'+cr['numOfficiel']+'C'+cr['numOrdre'])
+        console.log('{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{==>>', cr['numOfficiel'])
+         this.refNextCourse.R=cr['numOfficiel'];
+         this.refNextCourse.C=cr['numOrdre'];
+         console.log('{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{==>>', this.refNextCourse)
+         this.nextCourses.push('R'+cr['numOfficiel']+'C'+cr['numOrdre'])
 
       });
   //  this.nextCourse=data;
-      console.log('ssssssswhat is in data =======>',data)
+      console.log('ssssssswhat is in this.nextCourses =======>',this.nextCourses)
       console.log('ssssssswhat is in  this.allJockeys =======>', this.allJockeys)
                           // this.allJockeys$ = of(this.allJockeys);
                           // this.tableOfCotes$ = of(this.tableOfCotes);
@@ -242,7 +246,7 @@ startAction() {
 participantsJokey(event) {
 
 
-this.allJockeys=event.participants;
+this.allJockeys=event;
   console.log('hhhhhhhhhhhhhhh==>',this.allJockeys)
   // this.cdRef.detectChanges();
 

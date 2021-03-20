@@ -11,12 +11,12 @@ const headers = new HttpHeaders()
 })
 export class ParticipantService {
   host= environment.host;
-  cource_url="https://online.turfinfo.api.pmu.fr/rest/client/1/programme/prochainesCourses";
+  cource_url="https://online.turfinfo.api.pmu.fr/rest/client/1/programme";
 
   constructor(private httpClient: HttpClient) { }
 
   public getParticipants(refCourse: string): Observable<SelectedCourse[]> {
-   return  this.httpClient.get<SelectedCourse[]>(this.host+'/participants'+refCourse);
+   return  this.httpClient.get<SelectedCourse[]>(this.cource_url+refCourse);
   }
 
   getSelectedParticipants(): Observable<SelectedCourse[]> {

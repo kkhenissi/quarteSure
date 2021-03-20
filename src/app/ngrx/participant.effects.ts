@@ -3,6 +3,8 @@ import { Actions, createEffect, ofType } from "@ngrx/effects";
 import { Action } from "@ngrx/store";
 import { Observable, of } from "rxjs";
 import { catchError, map, mergeMap } from "rxjs/operators";
+import { RefCourse } from "../models/ref-course.model";
+import { CurrentCourseService } from "../services/current-course.service";
 import { ParticipantService } from "../services/participant.service";
 import { GetAllParticipantActionsError, GetAllParticipantActionsSuccess, GetSelectedParticipantActionsError, GetSelectedParticipantActionsSuccess, ParticipantActionsTypes } from "./participant.actions";
 
@@ -10,19 +12,33 @@ import { GetAllParticipantActionsError, GetAllParticipantActionsSuccess, GetSele
 
 @Injectable()
 export class ParticipantsEffects {
-
+  refCourse: RefCourse={R:'',C:''};
+  urlParticipants:string;
   constructor(private participantService: ParticipantService,
-              private effectActions: Actions) { }
+              private effectActions: Actions,
+              private currentCourseService: CurrentCourseService) {
+                this.currentCourseService.getRefCourseObs().subscribe((resp)=> {
+                this.refCourse=resp;
+                 console.log('fffffffff++ffffffffff==>', this.refCourse)
+                 let dateCourse= new Date();
+                 this.urlParticipants="/"+dateCourse.toISOString().split('-')[2].substring(0,2)+dateCourse.toISOString().split('-')[1]+dateCourse.toISOString().split('-')[0]+"/"+this.refCourse.R+"/"+this.refCourse.C+"/participants?specialisation=INTERNET"
+                 console.log('LLLLLLLLLLLLLLLLLLLLLLLlll==>', this.urlParticipants)
+                })
+
+               }
 
   getAllParticipantsEffect:Observable<Action>=createEffect( () => {
 
-    let dateCourse=new Date();
-    let refCourse: string;
-    refCourse="/"+dateCourse.toISOString().split('-')[2].substring(0,2)+dateCourse.toISOString().split('-')[1]+dateCourse.toISOString().split('-')[0]+"/R1/C2/participants?specialisation=INTERNET"
+   // let dateCourse=new Date();
+   // let refCourse: RefCourse;
+   // this.currentCourseService.getRefCourseObs().subscribe(refCourse => refCourse = refCourse);
+   // console.log('refCourse====+++++++++++++++++++===>',refCourse)
+   // let  urlParticipants="/"+dateCourse.toISOString().split('-')[2].substring(0,2)+dateCourse.toISOString().split('-')[1]+dateCourse.toISOString().split('-')[0]+this.refCourse.R+"/"+this.refCourse.C+"/participants?specialisation=INTERNET"
         return  this.effectActions.pipe(
         ofType(ParticipantActionsTypes.GET_ALL_PARTICIPANTS),
         mergeMap((action: Action) => {
-           return this.participantService.getParticipants(refCourse)
+
+           return this.participantService.getParticipants(this.urlParticipants)
            .pipe(
              map((participants) =>  new GetAllParticipantActionsSuccess(participants)),
              catchError((err)=> of(

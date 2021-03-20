@@ -2,6 +2,10 @@ import { Action } from "@ngrx/store";
 import { SelectedCourse } from "../models/selected-course.model";
 
 export enum ParticipantActionsTypes {
+  GET_REF_PARTICIPANTS= "[Participants] Get Ref participant",
+  GET_REF_PARTICIPANTS_SUCCESS= "[Participants] Get Ref participant Success",
+  GET_REF_PARTICIPANTS_ERROR= "[Participants] Get Ref participant Error",
+
   GET_ALL_PARTICIPANTS= "[Participants] Get All participant",
   GET_ALL_PARTICIPANTS_SUCCESS= "[Participants] Get All participant Success",
   GET_ALL_PARTICIPANTS_ERROR= "[Participants] Get All participant Error",
@@ -16,9 +20,26 @@ export enum ParticipantActionsTypes {
 
 }
 
+export class GetRefParticipantActions implements Action{
+  type: ParticipantActionsTypes=ParticipantActionsTypes.GET_ALL_PARTICIPANTS
+  constructor(public payload:any) {
+    console.log('paylod from constructore ==>', payload)
+  }
+}
+export class GetRefParticipantActionsSuccess implements Action{
+  type: ParticipantActionsTypes=ParticipantActionsTypes.GET_ALL_PARTICIPANTS_SUCCESS;
+  constructor(public payload:SelectedCourse[]) {}
+}
+export class GetRefParticipantActionsError implements Action{
+  type: ParticipantActionsTypes=ParticipantActionsTypes.GET_ALL_PARTICIPANTS_ERROR;
+  constructor(public payload:string) {}
+}
+
 export class GetAllParticipantActions implements Action{
-  type: ParticipantActionsTypes=ParticipantActionsTypes.GET_ALL_PARTICIPANTS;
-  constructor(public payload:any) {}
+
+  constructor(public type: ParticipantActionsTypes=ParticipantActionsTypes.GET_ALL_PARTICIPANTS,public payload:any) {
+    console.log('paylod from constructore ==>', payload)
+  }
 }
 export class GetAllParticipantActionsSuccess implements Action{
   type: ParticipantActionsTypes=ParticipantActionsTypes.GET_ALL_PARTICIPANTS_SUCCESS;

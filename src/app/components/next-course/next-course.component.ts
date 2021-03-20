@@ -1,6 +1,8 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { participantsSelector } from 'src/app/ngrx/next-courses.reducers';
+import { RefCourse } from 'src/app/models/ref-course.model';
+import { GetAllParticipantActions, ParticipantActionsTypes } from 'src/app/ngrx/participant.actions';
+import { CurrentCourseService } from 'src/app/services/current-course.service';
 
 
 @Component({
@@ -9,28 +11,31 @@ import { participantsSelector } from 'src/app/ngrx/next-courses.reducers';
   styleUrls: ['./next-course.component.css']
 })
 export class NextCourseComponent implements OnInit {
-  @Input('refCourse') refCourse:string;
+  @Input('refNextCourse') refNextCourse:string;
   @Input('indexCourse') indexCourse:number;
   @Output() checkParticipants = new EventEmitter<any[]>();
   selectedCourse: any[];
-  constructor(private store: Store) { }
+  constructor(private store: Store,
+              private currentCourseService: CurrentCourseService) { }
 
   ngOnInit(): void {
   }
 
   selectCourse(event) {
-   // this.store.dispatch(new GetAllParticipantActions(ParticipantActionsTypes.GET_ALL_PARTICIPANTS))
-   console.log('RRRRRR+6666RRRR==>',event);
-   this.store.select(participantsSelector).subscribe(data => {
-     // send selected course
 
-      this.selectedCourse=data['courses'][this.indexCourse];
-      console.log('RRRRRR++RRRR==>',data['courses'][this.indexCourse]);
-    })
 
-   // this.store.dispatch(new GetAllNextCourseActions(NextCourseActionsTypes.GET_ALL_NEXTCOURSES))
-    this.checkParticipants.emit(this.selectedCourse);
+    let refCourse: RefCourse={R:'',C:''};
+    refCourse.R=event.substring(0,2);
+    refCourse.C=event.substring(2);
+    console.log("NNNNNNNNNNNNNNNNNNN==>",refCourse)
+   this.currentCourseService.setRefCourseObs(refCourse);
+   setTimeout(()=>{
+    this.store.dispatch(new GetAllParticipantActions(ParticipantActionsTypes.GET_ALL_PARTICIPANTS, this.indexCourse))
+   },2000)
+
+   this.checkParticipants.emit(this.selectedCourse);
   }
 
 
 }
+

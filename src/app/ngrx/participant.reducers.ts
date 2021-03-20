@@ -13,12 +13,14 @@ export enum ParticipantsStatusEnum {
 
 
 export interface ParticipantsState {
+  refCourse: string[];
   participants: Participant[],
   errorMessage: any,
   dataStatus: ParticipantsStatusEnum
 
 }
 const initState: ParticipantsState= {
+  refCourse: [],
   participants: [],
   errorMessage: "",
   dataStatus: ParticipantsStatusEnum.INITIAL
@@ -46,3 +48,5 @@ export function participantReducer(state: ParticipantsState=initState, action: A
   }
 
 }
+
+
