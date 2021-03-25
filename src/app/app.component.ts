@@ -182,7 +182,7 @@ startAction() {
 //                         });
 //                     }
 
-//              } else if (this.form.value.choise === 6) {
+//              } else if (this.form.value.choise == 6) {
 //               for (let l = k + 1; l < 19 ; l++) {
 //                 for (let m = l + 1; m < 19 ; m++) {
 //                         zip(
@@ -203,7 +203,7 @@ startAction() {
 //               }
 
 
-//              } else if (this.form.value.choise === 7) {
+//              } else if (this.form.value.choise == 7) {
 //               for (let l = k + 1; l < 19 ; l++) {
 //                 for (let m = l + 1; m < 19 ; m++) {
 //                   for (let s = m + 1; s < 19 ; s++) {
@@ -386,6 +386,7 @@ updateInprobableAndFavorite() {
 }
 
 spots() {
+
   const varForFavorite = this.tableFavorites.length;
   const varForMedium = this.tableMediumProbable.length;
   const varForLess = this.tableLessProbable.length;
@@ -398,8 +399,11 @@ spots() {
   this.tableFavorites$ = of(this.tableFavorites);
   this.tableMediumProbable$ = from(this.tableMediumProbable);
   this.tableLessProbable$ = from(this.tableLessProbable);
-  if (this.form.value.choise === 6) {  // when we choose multi in 6
+
+  if (this.form.value.choise == 6) {  // when we choose multi in 6
+
       if (varForFavorite === 3) { // when number of favories jockey equals 3
+
         for (let j = 0; j <= varForMedium;) {
         if (j === varForMedium) { varJ = 2; }
         for (let i = 0; i <= varForLess;) {
@@ -419,7 +423,7 @@ spots() {
               i++;
               }
         j++;
-        }
+      }
 
 
       } else {    // when number of favorites jockeys equals 4
@@ -488,9 +492,9 @@ spots() {
         }
 
       }
-    }
+  }
 
-
+console.log('Ya quoi dans spotsTable  ==>',this.spotsTable)
 
 }
 
