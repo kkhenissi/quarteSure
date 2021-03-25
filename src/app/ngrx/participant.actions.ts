@@ -1,4 +1,5 @@
 import { Action } from "@ngrx/store";
+import { Participant } from "../models/participant.model";
 import { SelectedCourse } from "../models/selected-course.model";
 
 export enum ParticipantActionsTypes {
@@ -43,7 +44,7 @@ export class GetAllParticipantActions implements Action{
 }
 export class GetAllParticipantActionsSuccess implements Action{
   type: ParticipantActionsTypes=ParticipantActionsTypes.GET_ALL_PARTICIPANTS_SUCCESS;
-  constructor(public payload:SelectedCourse[]) {}
+  constructor(public payload:Participant[]) {}
 }
 export class GetAllParticipantActionsError implements Action{
   type: ParticipantActionsTypes=ParticipantActionsTypes.GET_ALL_PARTICIPANTS_ERROR;
@@ -64,6 +65,8 @@ export class GetSelectedParticipantActionsError implements Action{
   type: ParticipantActionsTypes=ParticipantActionsTypes.GET_SELECTED_PARTICIPANT_ERROR;
   constructor(public payload:string) {}
 }
+
+
 
 export class DellSelectedParticipantActions implements Action{
   readonly type: ParticipantActionsTypes=ParticipantActionsTypes.DELL_SELECTED_PARTICIPANT;

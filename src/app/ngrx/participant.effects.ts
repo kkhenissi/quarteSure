@@ -65,14 +65,15 @@ export class ParticipantsEffects {
    )}
   )
 
-  // delSelectedParticipantsEffect:Observable<Action>=createEffect( () => {
+  // delSelectedParticipantEffect:Observable<Action>=createEffect( () => {
   //   return  this.effectActions.pipe(
   //   ofType(ParticipantActionsTypes.DELL_SELECTED_PARTICIPANT),
   //   mergeMap((action: ParticipantActionsTypes.DELL_SELECTED_PARTICIPANT) => {
   //      return this.participantService.getSelectedParticipants()
   //      .pipe(
   //        map(participants => {
-  //          return new GetAllParticipantActionsSuccess(<Participant[]>participants);
+  //          participants.filter(part => part.numOrdre!==4)
+  //          return new GetAllParticipantActionsSuccess(<Participant[]><unknown>participants);
   //        }),
   //        catchError(err=> of(
   //          new GetSelectedParticipantActionsError(err.message)

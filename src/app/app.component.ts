@@ -2,10 +2,11 @@ import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { from, Observable, of, Subscription } from 'rxjs';
-import { filter, map, take, withLatestFrom } from 'rxjs/operators';
+import { map, take, withLatestFrom } from 'rxjs/operators';
 import { RefCourse } from './models/ref-course.model';
 import { GetAllNextCourseActions, NextCourseActionsTypes } from './ngrx/next-course.actions';
 import { NextCoursesState } from './ngrx/next-courses.reducers';
+import { DellSelectedParticipantActions, ParticipantActionsTypes } from './ngrx/participant.actions';
 import { participantsSelector, ParticipantsState } from './ngrx/participant.reducers';
 
 
@@ -28,7 +29,7 @@ nextCourses:string[]=[];
 nextCourses$=of(this.nextCourses);
 
 
-sourceOne =   of('01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12', '13', '14', '15', '16', '17', '18');
+ /// ** sourceOne =   of('01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12', '13', '14', '15', '16', '17', '18');
 
 
 
@@ -74,23 +75,16 @@ sourceOne =   of('01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11
 
   ngOnInit(): void {
 
-
-
-
-
-
- // this.store.dispatch(new GetAllParticipantActions(ParticipantActionsTypes.GET_ALL_PARTICIPANTS))
   this.store.dispatch(new GetAllNextCourseActions(NextCourseActionsTypes.GET_ALL_NEXTCOURSES));
   this.startAction();
   this.cdRef.detectChanges();
-  this.nextCoursesState$=this.store.pipe(
+  this.nextCoursesState$=this.store.pipe(     // charge les course dont le departs soit imenant
     map((state) =>state.nextCoursesState)
   );
-  // this.participantsState$=
 
    this.store.select(participantsSelector).subscribe((data) => {
 
-     this.allJockeys=data['participants']
+     this.allJockeys=Object.assign([], data['participants'])
      console.log('participants from allJockeys ===>',  this.allJockeys)
    })
   // this.allJockeys = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12', '13', '14', '15', '16', '17', '18'];
@@ -299,20 +293,27 @@ computeCoteMoyenne(concernedJockey) {
 
 }
 removefromAllJockeys(xnbr) {
+ //
 
+  console.log('conhhhhhhhhhhhOOOOOOOOOOOOOOOOOOOOOOOO/////////////////////////////hhhhhhhhhhhhh', xnbr);
   console.log('conhhhhhhhhhhhhhhhhhhhhhhhh', this.allJockeys);
-  const f =  xnbr[0];
+
+  const f =  xnbr;
   let wm = this.allJockeys[f];
+  console.log('conhhhhhhhhhhhhhhhhhhhhhhhh  wm==>', wm);
   const wmNum = wm['numPmu'].toString();
   this.allJockeys.splice(f, 1);
+  this.store.dispatch(new DellSelectedParticipantActions(ParticipantActionsTypes.DELL_SELECTED_PARTICIPANT));
+  console.log('afterslice ===>', this.allJockeys);
   this.deletedJokeys.push(f);
+ // **
   this.oteFromCote(wmNum);
 
 
-   this.sourceOne = this.sourceOne.pipe(filter(num => num !== wmNum));
+  // this.sourceOne = this.sourceOne.pipe(filter(num => num !== wmNum));
 
 
-  this.startAction();
+ // this.startAction();
 
 }
 
@@ -320,20 +321,6 @@ addInCotes(val) {
 
 
 
-
-
-
-//   var a = [{name:"bull", text: "sour"},
-//   { name: "tom", text: "tasty" },
-//   { name: "tom", text: "tasty" }
-// ]
-// var index = a.findIndex(x => x.name=="bob")
-// // here you can check specific property for an object whether it exist in your array or not
-
-// if (index === -1){
-//   a.push({your_object});
-// }
-// else console.log("object already exists")
 
   console.log('conhhhhhhhhhddddddddddddwwwwwwwwwwwwhhhhhhhhhhhhhhh', val);
   this.tableOfCotes[parseFloat(val[0])] = parseFloat(val[1]);

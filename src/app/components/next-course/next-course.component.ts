@@ -14,7 +14,7 @@ export class NextCourseComponent implements OnInit {
   @Input('refNextCourse') refNextCourse:string;
  // @Input('indexCourse') indexCourse:number;
  // @Output() checkParticipants = new EventEmitter<any[]>();
-  selectedCourse: any[];
+ // selectedCourse: any[];
   constructor(private store: Store,
               private currentCourseService: CurrentCourseService) { }
 

@@ -1,6 +1,7 @@
 
-import { Action, createFeatureSelector, createSelector } from "@ngrx/store";
+import { createFeatureSelector, createSelector } from "@ngrx/store";
 import { Participant } from "../models/participant.model";
+import * as participantActions from "./participant.actions";
 import { ParticipantActions, ParticipantActionsTypes } from "./participant.actions";
 
 export enum ParticipantsStatusEnum {
@@ -27,7 +28,7 @@ const initState: ParticipantsState= {
 
 }
 
-export function participantReducer(state: ParticipantsState=initState, action: Action): ParticipantsState {
+export function participantReducer(state: ParticipantsState=initState, action: participantActions.ParticipantActions): ParticipantsState {
   switch(action.type) {
     case ParticipantActionsTypes.GET_ALL_PARTICIPANTS:
       return {...state, dataStatus: ParticipantsStatusEnum.LOADING}
@@ -40,9 +41,23 @@ export function participantReducer(state: ParticipantsState=initState, action: A
     case ParticipantActionsTypes.GET_SELECTED_PARTICIPANT:
       return {...state, dataStatus: ParticipantsStatusEnum.LOADING}
     case ParticipantActionsTypes.GET_SELECTED_PARTICIPANT_SUCCESS:
-      return {...state, dataStatus: ParticipantsStatusEnum.LOADED, participants: (<ParticipantActions>action).payload}
+      return {...state, dataStatus: ParticipantsStatusEnum.LOADED, participants: action.payload}
     case ParticipantActionsTypes.GET_SELECTED_PARTICIPANT_ERROR:
-      return {...state, dataStatus: ParticipantsStatusEnum.ERROR, errorMessage: (<ParticipantActions>action).payload}
+      return {...state, dataStatus: ParticipantsStatusEnum.ERROR, errorMessage: action.payload}
+
+
+    case ParticipantActionsTypes.DELL_SELECTED_PARTICIPANT:
+      return {
+        ...state, dataStatus: ParticipantsStatusEnum.LOADED,
+        participants: action.payload.filter()
+      }
+    // case ParticipantActionsTypes.DELL_SELECTED_PARTICIPANT_SUCCESS:
+    //   return {
+    //          ...state, dataStatus: ParticipantsStatusEnum.LOADED,
+    //          participants: action.payload.filter(part => part.numOrder !==4)
+    //         }
+    case ParticipantActionsTypes.DELL_SELECTED_PARTICIPANT_ERROR:
+      return {...state, dataStatus: ParticipantsStatusEnum.ERROR, errorMessage: action.payload}
 
     default: return {...state}
   }
