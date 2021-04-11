@@ -19,6 +19,7 @@ import { NextCoursesEffects } from './ngrx/next-courses.effects';
 import { nextCoursesReducer } from './ngrx/next-courses.reducers';
 import { ParticipantsEffects } from './ngrx/participant.effects';
 import { participantReducer } from './ngrx/participant.reducers';
+import { IaComponent } from './components/ia/ia.component';
 // import { CottedDirective } from './directives/cotted.directive';
 // import { ParticipantsEffects } from './ngrx/product.effects';
 
@@ -36,6 +37,7 @@ import { participantReducer } from './ngrx/participant.reducers';
     FavoriteComponent,
     MediumProbableComponent,
     NextCourseComponent,
+    IaComponent,
  //  CottedDirective
   ],
   imports: [

@@ -50,10 +50,13 @@
           <medium-probable class="col-md-4" [tableMediumProbable]="tableMediumProbable"></medium-probable>
           <less-probable class="col-md-4" [tableLessProbable]="tableLessProbable"></less-probable>
       </div>
-
+      <app-ia class="col-md-4" [iaTableResult]="iaTableResult"></app-ia>
       <div style=" text-align: center; margin-bottom: 30px;">
           <button class="btn btn-secondary format-action"><h1 (click)= "spots()">Spots</h1></button>
-      </div>
+      <!-- </div> -->
+      <!-- <div style=" text-align: center; margin-bottom: 30px;"> -->
+        <button class="btn btn-secondary format-action"><h1 (click)= "ia()">IA</h1></button>
+    </div>
 
       <ng-container *ngIf="spotsTable$ | async; let spots;">
         <p>{{spots.first}}</p>

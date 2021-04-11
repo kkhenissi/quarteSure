@@ -1,0 +1,24 @@
+<div class="card">
+
+  <div class="card-header">
+         IA Prediction
+        </div>
+        <div class="card-body">
+          <!-- <blockquote class="blockquote mb-0"> -->
+                  <h1 class="inline" *ngFor="let jck of iaTableResult$ | async; index as i; let even = even; let odd = odd" [ngClass]="{ odd: odd, even: even }">
+                          {{jck}}
+                  </h1>
+          <!-- </blockquote> -->
+        </div>
+        <div class="card-footer">
+              <!-- <form [(formGroup)]="formMedium" class="inline"> -->
+                  <!-- <label class="container" *ngFor="let nbmed of nbrMeduimProbable; index as idx">
+                          <input type="radio"  value="idx" > {{nbmed}}
+                          <span class="checkmark"></span>
+                  </label>   -->
+              <!-- </form> -->
+
+              <!-- formControlName="choise" -->
+
+      </div>
+  </div>

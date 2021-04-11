@@ -1,10 +1,10 @@
-import { Component, OnInit, Input , OnChanges, Output, EventEmitter, AfterContentChecked, AfterViewChecked} from '@angular/core';
-import { Observable, of, BehaviorSubject } from 'rxjs';
+import { AfterViewChecked, ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
 
 @Component({
 selector: 'basic-table',
 templateUrl: './table-responsive.component.html',
 styleUrls: ['./table-responsive.component.css'],
+changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BasicTableComponent implements OnInit, AfterViewChecked {
 

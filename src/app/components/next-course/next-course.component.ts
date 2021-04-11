@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { RefCourse } from 'src/app/models/ref-course.model';
 import { GetAllParticipantActions, ParticipantActionsTypes } from 'src/app/ngrx/participant.actions';
@@ -8,7 +8,8 @@ import { CurrentCourseService } from 'src/app/services/current-course.service';
 @Component({
   selector: 'app-next-course',
   templateUrl: './next-course.component.html',
-  styleUrls: ['./next-course.component.css']
+  styleUrls: ['./next-course.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class NextCourseComponent implements OnInit {
   @Input('refNextCourse') refNextCourse:string;

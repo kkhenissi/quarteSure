@@ -1,10 +1,11 @@
-import { Component, OnInit, Input, ChangeDetectorRef, AfterViewChecked } from '@angular/core';
+import { AfterViewChecked, ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnInit } from '@angular/core';
 import { Observable, of } from 'rxjs';
 
 @Component({
   selector: 'less-probable',
   templateUrl: './less-probable.component.html',
-  styleUrls: ['./less-probable.component.css']
+  styleUrls: ['./less-probable.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LessProbableComponent implements OnInit, AfterViewChecked {
   nbrLessProbable: number[];

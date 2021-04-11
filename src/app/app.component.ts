@@ -49,6 +49,8 @@ nextCourses$=of(this.nextCourses);
   tableMediumProbable$: Observable<string>;
 
   tableNumJockeyAndCotes: [[]] = [[]];
+  iaTableResult: string[] = [];
+  iaTableResult$: Observable<string[]>;
   tableNumJockeyAndCotes$: Observable<[[]]>;
   tableOfSumeitem: string[] = [];
   tableOfCotes: number[] = [];
@@ -112,7 +114,7 @@ nextCourses$=of(this.nextCourses);
                            this.tableFavorites$ = of(this.tableFavorites);
                            this.tableLessProbable$ = from(this.tableLessProbable);
                            this.tableMediumProbable$ = from(this.tableMediumProbable);
-                           this.tableNumJockeyAndCotes$ = of(this.tableNumJockeyAndCotes);
+                          this.tableNumJockeyAndCotes$ = of(this.tableNumJockeyAndCotes);
       })
   }, 1500)
 
@@ -287,7 +289,7 @@ computeCoteMoyenne(concernedJockey) {
   //   this.tableLessProbable.push(concernedJockey[0])
   // }
 
-
+  this.updateNumJockeyAndCotes(concernedJockey)
 
 
 
@@ -318,21 +320,25 @@ removefromAllJockeys(xnbr) {
 }
 
 addInCotes(val) {
+console.log('§*******************************!!!!!!!!!!!!!!!!!!!!§§§§§§§§§§§§§§§§§§§§§§§§§§§§')
 
-
-
-
-  console.log('conhhhhhhhhhddddddddddddwwwwwwwwwwwwhhhhhhhhhhhhhhh', val);
+  this.tableNumJockeyAndCotes.findIndex(x => console.log(' OOOOOOOOOOOOOOOOooXXXXXXXX====>',x[0]))
+  console.log('conhhhhhhhhhddddddddddddwwwwwwwwwwwwhhhhhhhhhhhhhhh', val[0]);
   this.tableOfCotes[parseFloat(val[0])] = parseFloat(val[1]);
   this.conserbedJockey = val;
   this.computeCoteMoyenne(this.conserbedJockey);
   this.updateInprobableAndFavorite();
-  let index = this.tableNumJockeyAndCotes.findIndex(x => x == val);
+  let index = this.tableNumJockeyAndCotes.findIndex(x => x[0] == val[0]);
+  console.log('What is in index ====>', index);
   if (index === -1) {
-        this.tableNumJockeyAndCotes.push(val);
+       this.tableNumJockeyAndCotes.push(val);
       }
 
+  //    cars.sort(function(a, b){return a.year - b.year});
 
+  this.tableNumJockeyAndCotes.sort(function(a,b){return a[1] - b[1]})
+  console.log('numJockehouuuuuuuuuuuuuuuuuuuuurraysAndCotes ====>', this.tableNumJockeyAndCotes)
+  this.ia();
 
 }
 oteFromCote(index) {
@@ -344,12 +350,35 @@ oteFromCote(index) {
 }
 
 
+updateNumJockeyAndCotes(concernedJockey) {
+  console.log('concernedJockey------------------------------------------>',concernedJockey)
+  console.log('tableNumJockeyAndCotes------------------------------------------>',this.tableNumJockeyAndCotes)
+ //  this.tableNumJockeyAndCotes.filter(data => {
+     for (const key in  this.tableNumJockeyAndCotes) {
 
+        if(this.tableNumJockeyAndCotes[key][0]==concernedJockey[0]) {
+         this.tableNumJockeyAndCotes[key][1]=concernedJockey[1];
+        }
+      console.log('Keeeeeeeeeeyyyyyyyyyyyyyyyyyyyyyyyyy==>', this.conserbedJockey[0])
+       console.log('Keeeeeeeeeeyyyyyyyyyyyyyyyyyyyyyyyyy==>', this.tableNumJockeyAndCotes[key][0])
+     }
+ //  })
+   const index = this.tableNumJockeyAndCotes.indexOf(concernedJockey[0])
+   console.log('index of concernedJockey------------------------------------------>',index)
+}
 updateInprobableAndFavorite() {
 
   this.tableLessProbable = [];
   this.tableMediumProbable = [];
   this.tableFavorites = [];
+
+  // this.tableNumJockeyAndCotes$.subscribe(data => {
+  //   for (const key in data) {
+  //     const element = data[key];
+  //     console.log('666666666666666666666666666666666666666666==>',element);
+  //   }
+  // })
+
 
 
   console.log('tableNewOfCotes****************************> ', this.tableOfCotes);
@@ -366,9 +395,6 @@ updateInprobableAndFavorite() {
       console.log('+++++++++++++++++++> data[key] ', data[key]);
 
       if (data[key] > this.coteMoyenne ) {
-
-
-
          this.tableLessProbable.push(('0' + key).slice(-2));
        } else if (data[key] < this.coteMoyenneTrancheInf ) {
          this.tableFavorites.push(('0' + key).slice(-2));
@@ -383,6 +409,7 @@ updateInprobableAndFavorite() {
   console.log('tableLessProbable++++++tableLessProbable ', this.tableLessProbable);
   console.log('this.tableMediumProbable ', this.tableMediumProbable);
   console.log('tableFavorites ', this.tableFavorites);
+  console.log('this.tableNumJockeyAndCotes ', this.tableNumJockeyAndCotes);
 }
 
 spots() {
@@ -399,6 +426,21 @@ spots() {
   this.tableFavorites$ = of(this.tableFavorites);
   this.tableMediumProbable$ = from(this.tableMediumProbable);
   this.tableLessProbable$ = from(this.tableLessProbable);
+
+
+
+  // switch(this.form.value.choise) {
+  //   case '6':
+
+  //      switch(varForFavorite) {
+  //        case '3':
+
+  //      }
+
+  // }
+
+
+
 
   if (this.form.value.choise == 6) {  // when we choose multi in 6
 
@@ -496,6 +538,15 @@ spots() {
 
 console.log('Ya quoi dans spotsTable  ==>',this.spotsTable)
 
+}
+ia() {
+  this.iaTableResult=[];
+    for(let i=1 ; i<this.tableNumJockeyAndCotes.length; i++) {
+      console.log('ssssssssssss==>ooooooooo==>',this.tableNumJockeyAndCotes[i][0])
+     if(i!=3 && i!=6 && i!=10 && i!=14 && i!=15 && i!=16 && i!=17 && i!=18) {
+       this.iaTableResult.push(this.tableNumJockeyAndCotes[i][0])
+     }
+   }
 }
 
 ngOnDestroy(): void {

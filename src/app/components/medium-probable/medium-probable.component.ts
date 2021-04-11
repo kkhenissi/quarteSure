@@ -1,10 +1,11 @@
-import { Component, OnInit, Input, AfterViewChecked, ChangeDetectorRef, OnChanges } from '@angular/core';
+import { AfterViewChecked, ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnInit } from '@angular/core';
 import { Observable, of } from 'rxjs';
 
 @Component({
   selector: 'medium-probable',
   templateUrl: './medium-probable.component.html',
-  styleUrls: ['./medium-probable.component.css']
+  styleUrls: ['./medium-probable.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MediumProbableComponent implements OnInit, AfterViewChecked {
 
@@ -15,9 +16,9 @@ export class MediumProbableComponent implements OnInit, AfterViewChecked {
 
   ngOnInit() {
   }
- 
+
   ngAfterViewChecked(): void {
-   
+
     this.tableMediumProbable$ = of(this.tableMediumProbable);
     if(this.tableMediumProbable) {
     // this.tableMediumProbable.forEach(element => {

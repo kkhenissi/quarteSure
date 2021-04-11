@@ -1,11 +1,12 @@
-import { ChangeDetectorRef, Component, DoCheck, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, DoCheck, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { DellSelectedParticipantActions, ParticipantActionsTypes } from 'src/app/ngrx/participant.actions';
 
 @Component({
   selector: 'app-jockey',
   templateUrl: './jockey.component.html',
-  styleUrls: ['./jockey.component.css']
+  styleUrls: ['./jockey.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class JokeyComponent implements OnInit, DoCheck{
 
