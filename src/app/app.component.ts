@@ -48,10 +48,10 @@ nextCourses$=of(this.nextCourses);
   tableMediumProbable: string[] = [];
   tableMediumProbable$: Observable<string>;
 
-  tableNumJockeyAndCotes: [[]] = [[]];
+  tableNumJockeyAndCotes: [string[]] = [[]];
   iaTableResult: string[] = [];
   iaTableResult$: Observable<string[]>;
-  tableNumJockeyAndCotes$: Observable<[[]]>;
+  tableNumJockeyAndCotes$: Observable<[string[]]>;
   tableOfSumeitem: string[] = [];
   tableOfCotes: number[] = [];
   tableOfCotes$: Observable<number[]>;
@@ -104,7 +104,7 @@ nextCourses$=of(this.nextCourses);
 
           });
 
-        }
+  }
 
   //  this.nextCourse=data;
       console.log('ssssssswhat is in this.nextCourses =======>',this.nextCourses)
@@ -332,11 +332,11 @@ console.log('§*******************************!!!!!!!!!!!!!!!!!!!!§§§§§§§
   console.log('What is in index ====>', index);
   if (index === -1) {
        this.tableNumJockeyAndCotes.push(val);
-      }
+  }
 
   //    cars.sort(function(a, b){return a.year - b.year});
 
-  this.tableNumJockeyAndCotes.sort(function(a,b){return a[1] - b[1]})
+  this.tableNumJockeyAndCotes.sort(function(a:any,b:any){return a[1] - b[1]})
   console.log('numJockehouuuuuuuuuuuuuuuuuuuuurraysAndCotes ====>', this.tableNumJockeyAndCotes)
   this.ia();
 
@@ -413,6 +413,7 @@ updateInprobableAndFavorite() {
 }
 
 spots() {
+  this.spotsTable=[];
 
   const varForFavorite = this.tableFavorites.length;
   const varForMedium = this.tableMediumProbable.length;
@@ -529,8 +530,8 @@ spots() {
                                     this.spotsTable.forEach(el => console.log('el==>') + el);
                                     });
                   i++;
-              }
-              j++;
+            }
+          j++;
         }
 
       }

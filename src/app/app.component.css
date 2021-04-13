@@ -5,12 +5,12 @@
     margin-right:5px;
     width: 280px;
     height: 100px;
-   
-    
+
+
 }
 
 
- 
+
 /* The container */
 .container {
   display: inline-block;
@@ -27,6 +27,7 @@
 }
 
 /* Hide the browser's default radio button */
+
 .container input {
   position: absolute;
   opacity: 0;

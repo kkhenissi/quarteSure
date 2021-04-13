@@ -2,30 +2,30 @@
     "nextCourses":
             [
               {
-                "numOfficiel": 4,
-                "numExterneReunion": 4,
-                "numOrdre": 5,
-                "numExterneCourse": 5,
-                "heureDepart": 1616087400000,
-                "timezoneOffset": 3600000,
-                "libelle": "PRIX DE LA TARENTAISE",
-                "libelleCourtReunion": "LA TARENTAISE",
+                "numOfficiel": 5,
+                "numExterneReunion": 5,
+                "numOrdre": 9,
+                "numExterneCourse": 9,
+                "heureDepart": 1618163280000,
+                "timezoneOffset": 7200000,
+                "libelle": "PRIX DENIS DIDEROT                      AUTRICHE",
+                "libelleCourtReunion": "DENIS DIDEROT",
                 "specialite": "TROT_ATTELE",
-                "nombreDeclaresPartants": 12,
-                "dateReunion": 1616022000000,
+                "nombreDeclaresPartants": 7,
+                "dateReunion": 1618092000000,
                 "participants": [
                 {
-                "nom": "EMOI SPECIAL",
-                "numPmu": 12,
-                "age": 7,
+                "nom": "ANGLE OF ATTACK",
+                "numPmu": 7,
+                "age": 9,
                 "sexe": "HONGRES",
-                "race": "TROTTEUR FRANCAIS",
+                "race": "TROTTEUR ETRANGER",
                 "statut": "PARTANT",
+                "placeCorde": 7,
                 "oeilleres": "SANS_OEILLERES",
-                "proprietaire": "Ecurie OASIS",
-                "entraineur": "P.EMMANUEL MARY",
-                "deferre": "DEFERRE_ANTERIEURS",
-                "driver": "P. GARREAU",
+                "proprietaire": "STALL NOTHING COMPARES",
+                "entraineur": "GERHARD MAYR",
+                "driver": "GERHARD MAYR",
                 "driverChange": false,
                 "robe": {
                 "code": "020",
@@ -33,132 +33,65 @@
                 "libelleLong": "BAI"
                 },
                 "indicateurInedit": false,
-                "musique": "Da2a3a2a(20)Da2a2a1a1a",
-                "nombreCourses": 41,
-                "nombreVictoires": 7,
-                "nombrePlaces": 22,
-                "nombrePlacesSecond": 9,
-                "nombrePlacesTroisieme": 3,
+                "musique": "(20)6a0a8a8a1a3a",
+                "nombreCourses": 10,
+                "nombreVictoires": 4,
+                "nombrePlaces": 4,
+                "nombrePlacesSecond": 2,
+                "nombrePlacesTroisieme": 2,
                 "gainsParticipant": {
-                "gainsCarriere": 9695000,
-                "gainsVictoires": 3847500,
-                "gainsPlace": 5847500,
-                "gainsAnneeEnCours": 621000,
-                "gainsAnneePrecedente": 2387000
+                "gainsCarriere": 31842300,
+                "gainsVictoires": 8415000,
+                "gainsPlace": 3739000,
+                "gainsAnneeEnCours": 0,
+                "gainsAnneePrecedente": 4477000
                 },
-                "nomPere": "CYGNUS D'ODYSSEE",
-                "nomMere": "UNITE SPECIALE",
+                "nomPere": "SCARLET KNIGHT",
+                "nomMere": "MAGYARE TURGOT",
                 "jumentPleine": false,
                 "engagement": false,
                 "supplement": 0,
-                "handicapDistance": 2725,
+                "handicapDistance": 2100,
                 "poidsConditionMonteChange": false,
                 "dernierRapportDirect": {
                 "typePari": "E_SIMPLE_GAGNANT",
-                "rapport": 3,
+                "rapport": 2.2,
                 "typeRapport": "DIRECT",
                 "indicateurTendance": " ",
                 "nombreIndicateurTendance": 0,
-                "dateRapport": 1616087300000,
+                "dateRapport": 1618162316000,
                 "permutation": 1,
                 "favoris": true,
-                "numPmu1": 12,
+                "numPmu1": 7,
                 "grossePrise": false
                 },
                 "dernierRapportReference": {
                 "typePari": "E_SIMPLE_GAGNANT",
-                "rapport": 4.6,
+                "rapport": 2.7,
                 "typeRapport": "REFERENCE",
                 "indicateurTendance": "+",
-                "nombreIndicateurTendance": 4.54,
-                "dateRapport": 1616085605000,
+                "nombreIndicateurTendance": 8.33,
+                "dateRapport": 1618161485000,
                 "permutation": 1,
-                "favoris": false,
-                "numPmu1": 12,
+                "favoris": true,
+                "numPmu1": 7,
                 "grossePrise": false
                 },
-                "urlCasaque": "https://turfinfo.pmucdn.fr/casaques/18032021/R4/C5/P12.png",
-                "eleveur": "Ecurie Haras des SENORA",
+                "urlCasaque": "https://turfinfo.pmucdn.fr/casaques/11042021/R5/C9/P7.png",
                 "allure": "TROT"
                 },
                 {
-                "nom": "EROUZI D'HERIPRE",
+                "nom": "JAGARO MO",
                 "numPmu": 4,
-                "age": 7,
-                "sexe": "HONGRES",
-                "race": "TROTTEUR FRANCAIS",
+                "age": 11,
+                "sexe": "MALES",
+                "race": "TROTTEUR ETRANGER",
                 "statut": "PARTANT",
+                "placeCorde": 4,
                 "oeilleres": "SANS_OEILLERES",
-                "proprietaire": "Mme V. BOUDIER-CORMY",
-                "entraineur": "MICKAEL CORMY",
-                "deferre": "DEFERRE_POSTERIEURS",
-                "driver": "Mme V. BOUDIER-CORMY",
-                "driverChange": false,
-                "robe": {
-                "code": "020",
-                "libelleCourt": "BAI",
-                "libelleLong": "BAI"
-                },
-                "indicateurInedit": false,
-                "musique": "2a(20)2a3a2a1a1a1a0a3a",
-                "nombreCourses": 38,
-                "nombreVictoires": 6,
-                "nombrePlaces": 22,
-                "nombrePlacesSecond": 5,
-                "nombrePlacesTroisieme": 4,
-                "gainsParticipant": {
-                "gainsCarriere": 5278500,
-                "gainsVictoires": 2520000,
-                "gainsPlace": 2758500,
-                "gainsAnneeEnCours": 150000,
-                "gainsAnneePrecedente": 1226500
-                },
-                "nomPere": "UN MEC D'HERIPRE",
-                "nomMere": "URIBIA JET",
-                "jumentPleine": false,
-                "engagement": false,
-                "supplement": 0,
-                "handicapDistance": 2700,
-                "poidsConditionMonteChange": false,
-                "dernierRapportDirect": {
-                "typePari": "E_SIMPLE_GAGNANT",
-                "rapport": 3.5,
-                "typeRapport": "DIRECT",
-                "indicateurTendance": "+",
-                "nombreIndicateurTendance": 2.94,
-                "dateRapport": 1616087300000,
-                "permutation": 1,
-                "favoris": false,
-                "numPmu1": 4,
-                "grossePrise": false
-                },
-                "dernierRapportReference": {
-                "typePari": "E_SIMPLE_GAGNANT",
-                "rapport": 2.8,
-                "typeRapport": "REFERENCE",
-                "indicateurTendance": "+",
-                "nombreIndicateurTendance": 7.14,
-                "dateRapport": 1616085605000,
-                "permutation": 1,
-                "favoris": true,
-                "numPmu1": 4,
-                "grossePrise": false
-                },
-                "urlCasaque": "https://turfinfo.pmucdn.fr/casaques/18032021/R4/C5/P4.png",
-                "eleveur": "Ecurie d' HERIPRE",
-                "allure": "TROT"
-                },
-                {
-                "nom": "EMERAUDE DE MAGNY",
-                "numPmu": 8,
-                "age": 7,
-                "sexe": "FEMELLES",
-                "race": "TROTTEUR FRANCAIS",
-                "statut": "PARTANT",
-                "oeilleres": "SANS_OEILLERES",
-                "proprietaire": "B. THOMAS",
-                "entraineur": "B. THOMAS",
-                "driver": "Mlle M. CALLIER",
+                "proprietaire": "ALOIS MOSER",
+                "entraineur": "MARIO ZANDERIGO",
+                "driver": "MARIO ZANDERIGO",
                 "driverChange": false,
                 "robe": {
                 "code": "022",
@@ -166,388 +99,33 @@
                 "libelleLong": "BAI BRUN"
                 },
                 "indicateurInedit": false,
-                "musique": "1a3a4a0a(20)7a4a4aDaDa",
-                "nombreCourses": 48,
-                "nombreVictoires": 2,
-                "nombrePlaces": 32,
-                "nombrePlacesSecond": 4,
-                "nombrePlacesTroisieme": 4,
+                "musique": "3a2a4a6a7a(20)4a",
+                "nombreCourses": 0,
+                "nombreVictoires": 0,
+                "nombrePlaces": 0,
+                "nombrePlacesSecond": 0,
+                "nombrePlacesTroisieme": 0,
                 "gainsParticipant": {
-                "gainsCarriere": 5367000,
-                "gainsVictoires": 1575000,
-                "gainsPlace": 3792000,
-                "gainsAnneeEnCours": 1440000,
-                "gainsAnneePrecedente": 772000
-                },
-                "nomPere": "PUNCHY",
-                "nomMere": "JELNA CLAIRCHAMP",
-                "jumentPleine": false,
-                "engagement": false,
-                "supplement": 0,
-                "handicapDistance": 2700,
-                "poidsConditionMonteChange": false,
-                "dernierRapportDirect": {
-                "typePari": "E_SIMPLE_GAGNANT",
-                "rapport": 4.6,
-                "typeRapport": "DIRECT",
-                "indicateurTendance": "-",
-                "nombreIndicateurTendance": -8,
-                "dateRapport": 1616087300000,
-                "permutation": 1,
-                "favoris": false,
-                "numPmu1": 8,
-                "grossePrise": false
-                },
-                "dernierRapportReference": {
-                "typePari": "E_SIMPLE_GAGNANT",
-                "rapport": 5.9,
-                "typeRapport": "REFERENCE",
-                "indicateurTendance": "-",
-                "nombreIndicateurTendance": -33.33,
-                "dateRapport": 1616085605000,
-                "permutation": 1,
-                "favoris": false,
-                "numPmu1": 8,
-                "grossePrise": false
-                },
-                "urlCasaque": "https://turfinfo.pmucdn.fr/casaques/18032021/R4/C5/P8.png",
-                "eleveur": "M. Didier PETIT",
-                "allure": "TROT"
-                }
-                ]
-
-                },
-                {
-                "numOfficiel": 5,
-                "numExterneReunion": 5,
-                "numOrdre": 2,
-                "numExterneCourse": 2,
-                "heureDepart": 1616088300000,
-                "timezoneOffset": 3600000,
-                "libelle": "RACING WELFARE SUPPORTING RACING'S WORKFORCE HANDICAP (CLASS 4)",
-                "libelleCourtReunion": "RACING WELFARE",
-                "specialite": "PLAT",
-                "nombreDeclaresPartants": 5,
-                "dateReunion": 1616022000000,
-                "participants": [
-                {
-                "nom": "THE HULK",
-                "numPmu": 3,
-                "age": 3,
-                "sexe": "HONGRES",
-                "race": "PUR-SANG",
-                "statut": "PARTANT",
-                "placeCorde": 3,
-                "oeilleres": "SANS_OEILLERES",
-                "proprietaire": "AMO RACING LIMITED",
-                "entraineur": "GEORGE BOUGHEY",
-                "driver": "ROSSA RYAN",
-                "driverChange": false,
-                "indicateurInedit": false,
-                "musique": "1p2p1p3p1p",
-                "nombreCourses": 5,
-                "nombreVictoires": 3,
-                "nombrePlaces": 2,
-                "nombrePlacesSecond": 1,
-                "nombrePlacesTroisieme": 1,
-                "gainsParticipant": {
-                "gainsCarriere": 1304100,
-                "gainsVictoires": 1135300,
-                "gainsPlace": 168900,
-                "gainsAnneeEnCours": 1299800,
-                "gainsAnneePrecedente": 0
-                },
-                "handicapValeur": 35,
-                "nomPere": "DUE DILIGENCE",
-                "nomMere": "FLIGHTY CLARETS",
-                "nomPereMere": "BAHAMIAN BOUNTY",
-                "jumentPleine": false,
-                "engagement": false,
-                "supplement": 0,
-                "handicapPoids": 590,
-                "poidsConditionMonteChange": false,
-                "dernierRapportDirect": {
-                "typePari": "E_SIMPLE_GAGNANT",
-                "rapport": 3.5,
-                "typeRapport": "DIRECT",
-                "indicateurTendance": " ",
-                "nombreIndicateurTendance": 0,
-                "dateRapport": 1616087292000,
-                "permutation": 1,
-                "favoris": true,
-                "numPmu1": 3,
-                "grossePrise": false
-                },
-                "dernierRapportReference": {
-                "typePari": "E_SIMPLE_GAGNANT",
-                "rapport": 5.8,
-                "typeRapport": "REFERENCE",
-                "indicateurTendance": "-",
-                "nombreIndicateurTendance": -22.97,
-                "dateRapport": 1616086505000,
-                "permutation": 1,
-                "favoris": false,
-                "numPmu1": 3,
-                "grossePrise": false
-                },
-                "urlCasaque": "https://turfinfo.pmucdn.fr/casaques/18032021/R5/C2/P3.png",
-                "allure": "GALOP"
-                },
-                {
-                "nom": "TWILIGHT HEIR",
-                "numPmu": 2,
-                "age": 3,
-                "sexe": "HONGRES",
-                "race": "PUR-SANG",
-                "statut": "PARTANT",
-                "placeCorde": 1,
-                "oeilleres": "SANS_OEILLERES",
-                "proprietaire": "QATAR RACING LIMITED",
-                "entraineur": "MICHAEL BELL",
-                "driver": "OISIN MURPHY",
-                "driverChange": false,
-                "indicateurInedit": false,
-                "musique": "1p(20)3p2p1p",
-                "nombreCourses": 6,
-                "nombreVictoires": 2,
-                "nombrePlaces": 4,
-                "nombrePlacesSecond": 3,
-                "nombrePlacesTroisieme": 1,
-                "gainsParticipant": {
-                "gainsCarriere": 1894000,
-                "gainsVictoires": 1285100,
-                "gainsPlace": 608900,
-                "gainsAnneeEnCours": 797100,
-                "gainsAnneePrecedente": 1090879
-                },
-                "handicapValeur": 36,
-                "nomPere": "TWILIGHT SON",
-                "nomMere": "XTRASENSORY",
-                "nomPereMere": "ROYAL APPLAUSE",
-                "jumentPleine": false,
-                "engagement": false,
-                "supplement": 0,
-                "handicapPoids": 590,
-                "poidsConditionMonteChange": false,
-                "dernierRapportDirect": {
-                "typePari": "E_SIMPLE_GAGNANT",
-                "rapport": 3.7,
-                "typeRapport": "DIRECT",
-                "indicateurTendance": " ",
-                "nombreIndicateurTendance": 0,
-                "dateRapport": 1616087292000,
-                "permutation": 1,
-                "favoris": false,
-                "numPmu1": 2,
-                "grossePrise": false
-                },
-                "dernierRapportReference": {
-                "typePari": "E_SIMPLE_GAGNANT",
-                "rapport": 3.5,
-                "typeRapport": "REFERENCE",
-                "indicateurTendance": "+",
-                "nombreIndicateurTendance": 10.71,
-                "dateRapport": 1616086505000,
-                "permutation": 1,
-                "favoris": true,
-                "numPmu1": 2,
-                "grossePrise": false
-                },
-                "urlCasaque": "https://turfinfo.pmucdn.fr/casaques/18032021/R5/C2/P2.png",
-                "allure": "GALOP"
-                },
-                {
-                "nom": "SHALAA ASKER",
-                "numPmu": 5,
-                "age": 3,
-                "sexe": "MALES",
-                "race": "PUR-SANG",
-                "statut": "PARTANT",
-                "placeCorde": 4,
-                "oeilleres": "SANS_OEILLERES",
-                "proprietaire": "ONTOAWINNER, FINNERAN",
-                "entraineur": "ADRIAN KEATLEY",
-                "driver": "DOUGIE COSTELLO",
-                "driverChange": false,
-                "indicateurInedit": false,
-                "musique": "(20)2p2p1p4p",
-                "nombreCourses": 6,
-                "nombreVictoires": 1,
-                "nombrePlaces": 3,
-                "nombrePlacesSecond": 2,
-                "nombrePlacesTroisieme": 1,
-                "gainsParticipant": {
-                "gainsCarriere": 1024900,
-                "gainsVictoires": 449700,
-                "gainsPlace": 575200,
+                "gainsCarriere": 7050500,
+                "gainsVictoires": 0,
+                "gainsPlace": 0,
                 "gainsAnneeEnCours": 0,
-                "gainsAnneePrecedente": 1021681
+                "gainsAnneePrecedente": 0
                 },
-                "handicapValeur": 36.5,
-                "nomPere": "SHALAA",
-                "nomMere": "MIRACLE SEEKER",
-                "nomPereMere": "RAINBOW QUEST",
+                "nomPere": "LOOK DE STAR",
+                "nomMere": "JOY OF MO",
                 "jumentPleine": false,
                 "engagement": false,
                 "supplement": 0,
-                "handicapPoids": 580,
+                "handicapDistance": 2100,
                 "poidsConditionMonteChange": false,
                 "dernierRapportDirect": {
                 "typePari": "E_SIMPLE_GAGNANT",
-                "rapport": 4.2,
+                "rapport": 5.5,
                 "typeRapport": "DIRECT",
                 "indicateurTendance": " ",
                 "nombreIndicateurTendance": 0,
-                "dateRapport": 1616087292000,
-                "permutation": 1,
-                "favoris": false,
-                "numPmu1": 5,
-                "grossePrise": false
-                },
-                "dernierRapportReference": {
-                "typePari": "E_SIMPLE_GAGNANT",
-                "rapport": 3.7,
-                "typeRapport": "REFERENCE",
-                "indicateurTendance": "+",
-                "nombreIndicateurTendance": 10.34,
-                "dateRapport": 1616086505000,
-                "permutation": 1,
-                "favoris": false,
-                "numPmu1": 5,
-                "grossePrise": false
-                },
-                "urlCasaque": "https://turfinfo.pmucdn.fr/casaques/18032021/R5/C2/P5.png",
-                "allure": "GALOP"
-                }
-                ],
-                "paris": []
-                },
-                {
-                "numOfficiel": 4,
-                "numExterneReunion": 4,
-                "numOrdre": 6,
-                "numExterneCourse": 6,
-                "heureDepart": 1616089200000,
-                "timezoneOffset": 3600000,
-                "libelle": "PRIX DU BARROIS",
-                "libelleCourtReunion": "DU BARROIS",
-                "specialite": "TROT_ATTELE",
-                "nombreDeclaresPartants": 14,
-                "dateReunion": 1616022000000,
-                "participants": [
-                {
-                "nom": "ILLUSION OVER",
-                "numPmu": 2,
-                "age": 3,
-                "sexe": "FEMELLES",
-                "race": "TROTTEUR FRANCAIS",
-                "statut": "PARTANT",
-                "placeCorde": 2,
-                "oeilleres": "SANS_OEILLERES",
-                "proprietaire": "G. MIDI",
-                "entraineur": "MICKAEL CORMY",
-                "driver": "MARTIN CORMY",
-                "driverChange": false,
-                "robe": {
-                "code": "020",
-                "libelleCourt": "BAI",
-                "libelleLong": "BAI"
-                },
-                "indicateurInedit": false,
-                "musique": "6a3a3a",
-                "nombreCourses": 3,
-                "nombreVictoires": 0,
-                "nombrePlaces": 3,
-                "nombrePlacesSecond": 0,
-                "nombrePlacesTroisieme": 2,
-                "gainsParticipant": {
-                "gainsCarriere": 362000,
-                "gainsVictoires": 0,
-                "gainsPlace": 362000,
-                "gainsAnneeEnCours": 362000,
-                "gainsAnneePrecedente": 0
-                },
-                "nomPere": "PARIS HAUFOR",
-                "nomMere": "ROMANZA",
-                "jumentPleine": false,
-                "engagement": false,
-                "supplement": 0,
-                "handicapDistance": 2050,
-                "poidsConditionMonteChange": false,
-                "dernierRapportDirect": {
-                "typePari": "E_SIMPLE_GAGNANT",
-                "rapport": 1.9,
-                "typeRapport": "DIRECT",
-                "indicateurTendance": "-",
-                "nombreIndicateurTendance": -52.5,
-                "dateRapport": 1616086807000,
-                "permutation": 1,
-                "favoris": true,
-                "numPmu1": 2,
-                "grossePrise": false
-                },
-                "dernierRapportReference": {
-                "typePari": "E_SIMPLE_GAGNANT",
-                "rapport": 4.4,
-                "typeRapport": "REFERENCE",
-                "indicateurTendance": " ",
-                "nombreIndicateurTendance": 0,
-                "dateRapport": 1616067005000,
-                "permutation": 1,
-                "favoris": false,
-                "numPmu1": 2,
-                "grossePrise": false
-                },
-                "urlCasaque": "https://turfinfo.pmucdn.fr/casaques/18032021/R4/C6/P2.png",
-                "eleveur": "M. Xavier LETOURNEUR",
-                "allure": "TROT"
-                },
-                {
-                "nom": "IROISE DEVOL",
-                "numPmu": 4,
-                "age": 3,
-                "sexe": "FEMELLES",
-                "race": "TROTTEUR FRANCAIS",
-                "statut": "PARTANT",
-                "placeCorde": 4,
-                "oeilleres": "SANS_OEILLERES",
-                "proprietaire": "Y.A. BRIAND",
-                "entraineur": "Y.A. BRIAND",
-                "driver": "Y.A. BRIAND",
-                "driverChange": false,
-                "robe": {
-                "code": "021",
-                "libelleCourt": "BAI F.",
-                "libelleLong": "BAI FONCE"
-                },
-                "indicateurInedit": false,
-                "musique": "3a6a",
-                "nombreCourses": 2,
-                "nombreVictoires": 0,
-                "nombrePlaces": 2,
-                "nombrePlacesSecond": 0,
-                "nombrePlacesTroisieme": 1,
-                "gainsParticipant": {
-                "gainsCarriere": 182000,
-                "gainsVictoires": 0,
-                "gainsPlace": 182000,
-                "gainsAnneeEnCours": 182000,
-                "gainsAnneePrecedente": 0
-                },
-                "nomPere": "SCIPION DU GOUTIER",
-                "nomMere": "URISSA TIVO",
-                "jumentPleine": false,
-                "engagement": false,
-                "supplement": 0,
-                "handicapDistance": 2050,
-                "poidsConditionMonteChange": false,
-                "dernierRapportDirect": {
-                "typePari": "E_SIMPLE_GAGNANT",
-                "rapport": 6.1,
-                "typeRapport": "DIRECT",
-                "indicateurTendance": "+",
-                "nombreIndicateurTendance": 32.6,
-                "dateRapport": 1616086807000,
+                "dateRapport": 1618162316000,
                 "permutation": 1,
                 "favoris": false,
                 "numPmu1": 4,
@@ -555,66 +133,66 @@
                 },
                 "dernierRapportReference": {
                 "typePari": "E_SIMPLE_GAGNANT",
-                "rapport": 6.7,
+                "rapport": 4.8,
                 "typeRapport": "REFERENCE",
                 "indicateurTendance": "-",
-                "nombreIndicateurTendance": -0.99,
-                "dateRapport": 1616067005000,
+                "nombreIndicateurTendance": -4.25,
+                "dateRapport": 1618161485000,
                 "permutation": 1,
                 "favoris": false,
                 "numPmu1": 4,
                 "grossePrise": false
                 },
-                "urlCasaque": "https://turfinfo.pmucdn.fr/casaques/18032021/R4/C6/P4.png",
-                "eleveur": "Mme Marion TARDIF LOUVARD",
+                "urlCasaque": "https://turfinfo.pmucdn.fr/casaques/11042021/R5/C9/P4.png",
                 "allure": "TROT"
                 },
                 {
-                "nom": "INEDIT D'ALEX",
+                "nom": "ORANGE VENUS",
                 "numPmu": 3,
-                "age": 3,
-                "sexe": "HONGRES",
-                "race": "TROTTEUR FRANCAIS",
+                "age": 9,
+                "sexe": "FEMELLES",
+                "race": "TROTTEUR ETRANGER",
                 "statut": "PARTANT",
                 "placeCorde": 3,
                 "oeilleres": "SANS_OEILLERES",
-                "proprietaire": "PH. BERNIER",
-                "entraineur": "G. TOURON",
-                "driver": "G. TOURON",
+                "proprietaire": "HANS LENZ",
+                "entraineur": "HARALD SYKORA",
+                "deferre": "DEFERRE_ANTERIEURS",
+                "driver": "ARI KAARLENKASKI",
                 "driverChange": false,
                 "robe": {
-                "code": "020",
-                "libelleCourt": "BAI",
-                "libelleLong": "BAI"
+                "code": "022",
+                "libelleCourt": "BAI BR",
+                "libelleLong": "BAI BRUN"
                 },
                 "indicateurInedit": false,
-                "musique": "3a4a(20)7a",
-                "nombreCourses": 3,
+                "musique": "4a3a7a4a3a(20)6a",
+                "nombreCourses": 6,
                 "nombreVictoires": 0,
-                "nombrePlaces": 3,
+                "nombrePlaces": 1,
                 "nombrePlacesSecond": 0,
-                "nombrePlacesTroisieme": 1,
+                "nombrePlacesTroisieme": 0,
                 "gainsParticipant": {
-                "gainsCarriere": 281000,
+                "gainsCarriere": 8640800,
                 "gainsVictoires": 0,
-                "gainsPlace": 281000,
-                "gainsAnneeEnCours": 270000,
-                "gainsAnneePrecedente": 11000
+                "gainsPlace": 208000,
+                "gainsAnneeEnCours": 0,
+                "gainsAnneePrecedente": 0
                 },
-                "nomPere": "OISEAU DE FEUX",
-                "nomMere": "ULA DE TOUCHYVON",
+                "nomPere": "INCREDIBLE HULK",
+                "nomMere": "ORANGE BLUELADY",
                 "jumentPleine": false,
                 "engagement": false,
                 "supplement": 0,
-                "handicapDistance": 2050,
+                "handicapDistance": 2100,
                 "poidsConditionMonteChange": false,
                 "dernierRapportDirect": {
                 "typePari": "E_SIMPLE_GAGNANT",
-                "rapport": 13,
+                "rapport": 6,
                 "typeRapport": "DIRECT",
-                "indicateurTendance": "+",
-                "nombreIndicateurTendance": 82.66,
-                "dateRapport": 1616086807000,
+                "indicateurTendance": " ",
+                "nombreIndicateurTendance": 0,
+                "dateRapport": 1618162316000,
                 "permutation": 1,
                 "favoris": false,
                 "numPmu1": 3,
@@ -624,20 +202,724 @@
                 "typePari": "E_SIMPLE_GAGNANT",
                 "rapport": 7.8,
                 "typeRapport": "REFERENCE",
-                "indicateurTendance": " ",
-                "nombreIndicateurTendance": 0,
-                "dateRapport": 1616067005000,
+                "indicateurTendance": "+",
+                "nombreIndicateurTendance": 40.35,
+                "dateRapport": 1618161485000,
                 "permutation": 1,
                 "favoris": false,
                 "numPmu1": 3,
                 "grossePrise": false
                 },
-                "urlCasaque": "https://turfinfo.pmucdn.fr/casaques/18032021/R4/C6/P3.png",
-                "eleveur": "M. Gilles TOURON",
+                "urlCasaque": "https://turfinfo.pmucdn.fr/casaques/11042021/R5/C9/P3.png",
                 "allure": "TROT"
                 }
                 ],
-                "paris": []
+                "paris": [
+                {
+                "spotAutorise": false,
+                "codePari": "SIMPLE_PLACE",
+                "nbChevauxReglementaire": 1,
+                "ordre": false,
+                "combine": false,
+                "complement": false,
+                "typePari": "SIMPLE_PLACE",
+                "miseBase": 150,
+                "enVente": true,
+                "audience": "NATIONAL",
+                "reportable": true,
+                "infosJackpot": {
+                "miseBase": 200,
+                "tauxContribution": {
+                "numerateur": 1,
+                "denominateur": 4
+                }
+                }
+                },
+                {
+                "spotAutorise": false,
+                "codePari": "E_SIMPLE_PLACE",
+                "nbChevauxReglementaire": 1,
+                "ordre": false,
+                "combine": false,
+                "complement": false,
+                "typePari": "E_SIMPLE_PLACE",
+                "miseBase": 100,
+                "enVente": true,
+                "audience": "NATIONAL",
+                "reportable": true,
+                "infosJackpot": {
+                "miseBase": 150,
+                "tauxContribution": {
+                "numerateur": 1,
+                "denominateur": 3
+                }
+                }
+                },
+                {
+                "valeursFlexiAutorisees": [
+                50
+                ],
+                "spotAutorise": true,
+                "codePari": "COUPLE_ORDRE",
+                "nbChevauxReglementaire": 2,
+                "ordre": true,
+                "combine": true,
+                "complement": true,
+                "typePari": "COUPLE_ORDRE",
+                "miseBase": 150,
+                "enVente": true,
+                "audience": "NATIONAL",
+                "reportable": false
+                },
+                {
+                "valeursFlexiAutorisees": [
+                50
+                ],
+                "spotAutorise": true,
+                "codePari": "TRIO_ORDRE",
+                "nbChevauxReglementaire": 3,
+                "ordre": true,
+                "combine": true,
+                "complement": true,
+                "typePari": "TRIO_ORDRE",
+                "miseBase": 150,
+                "enVente": true,
+                "audience": "NATIONAL",
+                "reportable": false
+                },
+                {
+                "spotAutorise": true,
+                "codePari": "E_TRIO_ORDRE",
+                "nbChevauxReglementaire": 3,
+                "ordre": true,
+                "combine": true,
+                "complement": true,
+                "typePari": "E_TRIO_ORDRE",
+                "miseBase": 100,
+                "enVente": true,
+                "audience": "NATIONAL",
+                "reportable": false
+                },
+                {
+                "spotAutorise": false,
+                "codePari": "E_SIMPLE_GAGNANT",
+                "nbChevauxReglementaire": 1,
+                "ordre": false,
+                "combine": false,
+                "complement": false,
+                "typePari": "E_SIMPLE_GAGNANT",
+                "miseBase": 100,
+                "enVente": true,
+                "audience": "NATIONAL",
+                "reportable": true,
+                "infosJackpot": {
+                "miseBase": 150,
+                "tauxContribution": {
+                "numerateur": 1,
+                "denominateur": 3
+                }
+                }
+                },
+                {
+                "spotAutorise": true,
+                "codePari": "E_COUPLE_ORDRE",
+                "nbChevauxReglementaire": 2,
+                "ordre": true,
+                "combine": true,
+                "complement": true,
+                "typePari": "E_COUPLE_ORDRE",
+                "miseBase": 100,
+                "enVente": true,
+                "audience": "NATIONAL",
+                "reportable": false
+                },
+                {
+                "valeursFlexiAutorisees": [
+                50
+                ],
+                "spotAutorise": true,
+                "codePari": "E_SUPER_QUATRE",
+                "nbChevauxReglementaire": 4,
+                "ordre": true,
+                "combine": true,
+                "complement": true,
+                "typePari": "E_SUPER_QUATRE",
+                "miseBase": 100,
+                "enVente": true,
+                "audience": "NATIONAL",
+                "reportable": false
+                },
+                {
+                "spotAutorise": false,
+                "codePari": "SIMPLE_GAGNANT",
+                "nbChevauxReglementaire": 1,
+                "ordre": false,
+                "combine": false,
+                "complement": false,
+                "typePari": "SIMPLE_GAGNANT",
+                "miseBase": 150,
+                "enVente": true,
+                "audience": "NATIONAL",
+                "reportable": true,
+                "infosJackpot": {
+                "miseBase": 200,
+                "tauxContribution": {
+                "numerateur": 1,
+                "denominateur": 4
+                }
+                }
+                },
+                {
+                "valeursFlexiAutorisees": [
+                50
+                ],
+                "spotAutorise": true,
+                "codePari": "SUPER_QUATRE",
+                "nbChevauxReglementaire": 4,
+                "ordre": true,
+                "combine": true,
+                "complement": true,
+                "typePari": "SUPER_QUATRE",
+                "miseBase": 100,
+                "enVente": true,
+                "audience": "NATIONAL",
+                "reportable": false
+                }
+                ]
+                },
+                {
+                "numOfficiel": 2,
+                "numExterneReunion": 2,
+                "numOrdre": 1,
+                "numExterneCourse": 1,
+                "heureDepart": 1618220100000,
+                "timezoneOffset": 7200000,
+                "libelle": "PRIX IDÉAL DU GAZEAU                    NORVEGE",
+                "libelleCourtReunion": "IDÉAL DU GAZEAU",
+                "specialite": "TROT_ATTELE",
+                "nombreDeclaresPartants": 10,
+                "dateReunion": 1618178400000,
+                "participants": [],
+                "paris": [
+                {
+                "valeursFlexiAutorisees": [
+                25,
+                50
+                ],
+                "spotAutorise": true,
+                "codePari": "DEUX_SUR_QUATRE",
+                "nbChevauxReglementaire": 2,
+                "ordre": false,
+                "combine": true,
+                "complement": true,
+                "typePari": "DEUX_SUR_QUATRE",
+                "miseBase": 300,
+                "enVente": false,
+                "audience": "NATIONAL",
+                "reportable": true,
+                "infosJackpot": {
+                "miseBase": 400,
+                "tauxContribution": {
+                "numerateur": 1,
+                "denominateur": 4
+                }
+                }
+                },
+                {
+                "valeursFlexiAutorisees": [
+                25,
+                50
+                ],
+                "valeursRisqueAutorisees": [
+                4,
+                5,
+                6
+                ],
+                "spotAutorise": true,
+                "codePari": "MINI_MULTI",
+                "nbChevauxReglementaire": 4,
+                "ordre": false,
+                "combine": true,
+                "complement": false,
+                "typePari": "MINI_MULTI",
+                "miseBase": 300,
+                "enVente": false,
+                "audience": "NATIONAL",
+                "reportable": false
+                },
+                {
+                "spotAutorise": true,
+                "codePari": "E_TRIO",
+                "nbChevauxReglementaire": 3,
+                "ordre": false,
+                "combine": true,
+                "complement": true,
+                "typePari": "E_TRIO",
+                "miseBase": 100,
+                "enVente": false,
+                "audience": "NATIONAL",
+                "reportable": false
+                },
+                {
+                "spotAutorise": false,
+                "codePari": "E_SIMPLE_PLACE",
+                "nbChevauxReglementaire": 1,
+                "ordre": false,
+                "combine": false,
+                "complement": false,
+                "typePari": "E_SIMPLE_PLACE",
+                "miseBase": 100,
+                "enVente": false,
+                "audience": "NATIONAL",
+                "reportable": true,
+                "infosJackpot": {
+                "miseBase": 150,
+                "tauxContribution": {
+                "numerateur": 1,
+                "denominateur": 3
+                }
+                }
+                },
+                {
+                "spotAutorise": false,
+                "codePari": "E_SIMPLE_GAGNANT",
+                "nbChevauxReglementaire": 1,
+                "ordre": false,
+                "combine": false,
+                "complement": false,
+                "typePari": "E_SIMPLE_GAGNANT",
+                "miseBase": 100,
+                "enVente": false,
+                "audience": "NATIONAL",
+                "reportable": true,
+                "infosJackpot": {
+                "miseBase": 150,
+                "tauxContribution": {
+                "numerateur": 1,
+                "denominateur": 3
+                }
+                }
+                },
+                {
+                "valeursFlexiAutorisees": [
+                50
+                ],
+                "valeursRisqueAutorisees": [
+                4,
+                5,
+                6
+                ],
+                "spotAutorise": true,
+                "codePari": "E_MINI_MULTI",
+                "nbChevauxReglementaire": 4,
+                "ordre": false,
+                "combine": true,
+                "complement": false,
+                "typePari": "E_MINI_MULTI",
+                "miseBase": 300,
+                "enVente": false,
+                "audience": "NATIONAL",
+                "reportable": false
+                },
+                {
+                "spotAutorise": false,
+                "codePari": "SIMPLE_GAGNANT_INTERNATIONAL",
+                "nbChevauxReglementaire": 1,
+                "ordre": false,
+                "combine": false,
+                "complement": false,
+                "typePari": "SIMPLE_GAGNANT_INTERNATIONAL",
+                "miseBase": 100,
+                "enVente": false,
+                "audience": "NATIONAL",
+                "reportable": false
+                },
+                {
+                "valeursFlexiAutorisees": [
+                50
+                ],
+                "spotAutorise": true,
+                "codePari": "COUPLE_GAGNANT",
+                "nbChevauxReglementaire": 2,
+                "ordre": false,
+                "combine": true,
+                "complement": true,
+                "typePari": "COUPLE_GAGNANT",
+                "miseBase": 150,
+                "enVente": false,
+                "audience": "NATIONAL",
+                "reportable": true
+                },
+                {
+                "spotAutorise": true,
+                "codePari": "E_COUPLE_GAGNANT",
+                "nbChevauxReglementaire": 2,
+                "ordre": false,
+                "combine": true,
+                "complement": true,
+                "typePari": "E_COUPLE_GAGNANT",
+                "miseBase": 100,
+                "enVente": false,
+                "audience": "NATIONAL",
+                "reportable": true
+                },
+                {
+                "valeursFlexiAutorisees": [
+                50
+                ],
+                "spotAutorise": true,
+                "codePari": "TRIO",
+                "nbChevauxReglementaire": 3,
+                "ordre": false,
+                "combine": true,
+                "complement": true,
+                "typePari": "TRIO",
+                "miseBase": 150,
+                "enVente": false,
+                "audience": "NATIONAL",
+                "reportable": false
+                },
+                {
+                "spotAutorise": true,
+                "codePari": "E_COUPLE_PLACE",
+                "nbChevauxReglementaire": 2,
+                "ordre": false,
+                "combine": true,
+                "complement": true,
+                "typePari": "E_COUPLE_PLACE",
+                "miseBase": 100,
+                "enVente": false,
+                "audience": "NATIONAL",
+                "reportable": true
+                },
+                {
+                "spotAutorise": false,
+                "codePari": "SIMPLE_PLACE_INTERNATIONAL",
+                "nbChevauxReglementaire": 1,
+                "ordre": false,
+                "combine": false,
+                "complement": false,
+                "typePari": "SIMPLE_PLACE_INTERNATIONAL",
+                "miseBase": 100,
+                "enVente": false,
+                "audience": "NATIONAL",
+                "reportable": false
+                },
+                {
+                "valeursFlexiAutorisees": [
+                50
+                ],
+                "spotAutorise": true,
+                "codePari": "E_DEUX_SUR_QUATRE",
+                "nbChevauxReglementaire": 2,
+                "ordre": false,
+                "combine": true,
+                "complement": true,
+                "typePari": "E_DEUX_SUR_QUATRE",
+                "miseBase": 300,
+                "enVente": false,
+                "audience": "NATIONAL",
+                "reportable": true,
+                "infosJackpot": {
+                "miseBase": 400,
+                "tauxContribution": {
+                "numerateur": 1,
+                "denominateur": 4
+                }
+                }
+                },
+                {
+                "valeursFlexiAutorisees": [
+                50
+                ],
+                "spotAutorise": true,
+                "codePari": "COUPLE_PLACE",
+                "nbChevauxReglementaire": 2,
+                "ordre": false,
+                "combine": true,
+                "complement": true,
+                "typePari": "COUPLE_PLACE",
+                "miseBase": 150,
+                "enVente": false,
+                "audience": "NATIONAL",
+                "reportable": true
+                }
+                ]
+                },
+                {
+                "numOfficiel": 3,
+                "numExterneReunion": 3,
+                "numOrdre": 1,
+                "numExterneCourse": 1,
+                "heureDepart": 1618221000000,
+                "timezoneOffset": 7200000,
+                "libelle": "PRIX DES MYOSOTIS",
+                "libelleCourtReunion": "DES MYOSOTIS",
+                "specialite": "TROT_MONTE",
+                "nombreDeclaresPartants": 16,
+                "dateReunion": 1618178400000,
+                "participants": [],
+                "paris": [
+                {
+                "spotAutorise": true,
+                "codePari": "E_COUPLE_GAGNANT",
+                "nbChevauxReglementaire": 2,
+                "ordre": false,
+                "combine": true,
+                "complement": true,
+                "typePari": "E_COUPLE_GAGNANT",
+                "miseBase": 100,
+                "enVente": false,
+                "audience": "NATIONAL",
+                "reportable": true
+                },
+                {
+                "spotAutorise": false,
+                "codePari": "E_SIMPLE_GAGNANT",
+                "nbChevauxReglementaire": 1,
+                "ordre": false,
+                "combine": false,
+                "complement": false,
+                "typePari": "E_SIMPLE_GAGNANT",
+                "miseBase": 100,
+                "enVente": false,
+                "audience": "NATIONAL",
+                "reportable": true,
+                "infosJackpot": {
+                "miseBase": 150,
+                "tauxContribution": {
+                "numerateur": 1,
+                "denominateur": 3
+                }
+                }
+                },
+                {
+                "valeursFlexiAutorisees": [
+                50
+                ],
+                "valeursRisqueAutorisees": [
+                4,
+                5,
+                6,
+                7
+                ],
+                "spotAutorise": true,
+                "codePari": "E_MULTI",
+                "nbChevauxReglementaire": 4,
+                "ordre": false,
+                "combine": true,
+                "complement": false,
+                "typePari": "E_MULTI",
+                "miseBase": 300,
+                "enVente": false,
+                "audience": "NATIONAL",
+                "reportable": false
+                },
+                {
+                "valeursFlexiAutorisees": [
+                50
+                ],
+                "spotAutorise": true,
+                "codePari": "COUPLE_GAGNANT",
+                "nbChevauxReglementaire": 2,
+                "ordre": false,
+                "combine": true,
+                "complement": true,
+                "typePari": "COUPLE_GAGNANT",
+                "miseBase": 150,
+                "enVente": false,
+                "audience": "NATIONAL",
+                "reportable": true
+                },
+                {
+                "valeursFlexiAutorisees": [
+                25,
+                50
+                ],
+                "spotAutorise": true,
+                "codePari": "DEUX_SUR_QUATRE",
+                "nbChevauxReglementaire": 2,
+                "ordre": false,
+                "combine": true,
+                "complement": true,
+                "typePari": "DEUX_SUR_QUATRE",
+                "miseBase": 300,
+                "enVente": false,
+                "audience": "NATIONAL",
+                "reportable": true,
+                "infosJackpot": {
+                "miseBase": 400,
+                "tauxContribution": {
+                "numerateur": 1,
+                "denominateur": 4
+                }
+                }
+                },
+                {
+                "spotAutorise": false,
+                "codePari": "SIMPLE_GAGNANT",
+                "nbChevauxReglementaire": 1,
+                "ordre": false,
+                "combine": false,
+                "complement": false,
+                "typePari": "SIMPLE_GAGNANT",
+                "miseBase": 150,
+                "enVente": false,
+                "audience": "NATIONAL",
+                "reportable": true,
+                "infosJackpot": {
+                "miseBase": 200,
+                "tauxContribution": {
+                "numerateur": 1,
+                "denominateur": 4
+                }
+                }
+                },
+                {
+                "spotAutorise": false,
+                "codePari": "SIMPLE_PLACE",
+                "nbChevauxReglementaire": 1,
+                "ordre": false,
+                "combine": false,
+                "complement": false,
+                "typePari": "SIMPLE_PLACE",
+                "miseBase": 150,
+                "enVente": false,
+                "audience": "NATIONAL",
+                "reportable": true,
+                "infosJackpot": {
+                "miseBase": 200,
+                "tauxContribution": {
+                "numerateur": 1,
+                "denominateur": 4
+                }
+                }
+                },
+                {
+                "spotAutorise": true,
+                "codePari": "E_COUPLE_PLACE",
+                "nbChevauxReglementaire": 2,
+                "ordre": false,
+                "combine": true,
+                "complement": true,
+                "typePari": "E_COUPLE_PLACE",
+                "miseBase": 100,
+                "enVente": false,
+                "audience": "NATIONAL",
+                "reportable": true
+                },
+                {
+                "valeursFlexiAutorisees": [
+                50
+                ],
+                "spotAutorise": true,
+                "codePari": "E_DEUX_SUR_QUATRE",
+                "nbChevauxReglementaire": 2,
+                "ordre": false,
+                "combine": true,
+                "complement": true,
+                "typePari": "E_DEUX_SUR_QUATRE",
+                "miseBase": 300,
+                "enVente": false,
+                "audience": "NATIONAL",
+                "reportable": true,
+                "infosJackpot": {
+                "miseBase": 400,
+                "tauxContribution": {
+                "numerateur": 1,
+                "denominateur": 4
+                }
+                }
+                },
+                {
+                "valeursFlexiAutorisees": [
+                25,
+                50
+                ],
+                "valeursRisqueAutorisees": [
+                4,
+                5,
+                6,
+                7
+                ],
+                "spotAutorise": true,
+                "codePari": "MULTI",
+                "nbChevauxReglementaire": 4,
+                "ordre": false,
+                "combine": true,
+                "complement": false,
+                "typePari": "MULTI",
+                "miseBase": 300,
+                "enVente": false,
+                "audience": "NATIONAL",
+                "reportable": false
+                },
+                {
+                "spotAutorise": true,
+                "codePari": "E_TRIO",
+                "nbChevauxReglementaire": 3,
+                "ordre": false,
+                "combine": true,
+                "complement": true,
+                "typePari": "E_TRIO",
+                "miseBase": 100,
+                "enVente": false,
+                "audience": "NATIONAL",
+                "reportable": false
+                },
+                {
+                "valeursFlexiAutorisees": [
+                50
+                ],
+                "spotAutorise": true,
+                "codePari": "COUPLE_PLACE",
+                "nbChevauxReglementaire": 2,
+                "ordre": false,
+                "combine": true,
+                "complement": true,
+                "typePari": "COUPLE_PLACE",
+                "miseBase": 150,
+                "enVente": false,
+                "audience": "NATIONAL",
+                "reportable": true
+                },
+                {
+                "valeursFlexiAutorisees": [
+                50
+                ],
+                "spotAutorise": true,
+                "codePari": "TRIO",
+                "nbChevauxReglementaire": 3,
+                "ordre": false,
+                "combine": true,
+                "complement": true,
+                "typePari": "TRIO",
+                "miseBase": 150,
+                "enVente": false,
+                "audience": "NATIONAL",
+                "reportable": false
+                },
+                {
+                "spotAutorise": false,
+                "codePari": "E_SIMPLE_PLACE",
+                "nbChevauxReglementaire": 1,
+                "ordre": false,
+                "combine": false,
+                "complement": false,
+                "typePari": "E_SIMPLE_PLACE",
+                "miseBase": 100,
+                "enVente": false,
+                "audience": "NATIONAL",
+                "reportable": true,
+                "infosJackpot": {
+                "miseBase": 150,
+                "tauxContribution": {
+                "numerateur": 1,
+                "denominateur": 3
+                }
+                }
+                }
+                ]
                 }
             ]
  }
