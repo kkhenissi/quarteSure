@@ -31,14 +31,10 @@ nextCourses$=of(this.nextCourses);
 
  /// ** sourceOne =   of('01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12', '13', '14', '15', '16', '17', '18');
 
-
-
-
   tableWithRedendence: string[] = [];
   tableWithoutRedendence: string[] = [];
   tableLessProbable: string[] = [];
   tableLessProbable$: Observable<string>;
-
 
   spotsTable: string[] = [];
   spotsTable$: Observable<{}>;
@@ -66,9 +62,6 @@ nextCourses$=of(this.nextCourses);
   zipSpotsSubscription: Subscription;
 
 
-
-
-
   form = new FormGroup({
     choise: new FormControl('5'),
   });
@@ -82,11 +75,11 @@ nextCourses$=of(this.nextCourses);
   this.cdRef.detectChanges();
   this.nextCoursesState$=this.store.pipe(     // charge les course dont le departs soit imenant
     map((state) =>state.nextCoursesState)
+  
   );
-
    this.store.select(participantsSelector).subscribe((data) => {
 
-     this.allJockeys=Object.assign([], data['participants'])
+     this.allJockeys=Object.assign([], data['participants']['participants'])
      console.log('participants from allJockeys ===>',  this.allJockeys)
    })
   // this.allJockeys = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12', '13', '14', '15', '16', '17', '18'];

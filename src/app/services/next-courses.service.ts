@@ -11,15 +11,19 @@ const headers = new HttpHeaders()
 })
 export class NextCoursesService {
   host= environment.host;
+ 
   cource_url="https://online.turfinfo.api.pmu.fr/rest/client/1/programme/prochainesCourses";
 
   constructor(private httpClient: HttpClient) { }
 
   getNextCourses(): Observable<NextCourse[]> {
-   return  this.httpClient.get<NextCourse[]>(this.host+'/nextcourses');
+  // return  this.httpClient.get<NextCourse[]>(this.host+'/nextcourses');
+  return  this.httpClient.get<NextCourse[]>(this.cource_url);
+   
   }
 
   getSelectedNextCourse(): Observable<SelectedCourse[]> {
-    return  this.httpClient.get<SelectedCourse[]>(this.host+'/participants');
+    return  this.httpClient.get<SelectedCourse[]>(this.cource_url+'/participants');
+    // return  this.httpClient.get<SelectedCourse[]>(this.host+'/participants');
    }
 }
