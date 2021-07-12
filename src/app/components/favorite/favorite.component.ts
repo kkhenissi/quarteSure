@@ -10,7 +10,7 @@ import { Observable, of } from 'rxjs';
 export class FavoriteComponent implements OnInit,AfterViewChecked {
 
   nbrFavorite: number[];
-  @Input() tableFavorites
+  @Input() tableFavorites=[];
   tableFavorites$: Observable<number[]>;
   constructor(private cdRef:ChangeDetectorRef) { }
 

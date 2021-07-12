@@ -360,6 +360,7 @@ updateNumJockeyAndCotes(concernedJockey) {
    console.log('index of concernedJockey------------------------------------------>',index)
 }
 updateInprobableAndFavorite() {
+ // alert('uu')
 
   this.tableLessProbable = [];
   this.tableMediumProbable = [];

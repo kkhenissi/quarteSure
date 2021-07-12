@@ -1,7 +1,7 @@
 
-<div style=" text-align: center; margin-top: 20px;">
+<div style=" text-align: center; margin-top: 20px;" *ngIf="nextCourses.length>0 ; else noNextCoursesYet">
   <h5 class="inline" *ngFor="let crs of nextCourses$ | async; index as i; let even = even; let odd = odd" [ngClass]="{ odd: odd, even: even }">
-    <app-next-course [refNextCourse]="crs" style=" text-align: center; margin-bottom: 20px;"></app-next-course>
+  <app-next-course [refNextCourse]="crs" style=" text-align: center; margin-bottom: 20px;" (initFavLessMeduimArray)="updateInprobableAndFavorite()"></app-next-course>
   </h5>
   <!-- (checkParticipants)="participantsJokey($event)" -->
 
@@ -79,3 +79,8 @@
 <basic-table  [sourceTable]='spotsTable'
               [choise]='form.value.choise'></basic-table>
 </div>
+<ng-template #noNextCoursesYet>
+<mat-card>
+  <h1>No Courses yet !!</h1>
+</mat-card>
+</ng-template>

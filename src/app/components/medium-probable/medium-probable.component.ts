@@ -10,7 +10,7 @@ import { Observable, of } from 'rxjs';
 export class MediumProbableComponent implements OnInit, AfterViewChecked {
 
   nbrMeduimProbable: number[]=[];
-  @Input() tableMediumProbable
+  @Input() tableMediumProbable=[];
   tableMediumProbable$: Observable<number[]>;
   constructor(private cdRef:ChangeDetectorRef) { }
 

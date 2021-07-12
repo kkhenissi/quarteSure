@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { RefCourse } from 'src/app/models/ref-course.model';
 import { GetAllParticipantActions, ParticipantActionsTypes } from 'src/app/ngrx/participant.actions';
@@ -14,7 +14,7 @@ import { CurrentCourseService } from 'src/app/services/current-course.service';
 export class NextCourseComponent implements OnInit {
   @Input('refNextCourse') refNextCourse:string;
  // @Input('indexCourse') indexCourse:number;
- // @Output() checkParticipants = new EventEmitter<any[]>();
+  @Output() initFavLessMeduimArray = new EventEmitter<any>();
  // selectedCourse: any[];
   constructor(private store: Store,
               private currentCourseService: CurrentCourseService) { }
@@ -34,7 +34,7 @@ export class NextCourseComponent implements OnInit {
     this.store.dispatch(new GetAllParticipantActions(ParticipantActionsTypes.GET_ALL_PARTICIPANTS))
    })
 
-  // this.checkParticipants.emit(this.selectedCourse);
+  // this.initFavLessMeduimArray.emit();
   }
 
 

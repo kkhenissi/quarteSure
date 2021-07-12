@@ -18,7 +18,7 @@ export class LessProbableComponent implements OnInit, AfterViewChecked {
     // });
    // console.log('ddddddddddddddddddddddddd>>>>>>>>><',this.tableLessProbable)
   }
-  @Input() tableLessProbable
+  @Input() tableLessProbable=[];
   tableLessProbable$: Observable<number[]>;
   constructor(private cdRef:ChangeDetectorRef) { }
 
