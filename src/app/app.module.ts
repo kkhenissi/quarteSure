@@ -20,6 +20,7 @@ import { nextCoursesReducer } from './ngrx/next-courses.reducers';
 import { ParticipantsEffects } from './ngrx/participant.effects';
 import { participantReducer } from './ngrx/participant.reducers';
 import { IaComponent } from './components/ia/ia.component';
+import { ChoiceGrilleComponent } from './components/choice-grille/choice-grille.component';
 // import { CottedDirective } from './directives/cotted.directive';
 // import { ParticipantsEffects } from './ngrx/product.effects';
 
@@ -32,7 +33,7 @@ import { IaComponent } from './components/ia/ia.component';
     AppComponent,
     JokeyComponent,
     BasicTableComponent,
-
+    ChoiceGrilleComponent,
     LessProbableComponent,
     FavoriteComponent,
     MediumProbableComponent,
