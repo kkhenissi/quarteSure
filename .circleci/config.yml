@@ -19,5 +19,13 @@ jobs:
           key: node-deps-v1-{{ .Branch }}-{{checksum "package-lock.json"}}
           paths:
             - ~/.npm
+<<<<<<< HEAD
       - run: yarn ng build --prod
+=======
+      - run:
+          name: Run Build
+          command: npm ng build --prod
+          # name: Run Tests
+          # command: npm run test --single-run
+>>>>>>> 624cbacb0a8b718109546b2ab8057d9fbd61ee0f
 
