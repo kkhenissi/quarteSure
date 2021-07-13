@@ -22,8 +22,8 @@ jobs:
       - run:
           name: Run Build
           command: npm ng build --prod
-          name: Run Tests
-          command: npm run test --single-run
+          # name: Run Tests
+          # command: npm run test --single-run
 
 workflows:
   orb-free-workflow:
