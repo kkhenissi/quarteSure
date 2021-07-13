@@ -21,7 +21,7 @@ jobs:
             - ~/.npm
       - run:
           name: Run Build
-          command: npm ng build --prod
+          command: yarn ng build --prod
           # name: Run Tests
           # command: npm run test --single-run
 
