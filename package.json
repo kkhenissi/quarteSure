@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "concurrently \"ng serve\"  \"json-server --watch db2.json \"",
-    "build": "ng build",
+    "build": "./node_modules/.bin/ng build",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
