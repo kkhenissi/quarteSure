@@ -24,10 +24,11 @@ jobs:
       # - run:  yarn ng test
       - run:
           command: |
-            docker build -t kkhenissi.azurecr.io/quartesure:1.0 .
+            docker login --username: $DOCKER_USER --password: $DOCKER_PASSWORD kkhenissi.azurecr.io
       - run:
           command: |
-            docker login --username: $DOCKER_USER --password: $DOCKER_PASSWORD kkhenissi.azurecr.io
+            docker build -t kkhenissi.azurecr.io/quartesure:1.0 .
+
       - run:
           command: |
             docker  push kkhenissi.azurecr.io/quarteSure:1.0
