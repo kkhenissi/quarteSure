@@ -7,6 +7,7 @@ jobs:
     working_directory: ~/repo
     steps:
       - checkout
+      - setup_remote_docker
       - restore_cache:
           # See the configuration reference documentation for more details on using restore_cache and save_cache steps
           # https://circleci.com/docs/2.0/configuration-reference/?section=reference#save_cache
@@ -21,4 +22,14 @@ jobs:
             - ~/.npm
       - run:  yarn ng build --prod
       - run:  yarn ng test
+      - run:
+          command: |
+            docker build -t kkhenissi.azurecr.io/quarteSure:1.0 .
+      - run:
+          command: |
+            docker login --username: $DOCKER_USER --password: $DOCKER_PASSWORD kkhenissi.azurecr.io
+      - run:
+          command: |
+            docker  push kkhenissi.azurecr.io/quarteSure:1.0
+
 
