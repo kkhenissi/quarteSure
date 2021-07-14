@@ -21,7 +21,7 @@ jobs:
           paths:
             - ~/.npm
       - run:  yarn ng build --prod
-      - run:  yarn ng test
+      # - run:  yarn ng test
       - run:
           command: |
             docker build -t kkhenissi.azurecr.io/quarteSure:1.0 .
