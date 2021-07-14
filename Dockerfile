@@ -4,7 +4,7 @@ FROM node:latest as node
 WORKDIR /app
 COPY . .
 RUN npm install
-RUN yarn ng  build --prod
+# RUN yarn ng  build --prod
 
 # stage 2
 FROM nginx:alpine
